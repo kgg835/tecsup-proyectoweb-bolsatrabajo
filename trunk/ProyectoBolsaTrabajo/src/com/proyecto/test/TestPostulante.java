@@ -11,16 +11,17 @@ public class TestPostulante {
 
 	@Test
 	public void test() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
+
 	@Test
-	public void registrarPostulanteExitoso(){
-		GestionPostulante obj=new GestionPostulante();
+	public void registrarPostulanteExitoso() {
+		GestionPostulante obj = new GestionPostulante();
 		obj.registrarPostulante("Anderson", "Roman");
 	}
-	
-	public void previsualizarDatosDelPostulante(){
-		GestionPostulante obj=new GestionPostulante();
-		
+
+	public void previsualizarDatosDelPostulante() {
+		GestionPostulante obj = new GestionPostulante();
+
 	}
 }
