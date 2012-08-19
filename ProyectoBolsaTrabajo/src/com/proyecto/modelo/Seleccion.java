@@ -1,12 +1,12 @@
 package com.proyecto.modelo;
 
-public class SELECCION {
+public class Seleccion {
 	String codseleccion;
 
-	public SELECCION() {
+	public Seleccion() {
 	}
 
-	public SELECCION(String codseleccion) {
+	public Seleccion(String codseleccion) {
 		super();
 		this.codseleccion = codseleccion;
 	}
