@@ -2,7 +2,7 @@ package com.proyecto.modelo;
 
 import java.util.Date;
 
-public class AVISO {
+public class Aviso {
 	String cod_aviso;
 	String titulo;
 	Date fec_publicacion;
@@ -10,10 +10,10 @@ public class AVISO {
 	String cod_ofertante;
 	String codarea;
 
-	public AVISO() {
+	public Aviso() {
 	}
 
-	public AVISO(String cod_aviso, String titulo, Date fec_publicacion,
+	public Aviso(String cod_aviso, String titulo, Date fec_publicacion,
 			Date fec_caduc, String cod_ofertante, String codarea) {
 		super();
 		this.cod_aviso = cod_aviso;
