@@ -9,9 +9,10 @@ public class Postulante {
 	private String estadoCivil;
 	private int telefonoFijo;
 	private int telefonoCel;
-	
-	public Postulante(){}
-	
+
+	public Postulante() {
+	}
+
 	public Postulante(String codseleccion) {
 		super();
 		this.codseleccion = codseleccion;
@@ -80,6 +81,5 @@ public class Postulante {
 	public void setTelefonoCel(int telefonoCel) {
 		this.telefonoCel = telefonoCel;
 	}
-	
-	
+
 }
