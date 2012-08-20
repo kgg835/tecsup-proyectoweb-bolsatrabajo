@@ -1,6 +1,6 @@
 package com.proyecto.modelo;
 
-public class Administrador extends Persona{
+public class Administrador extends Persona {
 	private Integer codigo;
 
 	public Administrador(Integer codigo) {
@@ -15,6 +15,5 @@ public class Administrador extends Persona{
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
-	
-	
+
 }

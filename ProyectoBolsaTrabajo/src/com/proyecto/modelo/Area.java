@@ -3,9 +3,10 @@ package com.proyecto.modelo;
 public class Area {
 	private Integer codArea;
 	private String descripcion;
-	
-	public Area(){}
-	
+
+	public Area() {
+	}
+
 	public Area(Integer codArea, String descripcion) {
 		super();
 		this.codArea = codArea;
@@ -27,6 +28,5 @@ public class Area {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
+
 }
