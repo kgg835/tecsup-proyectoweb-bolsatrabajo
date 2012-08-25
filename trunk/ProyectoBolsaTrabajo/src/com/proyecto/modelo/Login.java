@@ -1,9 +1,13 @@
 package com.proyecto.modelo;
 
 public class Login {
+	
 	private String usuario;
 	private String password;
-
+	
+	//Un login pertenece a un Postulante
+	private Postulante loginPostulante;
+	
 	public Login() {
 	}
 
@@ -27,6 +31,14 @@ public class Login {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setLoginPostulante(Postulante loginPostulante) {
+		this.loginPostulante = loginPostulante;
+	}
+
+	public Postulante getLoginPostulante() {
+		return loginPostulante;
 	}
 
 }
