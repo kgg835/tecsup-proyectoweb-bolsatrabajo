@@ -1,5 +1,6 @@
 package com.proyecto.modelo;
 
+import java.util.Collection;
 import java.util.Date;
 
 public class Aviso {
@@ -9,6 +10,8 @@ public class Aviso {
 	Date fec_caduc;
 	String cod_ofertante;
 	String codarea;
+	//Aviso tiene de 0 a muchos postulantes
+	private Collection<Postulante> listaPostulantes;
 
 	public Aviso() {
 	}
@@ -70,6 +73,14 @@ public class Aviso {
 
 	public void setCodarea(String codarea) {
 		this.codarea = codarea;
+	}
+
+	public void setListaPostulantes(Collection<Postulante> listaPostulantes) {
+		this.listaPostulantes = listaPostulantes;
+	}
+
+	public Collection<Postulante> getListaPostulantes() {
+		return listaPostulantes;
 	}
 
 }

@@ -1,9 +1,14 @@
 package com.proyecto.modelo;
 
+import java.util.Collection;
+
 public class Area {
 	private Integer codArea;
 	private String descripcion;
-
+	
+	//Un Area contiene varios Puestos
+	private Collection<Puesto> listaPuestos;
+	
 	public Area() {
 	}
 
@@ -27,6 +32,14 @@ public class Area {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public void setListaPuestos(Collection<Puesto> listaPuestos) {
+		this.listaPuestos = listaPuestos;
+	}
+
+	public Collection<Puesto> getListaPuestos() {
+		return listaPuestos;
 	}
 
 }
