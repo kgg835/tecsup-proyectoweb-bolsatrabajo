@@ -13,16 +13,16 @@ public class Postulante extends Persona {
 	private int telefonoCel;
 
 	// Un postulante tiene un Registro de Postulante
-	private RegistroPostulante registroPostulante;
+	//private RegistroPostulante registroPostulante;
 
 	// Un postulante tiene un registro de login
-	private Login loginPostulante;
+//	private Login loginPostulante;
 
 	// Un postulante puede consultar de 0 a muchos Avisos
 	private Collection<Aviso> listaAvisos;
 
 	// Un postulante tiene de 0 a muchas postulaciones
-	private Collection<RegistroPostulacion> listaregistroPostulacion;
+	//private Collection<RegistroPostulacion> listaregistroPostulacion;
 
 	// Un postulante es una Persona
 	public Postulante() {
@@ -98,21 +98,21 @@ public class Postulante extends Persona {
 		this.telefonoCel = telefonoCel;
 	}
 
-	public void setRegistroPostulante(RegistroPostulante registroPostulante) {
-		this.registroPostulante = registroPostulante;
-	}
+//	public void setRegistroPostulante(RegistroPostulante registroPostulante) {
+//		this.registroPostulante = registroPostulante;
+//	}
+//
+//	public RegistroPostulante getRegistroPostulante() {
+//		return registroPostulante;
+//	}
 
-	public RegistroPostulante getRegistroPostulante() {
-		return registroPostulante;
-	}
-
-	public void setLoginPostulante(Login loginPostulante) {
-		this.loginPostulante = loginPostulante;
-	}
-
-	public Login getLoginPostulante() {
-		return loginPostulante;
-	}
+//	public void setLoginPostulante(Login loginPostulante) {
+//		this.loginPostulante = loginPostulante;
+//	}
+//
+//	public Login getLoginPostulante() {
+//		return loginPostulante;
+//	}
 
 	public void setListaAvisos(Collection<Aviso> listaAvisos) {
 		this.listaAvisos = listaAvisos;
@@ -122,13 +122,13 @@ public class Postulante extends Persona {
 		return listaAvisos;
 	}
 
-	public void setListaregistroPostulacion(
-			Collection<RegistroPostulacion> listaregistroPostulacion) {
-		this.listaregistroPostulacion = listaregistroPostulacion;
-	}
-
-	public Collection<RegistroPostulacion> getListaregistroPostulacion() {
-		return listaregistroPostulacion;
-	}
+//	public void setListaregistroPostulacion(
+//			Collection<RegistroPostulacion> listaregistroPostulacion) {
+//		this.listaregistroPostulacion = listaregistroPostulacion;
+//	}
+//
+//	public Collection<RegistroPostulacion> getListaregistroPostulacion() {
+//		return listaregistroPostulacion;
+//	}
 
 }

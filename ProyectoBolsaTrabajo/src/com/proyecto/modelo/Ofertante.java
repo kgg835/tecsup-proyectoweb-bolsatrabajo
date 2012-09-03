@@ -1,5 +1,7 @@
 package com.proyecto.modelo;
 
+import java.util.Collection;
+
 public class Ofertante {
 	private String codofertante;
 	private String ruc;
@@ -7,7 +9,10 @@ public class Ofertante {
 	private String correo;
 	private String contraseña;
 	private String descempresa;
-
+	//Un Ofertante puede publicar varios avisos
+	private Collection<Aviso> listaAvisos;
+	
+	
 	public Ofertante() {
 	}
 
@@ -68,6 +73,14 @@ public class Ofertante {
 
 	public void setDescempresa(String descempresa) {
 		this.descempresa = descempresa;
+	}
+
+	public void setListaAvisos(Collection<Aviso> listaAvisos) {
+		this.listaAvisos = listaAvisos;
+	}
+
+	public Collection<Aviso> getListaAvisos() {
+		return listaAvisos;
 	}
 
 }

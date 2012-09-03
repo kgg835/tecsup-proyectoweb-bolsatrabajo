@@ -4,7 +4,7 @@ public class PuestoLaboral {
 	private String codarea;
 	private String descarea;
 	private String descpuesto;
-
+	//Un PuestoLaboral puede 
 	public PuestoLaboral() {
 	}
 
