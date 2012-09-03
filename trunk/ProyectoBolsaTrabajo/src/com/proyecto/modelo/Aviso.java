@@ -12,7 +12,13 @@ public class Aviso {
 	String codarea;
 	//Aviso tiene de 0 a muchos postulantes
 	private Collection<Postulante> listaPostulantes;
-
+	//Un Aviso le Pertenece a un Ofertante
+	private Ofertante empresa;
+	//Un Aviso pertenece a un Puesto
+	private Puesto puesto;
+	//Un Aviso tiene varias selecciones
+	private Collection<Seleccion> listaSeleccion;
+	
 	public Aviso() {
 	}
 
@@ -81,6 +87,30 @@ public class Aviso {
 
 	public Collection<Postulante> getListaPostulantes() {
 		return listaPostulantes;
+	}
+
+	public void setPuesto(Puesto puesto) {
+		this.puesto = puesto;
+	}
+
+	public Puesto getPuesto() {
+		return puesto;
+	}
+
+	public void setEmpresa(Ofertante empresa) {
+		this.empresa = empresa;
+	}
+
+	public Ofertante getEmpresa() {
+		return empresa;
+	}
+
+	public void setListaSeleccion(Collection<Seleccion> listaSeleccion) {
+		this.listaSeleccion = listaSeleccion;
+	}
+
+	public Collection<Seleccion> getListaSeleccion() {
+		return listaSeleccion;
 	}
 
 }
