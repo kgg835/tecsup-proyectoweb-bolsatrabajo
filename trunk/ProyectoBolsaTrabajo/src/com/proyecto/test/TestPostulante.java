@@ -1,10 +1,7 @@
 package com.proyecto.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-import com.proyecto.modelo.Postulante;
 import com.proyecto.negocio.GestionPostulante;
 
 public class TestPostulante {
@@ -21,6 +18,7 @@ public class TestPostulante {
 	}
 
 	public void previsualizarDatosDelPostulante() {
+		@SuppressWarnings("unused")
 		GestionPostulante obj = new GestionPostulante();
 
 	}
