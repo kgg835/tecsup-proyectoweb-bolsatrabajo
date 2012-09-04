@@ -1,7 +1,5 @@
 package com.proyecto.modelo;
 
-import java.util.Collection;
-
 public class Administrador extends Persona {
 
 	private Integer codigo;
