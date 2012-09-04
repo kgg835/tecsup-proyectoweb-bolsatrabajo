@@ -5,6 +5,7 @@ import com.proyecto.modelo.Postulante;
 public class GestionPostulante {
 	// Como postulante quiero registrarme en la bolsa de trabajo
 	public void registrarPostulante(String nombre, String paterno) {
+		@SuppressWarnings("unused")
 		Postulante p = new Postulante("Anderson");
 	}
 
