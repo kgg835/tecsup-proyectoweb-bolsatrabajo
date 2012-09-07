@@ -12,8 +12,6 @@ public class Postulante extends Persona {
 	private int telefonoFijo;
 	private int telefonoCel;
 
-	// Un postulante tiene un Registro de Postulante
-	//private RegistroPostulante registroPostulante;
 
 	// Un postulante tiene un registro de login
 //	private Login loginPostulante;
