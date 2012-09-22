@@ -3,12 +3,14 @@ package com.proyecto.modelo;
 import java.util.Collection;
 
 public class Ofertante {
-	private String codofertante;
+
 	private String ruc;
 	private String razonsocial;
 	private String correo;
 	private String contraseña;
 	private String descempresa;
+	private String usuario;
+	private String password;
 	//Un Ofertante puede publicar varios avisos
 	private Collection<Aviso> listaAvisos;
 	
@@ -16,24 +18,19 @@ public class Ofertante {
 	public Ofertante() {
 	}
 
-	public Ofertante(String codofertante, String ruc, String razonsocial,
-			String correo, String contraseña, String descempresa) {
+	public Ofertante(String ruc, String razonsocial,
+			String correo, String contraseña, String descempresa,String usua,String pass) {
 		super();
-		this.codofertante = codofertante;
 		this.ruc = ruc;
 		this.razonsocial = razonsocial;
 		this.correo = correo;
 		this.contraseña = contraseña;
 		this.descempresa = descempresa;
+		this.usuario=usua;
+		this.password=pass;
+		
 	}
 
-	public String getCodofertante() {
-		return codofertante;
-	}
-
-	public void setCodofertante(String codofertante) {
-		this.codofertante = codofertante;
-	}
 
 	public String getRuc() {
 		return ruc;
@@ -82,5 +79,22 @@ public class Ofertante {
 	public Collection<Aviso> getListaAvisos() {
 		return listaAvisos;
 	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 
 }
