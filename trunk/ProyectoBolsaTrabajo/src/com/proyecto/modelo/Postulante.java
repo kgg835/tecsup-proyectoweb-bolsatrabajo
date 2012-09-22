@@ -3,9 +3,10 @@ package com.proyecto.modelo;
 import java.util.Collection;
 
 public class Postulante extends Persona {
+	private int idPostulante;
 	private String codseleccion;
 	private String email;
-	private char sexo;
+	private String sexo;
 	private String fechaNacimiento;
 	private String direccion;
 	private String estadoCivil;
@@ -48,11 +49,11 @@ public class Postulante extends Persona {
 		this.email = email;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
@@ -95,7 +96,7 @@ public class Postulante extends Persona {
 	public void setTelefonoCel(int telefonoCel) {
 		this.telefonoCel = telefonoCel;
 	}
-
+	
 //	public void setRegistroPostulante(RegistroPostulante registroPostulante) {
 //		this.registroPostulante = registroPostulante;
 //	}
@@ -111,6 +112,14 @@ public class Postulante extends Persona {
 //	public Login getLoginPostulante() {
 //		return loginPostulante;
 //	}
+
+	public int getIdPostulante() {
+		return idPostulante;
+	}
+
+	public void setIdPostulante(int idPostulante) {
+		this.idPostulante = idPostulante;
+	}
 
 	public void setListaAvisos(Collection<Aviso> listaAvisos) {
 		this.listaAvisos = listaAvisos;

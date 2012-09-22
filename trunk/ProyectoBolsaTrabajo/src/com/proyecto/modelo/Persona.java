@@ -1,16 +1,17 @@
 package com.proyecto.modelo;
 
 public abstract class Persona {
-	private int dni;
+	private String dni;
 	private String nombre;
 	private String apPaterno;
 	private String apMaterno;
+	private String tipoPersona;
 
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
@@ -38,4 +39,12 @@ public abstract class Persona {
 		this.apMaterno = apMaterno;
 	}
 
+	public String getTipoPersona() {
+		return tipoPersona;
+	}
+
+	public void setTipoPersona(String tipoPersona) {
+		this.tipoPersona = tipoPersona;
+	}
+	
 }

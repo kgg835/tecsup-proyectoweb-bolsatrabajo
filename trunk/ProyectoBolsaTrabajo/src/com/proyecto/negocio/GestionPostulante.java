@@ -1,19 +1,32 @@
 package com.proyecto.negocio;
 
+import com.proyecto.dao.PostulanteDAO;
+import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Postulante;
 
 public class GestionPostulante {
 	// Como postulante quiero registrarme en la bolsa de trabajo
-	public void registrarPostulante(String nombre, String paterno) {
-		@SuppressWarnings("unused")
-		Postulante p = new Postulante("Anderson");
+	public Postulante insertar(String nombre, String dni)
+			throws DAOExcepcion {
+		PostulanteDAO dao = new PostulanteDAO();
+
+		Postulante postulante = new Postulante();
+		postulante.setNombre(nombre);
+		
+		postulante.setDni(dni);
+
+		return dao.insertar(postulante);
 	}
 
 	// como Postulantede quiero ingresar mis datos
 	public void ingresarDatosPostulante() {
 
 	}
-
+	
+	public Postulante obtener(int idpostulante) throws DAOExcepcion {
+		PostulanteDAO dao = new PostulanteDAO();
+		return dao.obtener(idpostulante);
+	}
 	// Como postulante quiero actualizar mi hoja de vida para las empresas.
 	public void actualizarDatosPostulante() {
 
