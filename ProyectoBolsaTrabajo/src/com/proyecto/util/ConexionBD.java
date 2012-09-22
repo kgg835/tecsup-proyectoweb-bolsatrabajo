@@ -11,7 +11,7 @@ public class ConexionBD {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");//el driver de conection
-			con = DriverManager.getConnection("jdbc:mysql://localhost/tienda",//cadena de coneccion
+			con = DriverManager.getConnection("jdbc:mysql://localhost/bd_bolsatrabajo",//cadena de coneccion
 					"root", "");//"usuario","")password vacio
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
