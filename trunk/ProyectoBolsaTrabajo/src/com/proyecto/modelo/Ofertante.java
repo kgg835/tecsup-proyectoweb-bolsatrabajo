@@ -3,11 +3,10 @@ package com.proyecto.modelo;
 import java.util.Collection;
 
 public class Ofertante {
-
+private int idofertante;
 	private String ruc;
 	private String razonsocial;
 	private String correo;
-	private String contraseña;
 	private String descempresa;
 	private String usuario;
 	private String password;
@@ -18,13 +17,22 @@ public class Ofertante {
 	public Ofertante() {
 	}
 
-	public Ofertante(String ruc, String razonsocial,
-			String correo, String contraseña, String descempresa,String usua,String pass) {
+	public int getidofertante() {
+		return idofertante;
+	}
+
+	public void setidofertante(int idofertante) {
+		this.idofertante = idofertante;
+	}
+
+	public Ofertante(int idofertante,String ruc, String razonsocial,
+			String correo, String descempresa,String usua,String pass) {
 		super();
+		this.idofertante=idofertante;
 		this.ruc = ruc;
 		this.razonsocial = razonsocial;
 		this.correo = correo;
-		this.contraseña = contraseña;
+	
 		this.descempresa = descempresa;
 		this.usuario=usua;
 		this.password=pass;
@@ -56,13 +64,8 @@ public class Ofertante {
 		this.correo = correo;
 	}
 
-	public String getContraseña() {
-		return contraseña;
-	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
+
 
 	public String getDescempresa() {
 		return descempresa;
