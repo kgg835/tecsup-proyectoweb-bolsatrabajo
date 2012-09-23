@@ -3,9 +3,10 @@ package com.proyecto.negocio;
 import com.proyecto.dao.PostulanteDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Postulante;
-
+//Como postulante quiero registrarme en la bolsa de trabajo
 public class GestionPostulante {
-	// Como postulante quiero registrarme en la bolsa de trabajo
+	
+	// como Postulantede quiero ingresar mis datos
 	public Postulante insertar(String nombre, String dni)
 			throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
@@ -17,16 +18,17 @@ public class GestionPostulante {
 
 		return dao.insertar(postulante);
 	}
-
-	// como Postulantede quiero ingresar mis datos
-	public void ingresarDatosPostulante() {
-
-	}
 	
 	public Postulante obtener(int idpostulante) throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
 		return dao.obtener(idpostulante);
 	}
+	//Metodo pqrq eliminar un Postulante
+	public void eliminar(int idPostulante) throws DAOExcepcion{
+		PostulanteDAO dao=new PostulanteDAO();
+		dao.eliminar(idPostulante);
+	}
+	
 	// Como postulante quiero actualizar mi hoja de vida para las empresas.
 	public void actualizarDatosPostulante() {
 
