@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Postulante;
@@ -96,4 +97,40 @@ public class PostulanteDAO extends BaseDAO {
 		}
 		return pos;
 	}
+	
+	public Postulante actualizar(Postulante postulante) throws DAOExcepcion{
+		
+		return null;
+	}
+	
+	public Collection<Postulante> listar() throws DAOExcepcion{
+		return null;
+	}
+	
+	public Collection<Postulante> buscarPorNombre(String nombre){
+		return null;
+	}
+
+	//Metodo para eliminar un Postulante 
+	public void eliminar(int idPostulante) throws DAOExcepcion{
+		String query = "delete from PERSONA WHERE idPERSONA=?";
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try {
+			con = ConexionBD.obtenerConexion();//para la conection
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, idPostulante);
+			int i = stmt.executeUpdate();
+			if (i != 1) {
+				throw new SQLException("No se pudo eliminar");
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+	}
+	
 }
