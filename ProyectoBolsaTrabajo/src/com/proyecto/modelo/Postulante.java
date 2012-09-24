@@ -10,8 +10,9 @@ public class Postulante extends Persona {
 	private String fechaNacimiento;
 	private String direccion;
 	private String estadoCivil;
-	private int telefonoFijo;
-	private int telefonoCel;
+	private String telefonoFijo;
+	private String telefonoCel;
+	private String passwordPE;
 
 
 	// Un postulante tiene un registro de login
@@ -81,21 +82,7 @@ public class Postulante extends Persona {
 		this.estadoCivil = estadoCivil;
 	}
 
-	public int getTelefonoFijo() {
-		return telefonoFijo;
-	}
 
-	public void setTelefonoFijo(int telefonoFijo) {
-		this.telefonoFijo = telefonoFijo;
-	}
-
-	public int getTelefonoCel() {
-		return telefonoCel;
-	}
-
-	public void setTelefonoCel(int telefonoCel) {
-		this.telefonoCel = telefonoCel;
-	}
 	
 //	public void setRegistroPostulante(RegistroPostulante registroPostulante) {
 //		this.registroPostulante = registroPostulante;
@@ -113,6 +100,22 @@ public class Postulante extends Persona {
 //		return loginPostulante;
 //	}
 
+	public String getTelefonoFijo() {
+		return telefonoFijo;
+	}
+
+	public void setTelefonoFijo(String telefonoFijo) {
+		this.telefonoFijo = telefonoFijo;
+	}
+
+	public String getTelefonoCel() {
+		return telefonoCel;
+	}
+
+	public void setTelefonoCel(String telefonoCel) {
+		this.telefonoCel = telefonoCel;
+	}
+
 	public int getIdPostulante() {
 		return idPostulante;
 	}
@@ -127,6 +130,14 @@ public class Postulante extends Persona {
 
 	public Collection<Aviso> getListaAvisos() {
 		return listaAvisos;
+	}
+
+	public String getPasswordPE() {
+		return passwordPE;
+	}
+
+	public void setPasswordPE(String passwordPE) {
+		this.passwordPE = passwordPE;
 	}
 
 //	public void setListaregistroPostulacion(

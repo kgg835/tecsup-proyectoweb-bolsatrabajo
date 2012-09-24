@@ -1,5 +1,7 @@
 package com.proyecto.negocio;
 
+import java.util.Collection;
+
 import com.proyecto.dao.PostulanteDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Postulante;
@@ -23,15 +25,21 @@ public class GestionPostulante {
 		PostulanteDAO dao = new PostulanteDAO();
 		return dao.obtener(idpostulante);
 	}
-	//Metodo pqrq eliminar un Postulante
+	//Metodo para eliminar un Postulante
 	public void eliminar(int idPostulante) throws DAOExcepcion{
 		PostulanteDAO dao=new PostulanteDAO();
 		dao.eliminar(idPostulante);
 	}
 	
 	// Como postulante quiero actualizar mi hoja de vida para las empresas.
-	public void actualizarDatosPostulante() {
-
+	public Postulante actualizarPostulante(String nombre,String apellido,String mail,int id) throws DAOExcepcion{
+		PostulanteDAO dao=new PostulanteDAO();
+		Postulante postulante=new Postulante();
+		postulante.setNombre(nombre);
+		postulante.setApPaterno(apellido);
+		postulante.setEmail(mail);
+		postulante.setIdPostulante(id);
+		return dao.actualizarPostulante(postulante);
 	}
 
 	public void consultarAvisos() {
@@ -50,6 +58,16 @@ public class GestionPostulante {
 
 	public void actualizardatosPostulante() {
 
+	}
+	// Metodo para listar todos los postulantes
+	public Collection<Postulante> listar() throws DAOExcepcion {
+		PostulanteDAO dao = new PostulanteDAO();
+		return dao.listar();
+	}
+	//Busca al Postulante pos DNI
+	public Collection<Postulante> buscarPostulante(String nrodni)throws DAOExcepcion{
+		PostulanteDAO dao=new PostulanteDAO();
+		return dao.buscarPostulante(nrodni);
 	}
 
 }
