@@ -38,7 +38,7 @@ public class GestionPostulante {
 		PostulanteDAO dao = new PostulanteDAO();
 		Postulante postulante = new Postulante();
 		postulante.setNombre(nombre);
-		postulante.setApPaterno(apellido);
+		postulante.setApellidos(apellido);
 		postulante.setEmail(mail);
 		postulante.setIdPostulante(id);
 		return dao.actualizarPostulante(postulante);
