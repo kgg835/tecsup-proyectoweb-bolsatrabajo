@@ -116,7 +116,7 @@ public class PostulanteDAO extends BaseDAO {
 			stmt.setString(1, postulante.getNombre());
 			stmt.setString(2, postulante.getApPaterno());
 			stmt.setString(3, postulante.getEmail());
-			stmt.setInt(3, postulante.getIdPostulante());
+			stmt.setInt(4, postulante.getIdPostulante());
 
 			// stmt.setString(1, vo.getNombre());
 			// stmt.setString(2, vo.getDescripcion());
