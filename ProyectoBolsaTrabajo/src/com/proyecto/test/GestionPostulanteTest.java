@@ -11,14 +11,14 @@ import com.proyecto.negocio.GestionPostulante;
 
 public class GestionPostulanteTest {
 
-//	@Test
+	@Test
 	public void insertarTest() {
 		GestionPostulante negocio = new GestionPostulante();
 		try {
-			negocio.insertar("Camila","3654789");
+			negocio.insertar("Teresa","1000ac");
 			
-			Postulante nuevo=negocio.obtener(7);
-			Assert.assertEquals("3654789",nuevo.getDni());
+			Postulante nuevo=negocio.obtener(8);
+			Assert.assertEquals("1000ac",nuevo.getDni());
 			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Fallo la inserción: " + e.getMessage());
@@ -65,7 +65,7 @@ public class GestionPostulanteTest {
 
 	}
 	
-	@Test
+//	@Test
 	public void actualizarTest() {
 
 		GestionPostulante negocio = new GestionPostulante();

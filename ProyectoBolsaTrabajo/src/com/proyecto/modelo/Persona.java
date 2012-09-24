@@ -3,8 +3,7 @@ package com.proyecto.modelo;
 public abstract class Persona {
 	private String dni;
 	private String nombre;
-	private String apPaterno;
-	private String apMaterno;
+	private String apellidos;
 	private String tipoPersona;
 
 	public String getDni() {
@@ -23,28 +22,20 @@ public abstract class Persona {
 		this.nombre = nombre;
 	}
 
-	public String getApPaterno() {
-		return apPaterno;
-	}
-
-	public void setApPaterno(String apPaterno) {
-		this.apPaterno = apPaterno;
-	}
-
-	public String getApMaterno() {
-		return apMaterno;
-	}
-
-	public void setApMaterno(String apMaterno) {
-		this.apMaterno = apMaterno;
-	}
-
 	public String getTipoPersona() {
 		return tipoPersona;
 	}
 
 	public void setTipoPersona(String tipoPersona) {
 		this.tipoPersona = tipoPersona;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 	
 }

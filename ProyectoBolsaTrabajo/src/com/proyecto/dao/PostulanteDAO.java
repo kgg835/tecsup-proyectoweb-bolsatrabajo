@@ -114,7 +114,7 @@ public class PostulanteDAO extends BaseDAO {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, postulante.getNombre());
-			stmt.setString(2, postulante.getApPaterno());
+			stmt.setString(2, postulante.getApellidos());
 			stmt.setString(3, postulante.getEmail());
 			stmt.setInt(4, postulante.getIdPostulante());
 
@@ -157,7 +157,7 @@ public class PostulanteDAO extends BaseDAO {
 				postulante.setIdPostulante(rs.getInt("idPERSONA"));
 				postulante.setTipoPersona(rs.getString("tipo_persona"));
 				postulante.setNombre(rs.getString("nombrePersona"));
-				postulante.setApPaterno(rs.getString("apPellidos"));
+				postulante.setApellidos(rs.getString("apPellidos"));
 				postulante.setDni(rs.getString("dni"));
 				postulante.setCodseleccion(rs.getString("codPersona"));
 				postulante.setPasswordPE(rs.getString("passwordPe"));
@@ -207,7 +207,7 @@ public class PostulanteDAO extends BaseDAO {
 				postulante.setIdPostulante(rs.getInt("idPERSONA"));
 				postulante.setTipoPersona(rs.getString("tipo_persona"));
 				postulante.setNombre(rs.getString("nombrePersona"));
-				postulante.setApPaterno(rs.getString("apPellidos"));
+				postulante.setApellidos(rs.getString("apPellidos"));
 				// vo.setIdCategoria(rs.getInt("id_categoria"));
 				// vo.setNombre(rs.getString("nombre"));
 				// vo.setDescripcion(rs.getString("descripcion"));
