@@ -18,7 +18,8 @@ public class PostulanteDAO extends BaseDAO {
 				+ "apPellidos,dni,codPersona,passwordPe,email,pais,"
 				+ "provincia,ciudad,direccion,telefonoFijo,numeroCelular,"
 				+ "fechaNacimiento,sexo,estadoCivil)"
-				+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";// ?:por cada columna
+				+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";// ?:por cada
+																// columna
 		Connection con = null;
 		PreparedStatement stmt = null;// sentencias preparadas
 		ResultSet rs = null;
@@ -73,8 +74,9 @@ public class PostulanteDAO extends BaseDAO {
 		}
 		return postulante;
 	}
-	//Metodo para obtener un Postulante
-	
+
+	// Metodo para obtener un Postulante
+
 	public Postulante obtener(int idPostulante) throws DAOExcepcion {
 		Postulante pos = new Postulante();
 		Connection con = null;
@@ -101,9 +103,10 @@ public class PostulanteDAO extends BaseDAO {
 		}
 		return pos;
 	}
-	
-	//metodo que actualiza los datos del Postulante
-	public Postulante actualizarPostulante(Postulante postulante) throws DAOExcepcion {
+
+	// metodo que actualiza los datos del Postulante
+	public Postulante actualizarPostulante(Postulante postulante)
+			throws DAOExcepcion {
 		String query = "update PERSONA set nombrePersona=?,apPellidos=?,email=? where idPERSONA=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -112,12 +115,12 @@ public class PostulanteDAO extends BaseDAO {
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, postulante.getNombre());
 			stmt.setString(2, postulante.getApPaterno());
-			stmt.setString(3,postulante.getEmail());
+			stmt.setString(3, postulante.getEmail());
 			stmt.setInt(3, postulante.getIdPostulante());
-			
-			//stmt.setString(1, vo.getNombre());
-			//stmt.setString(2, vo.getDescripcion());
-			//stmt.setInt(3, vo.getIdCategoria());
+
+			// stmt.setString(1, vo.getNombre());
+			// stmt.setString(2, vo.getDescripcion());
+			// stmt.setInt(3, vo.getIdCategoria());
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo actualizar");
@@ -140,15 +143,16 @@ public class PostulanteDAO extends BaseDAO {
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "select idPERSONA,tipo_persona,nombrePersona," +
-								"apPellidos,dni,codPersona,passwordPe,email,pais,provincia," +
-								"ciudad,direccion,telefonoFijo,numeroCelular,fechaNacimiento," +
-								"sexo,estadoCivil " +
-							"from PERSONA " +
-							"order by nombrePersona";
+			String query = "select idPERSONA,tipo_persona,nombrePersona,"
+					+ "apPellidos,dni,codPersona,passwordPe,email,pais,provincia,"
+					+ "ciudad,direccion,telefonoFijo,numeroCelular,fechaNacimiento,"
+					+ "sexo,estadoCivil " + "from PERSONA "
+					+ "order by nombrePersona";
 			stmt = con.prepareStatement(query);
-			rs = stmt.executeQuery();//me extrae los datos de tabla Persona x Columna 
-			while (rs.next()) {//Aqui se llena los datos en el objeto Postulante
+			rs = stmt.executeQuery();// me extrae los datos de tabla Persona x
+										// Columna
+			while (rs.next()) {// Aqui se llena los datos en el objeto
+								// Postulante
 				Postulante postulante = new Postulante();
 				postulante.setIdPostulante(rs.getInt("idPERSONA"));
 				postulante.setTipoPersona(rs.getString("tipo_persona"));
@@ -158,16 +162,16 @@ public class PostulanteDAO extends BaseDAO {
 				postulante.setCodseleccion(rs.getString("codPersona"));
 				postulante.setPasswordPE(rs.getString("passwordPe"));
 				postulante.setEmail(rs.getString("email"));
-				//postulante.setPais();
-				//postulante.setprovincia();
-				//postulante.setCiudad();
+				// postulante.setPais();
+				// postulante.setprovincia();
+				// postulante.setCiudad();
 				postulante.setDireccion(rs.getString("direccion"));
 				postulante.setTelefonoFijo(rs.getString("telefonoFijo"));
 				postulante.setTelefonoCel(rs.getString("numeroCelular"));
 				postulante.setFechaNacimiento(rs.getString("fechaNacimiento"));
 				postulante.setSexo(rs.getString("sexo"));
 				postulante.setEstadoCivil(rs.getString("estadoCivil"));
-				
+
 				// vo.setIdCategoria(rs.getInt("id_categoria"));
 				// vo.setNombre(rs.getString("nombre"));
 				// vo.setDescripcion(rs.getString("descripcion"));
@@ -185,7 +189,8 @@ public class PostulanteDAO extends BaseDAO {
 		return c;
 	}
 
-	public Collection<Postulante> buscarPostulante(String nrodni)throws DAOExcepcion {
+	public Collection<Postulante> buscarPostulante(String nrodni)
+			throws DAOExcepcion {
 		String query = "select idPERSONA,tipo_persona,nombrePersona,apPellidos from categoria where dni= ?";
 		Collection<Postulante> listaPostulante = new ArrayList<Postulante>();
 		Connection con = null;
@@ -194,18 +199,18 @@ public class PostulanteDAO extends BaseDAO {
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1,nrodni);
+			stmt.setString(1, nrodni);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Postulante postulante = new Postulante();
-				
+
 				postulante.setIdPostulante(rs.getInt("idPERSONA"));
 				postulante.setTipoPersona(rs.getString("tipo_persona"));
 				postulante.setNombre(rs.getString("nombrePersona"));
 				postulante.setApPaterno(rs.getString("apPellidos"));
-//				vo.setIdCategoria(rs.getInt("id_categoria"));
-//				vo.setNombre(rs.getString("nombre"));
-//				vo.setDescripcion(rs.getString("descripcion"));
+				// vo.setIdCategoria(rs.getInt("id_categoria"));
+				// vo.setNombre(rs.getString("nombre"));
+				// vo.setDescripcion(rs.getString("descripcion"));
 				listaPostulante.add(postulante);
 			}
 		} catch (SQLException e) {
