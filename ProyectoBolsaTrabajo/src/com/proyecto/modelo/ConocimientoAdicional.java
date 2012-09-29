@@ -1,16 +1,16 @@
 package com.proyecto.modelo;
 
 public class ConocimientoAdicional {
-	private String idConocimientoAdicional;
+	private int idConocimientoAdicional;
 	private String nombreConocimiento;
 	private String descrpcionConocimiento;
 
 	// Get and Set
-	public String getIdConocimientoAdicional() {
+	public int getIdConocimientoAdicional() {
 		return idConocimientoAdicional;
 	}
 
-	public void setIdConocimientoAdicional(String idConocimientoAdicional) {
+	public void setIdConocimientoAdicional(int idConocimientoAdicional) {
 		this.idConocimientoAdicional = idConocimientoAdicional;
 	}
 
