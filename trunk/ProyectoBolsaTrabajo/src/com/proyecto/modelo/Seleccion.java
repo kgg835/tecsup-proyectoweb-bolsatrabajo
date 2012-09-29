@@ -1,22 +1,39 @@
 package com.proyecto.modelo;
 
 public class Seleccion {
-	String codseleccion;
-
-	public Seleccion() {
-	}
-
-	public Seleccion(String codseleccion) {
+	private int codaviso;
+	private int codofertante;
+	private int codpostulante;
+	
+	public Seleccion(){}
+	public Seleccion(int codaviso, int codofertante, int codpostulante) {
 		super();
-		this.codseleccion = codseleccion;
+		this.codaviso = codaviso;
+		this.codofertante = codofertante;
+		this.codpostulante = codpostulante;
 	}
+	public int getCodaviso() {
+		return codaviso;
+	}
+	public void setCodaviso(int codaviso) {
+		this.codaviso = codaviso;
+	}
+	public int getCodofertante() {
+		return codofertante;
+	}
+	public void setCodofertante(int codofertante) {
+		this.codofertante = codofertante;
+	}
+	public int getCodpostulante() {
+		return codpostulante;
+	}
+	public void setCodpostulante(int codpostulante) {
+		this.codpostulante = codpostulante;
+	}
+	
 
-	public String getCodseleccion() {
-		return codseleccion;
-	}
+	
 
-	public void setCodseleccion(String codseleccion) {
-		this.codseleccion = codseleccion;
-	}
+
 
 }

@@ -18,11 +18,11 @@ public class testofertante {
 		// fail("Not yet implemented");
 	}
 
-	//@Test
+	@Test
 	public void insertartest(){
 		Gestionofertante negocio= new Gestionofertante();
 		try{
-			negocio.insertar("4576958","trhu", "thrthrth@hotmail.com", "gfnfgn", "uil", "liy");
+			negocio.insertar("4576958","bryang", "thrthrth@hotmail.com", "gfnfgn", "uil", "liy");
 
 
 		}catch(DAOExcepcion e){
@@ -58,7 +58,7 @@ public class testofertante {
 		}
 	}
 
-	@Test
+	//@Test
 	public void listar(){
 
 		Gestionofertante nego= new Gestionofertante();
