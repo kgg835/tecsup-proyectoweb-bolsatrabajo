@@ -3,7 +3,6 @@ package com.proyecto.modelo;
 import java.util.Collection;
 
 public class Area {
-	private Integer codArea;
 	private String descripcion;
 	
 	//Un Area contiene varios Puestos
@@ -12,19 +11,14 @@ public class Area {
 	public Area() {
 	}
 
-	public Area(Integer codArea, String descripcion) {
+	public Area(String descripcion) {
 		super();
-		this.codArea = codArea;
+		
 		this.descripcion = descripcion;
 	}
 
-	public Integer getCodArea() {
-		return codArea;
-	}
 
-	public void setCodArea(Integer codArea) {
-		this.codArea = codArea;
-	}
+
 
 	public String getDescripcion() {
 		return descripcion;
