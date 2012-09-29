@@ -15,7 +15,7 @@ public class PresentacionDAO extends BaseDAO {
 	
 	
 		public Presentacion insertar(Presentacion vo) throws DAOExcepcion {
-		String query = "insert into presentacion(descripcionPres) values (?)";
+		String query = "insert into presentacion(descripcion_pres) values (?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -57,7 +57,7 @@ public class PresentacionDAO extends BaseDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select idPresentacion, descripcionPres from presentacion where idpresentacion=?";
+			String query = "select idPresentacion, descripcion_pres from presentacion where idpresentacion=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, idPresentacion);
@@ -100,7 +100,7 @@ public class PresentacionDAO extends BaseDAO {
 	}
 
 	public Presentacion actualizar(Presentacion vo) throws DAOExcepcion {
-		String query = "update categoria set nombre=?,descripcion=? where id_categoria=?";
+		String query = "update presentacion set descripcion_pres=? where idpresentacion=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {

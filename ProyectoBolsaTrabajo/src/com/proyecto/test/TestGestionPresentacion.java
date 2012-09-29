@@ -16,7 +16,7 @@ public class TestGestionPresentacion {
 			negocio.insertar("Soy un jfafdggdgsdgdfgfdgdgdgdag");
 			
 			Presentacion nuevo=negocio.obtener(8);
-//			Assert.assertEquals("1000ac",nuevo.getDescripcionPres();
+			Assert.assertEquals("1000ac",nuevo.getDescripcionPres());
 			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Fallo la inserción: " + e.getMessage());
