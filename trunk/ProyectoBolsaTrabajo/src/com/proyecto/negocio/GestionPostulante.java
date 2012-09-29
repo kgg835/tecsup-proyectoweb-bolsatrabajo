@@ -2,8 +2,12 @@ package com.proyecto.negocio;
 
 import java.util.Collection;
 
+import com.proyecto.dao.ConocimientoAdicionalDAO;
+import com.proyecto.dao.IdiomaDAO;
 import com.proyecto.dao.PostulanteDAO;
 import com.proyecto.exception.DAOExcepcion;
+import com.proyecto.modelo.ConocimientoAdicional;
+import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Postulante;
 
 //Como postulante quiero registrarme en la bolsa de trabajo
@@ -73,6 +77,45 @@ public class GestionPostulante {
 			throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
 		return dao.buscarPostulante(nrodni);
+	}
+
+	// Como postulante quiero actualizar mi hoja de vida para las empresas.
+
+	public Idioma insertarIdioma(Idioma idioma) throws DAOExcepcion {
+		IdiomaDAO dao = new IdiomaDAO();
+		return dao.insertarIdioma(idioma);
+	}
+
+	public Idioma actualizarIdioma(Idioma idioma) throws DAOExcepcion {
+		IdiomaDAO dao = new IdiomaDAO();
+		return dao.actualizarIdioma(idioma);
+	}
+
+	// Metodo que optiene el Idioma por ID
+	public Idioma obtenerIdioma(int idIdioma) throws DAOExcepcion {
+		IdiomaDAO dao = new IdiomaDAO();
+		return dao.obtenerIdioma(idIdioma);
+	}
+
+	// Metodo para Ingresar un conocimineto adicional
+	public ConocimientoAdicional insertarConocimiento(
+			ConocimientoAdicional conocimiento) throws DAOExcepcion {
+		ConocimientoAdicionalDAO dao = new ConocimientoAdicionalDAO();
+		return dao.insertarConocimiento(conocimiento);
+	}
+
+	// Actualiza el Conocimiento Adicional del postulante
+	public ConocimientoAdicional actualizarIdioma(
+			ConocimientoAdicional conocimiento) throws DAOExcepcion {
+		ConocimientoAdicionalDAO dao = new ConocimientoAdicionalDAO();
+		return dao.actualizarIdioma(conocimiento);
+	}
+
+	// Obtiene el Conocimiento Adicional deacuerdo al ID
+	public ConocimientoAdicional obtenerConocimientoAdicional(
+			int idConocimientoAd) throws DAOExcepcion {
+		ConocimientoAdicionalDAO dao = new ConocimientoAdicionalDAO();
+		return dao.obtenerConocimientoAdicional(idConocimientoAd);
 	}
 
 }

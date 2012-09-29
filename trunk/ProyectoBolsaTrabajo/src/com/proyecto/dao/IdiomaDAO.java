@@ -72,7 +72,7 @@ public class IdiomaDAO extends BaseDAO{
 		}
 		return idioma;
 	}
-	//
+	//Obtiene el idioma deacuerdo al ID
 	public Idioma obtenerIdioma(int idIdioma) throws DAOExcepcion {
 		Idioma idioma = new Idioma();
 		Connection con = null;

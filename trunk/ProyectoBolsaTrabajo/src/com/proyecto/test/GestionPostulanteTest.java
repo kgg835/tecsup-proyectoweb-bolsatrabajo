@@ -6,12 +6,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.proyecto.exception.DAOExcepcion;
+import com.proyecto.modelo.ConocimientoAdicional;
+import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.negocio.GestionPostulante;
 
 public class GestionPostulanteTest {
 
-	@Test
+//	@Test
 	public void insertarTest() {
 		GestionPostulante negocio = new GestionPostulante();
 		try {
@@ -82,6 +84,45 @@ public class GestionPostulanteTest {
 
 			Assert.fail("Falló la actualización: " + e.getMessage());
 
+		}
+	}
+	//Test para Ingresar un Idioma
+	@Test
+	public void ingresarIdiomaTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		try {
+			Idioma idioma=new Idioma();
+			idioma.setNombreIdioma("Aleman");
+			idioma.setNivelEscrito("Avanzado");
+			idioma.setNivelOral("Intermedio");
+			
+			negocio.insertarIdioma(idioma);
+			
+			Idioma nuevo=negocio.obtenerIdioma(3);
+			Assert.assertEquals("Aleman",nuevo.getNombreIdioma());
+			
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló la el ingreso: " + e.getMessage());
+
+		}
+	}
+	
+	//Test para ingresar un Conocimiento Adicional
+	@Test
+	public void ingresarConocimientoAdicionalTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		try {
+			ConocimientoAdicional conocimiento=new ConocimientoAdicional();
+			conocimiento.setNombreConocimiento("PHP");
+			conocimiento.setDescrpcionConocimiento("Programador en lenguaje PHP Web");
+			negocio.insertarConocimiento(conocimiento);
+			
+			ConocimientoAdicional nuevo=negocio.obtenerConocimientoAdicional(3);
+			
+			Assert.assertEquals("PHP",nuevo.getNombreConocimiento());
+			
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el Ingreso de Conocimiento: " + e.getMessage());
 		}
 	}
 
