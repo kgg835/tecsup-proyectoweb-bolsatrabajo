@@ -8,6 +8,7 @@ import org.junit.Test;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
 import com.proyecto.modelo.Idioma;
+import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.negocio.GestionPostulante;
 
@@ -87,7 +88,7 @@ public class GestionPostulanteTest {
 		}
 	}
 	//Test para Ingresar un Idioma
-	@Test
+//	@Test
 	public void ingresarIdiomaTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		try {
@@ -123,6 +124,26 @@ public class GestionPostulanteTest {
 			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso de Conocimiento: " + e.getMessage());
+		}
+	}
+	
+	//Test para Ingresar Informatica
+	@Test
+	public void ingresarInformaticaTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		try {
+			Informatica info=new Informatica();
+			info.setTipoInformatica("Linux Ubuntu");
+			info.setNivelInformatica("Administardor de Servidores");
+			
+			negocio.insertarInformatica(info);
+			
+			Informatica nuevo=negocio.obtenerInformatica(2);
+			
+			Assert.assertEquals("Linux Ubuntu",nuevo.getTipoInformatica());
+			
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el Ingreso de Informatica: " + e.getMessage());
 		}
 	}
 

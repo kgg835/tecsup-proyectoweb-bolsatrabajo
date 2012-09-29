@@ -4,10 +4,12 @@ import java.util.Collection;
 
 import com.proyecto.dao.ConocimientoAdicionalDAO;
 import com.proyecto.dao.IdiomaDAO;
+import com.proyecto.dao.InformaticaDAO;
 import com.proyecto.dao.PostulanteDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
 import com.proyecto.modelo.Idioma;
+import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
 
 //Como postulante quiero registrarme en la bolsa de trabajo
@@ -116,6 +118,26 @@ public class GestionPostulante {
 			int idConocimientoAd) throws DAOExcepcion {
 		ConocimientoAdicionalDAO dao = new ConocimientoAdicionalDAO();
 		return dao.obtenerConocimientoAdicional(idConocimientoAd);
+	}
+
+	// Metodo para Ingresar el Curso de Informatica
+	public Informatica insertarInformatica(Informatica info)
+			throws DAOExcepcion {
+		InformaticaDAO dao = new InformaticaDAO();
+		return dao.insertarInformatica(info);
+	}
+
+	// Actualiza la especialidad de Informatica del Postulante
+	public Informatica actualizarInformatica(Informatica info)
+			throws DAOExcepcion {
+		InformaticaDAO dao = new InformaticaDAO();
+		return dao.actualizarInformatica(info);
+	}
+
+	// Obtiene el conocimiento de Informatica deacuerdo al ID
+	public Informatica obtenerInformatica(int idInfo) throws DAOExcepcion {
+		InformaticaDAO dao = new InformaticaDAO();
+		return dao.obtenerInformatica(idInfo);
 	}
 
 }
