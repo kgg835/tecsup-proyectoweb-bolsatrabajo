@@ -1,6 +1,7 @@
 package com.proyecto.modelo;
 
 public class PreferenciaSalarial {
+	private int idSalario;
 	private double montoSoles;
 	private double montoDolares;
 
@@ -19,6 +20,14 @@ public class PreferenciaSalarial {
 
 	public void setMontoDolares(double montoDolares) {
 		this.montoDolares = montoDolares;
+	}
+
+	public void setIdSalario(int idSalario) {
+		this.idSalario = idSalario;
+	}
+
+	public int getIdSalario() {
+		return idSalario;
 	}
 
 }
