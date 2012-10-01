@@ -54,31 +54,31 @@ public class SeleccionDAO extends BaseDAO {
 	}
 	
 	
-public Collection<Seleccion> obtener(int idaviso) throws DAOExcepcion{
-	Collection<Persona> c=new ArrayList<Persona>();
-	Persona vo = new Persona();
-	Connection con = null;
-	PreparedStatement stmt = null;
-	ResultSet rs = null;
-	try {
-		String query = "select seleccion_postulante.codPostulante, persona.nombrePersona from seleccion_postulante, persona where AVISO_idAVISO=? and seleccion_postulante.codPostulante=persona.idPersona";
-		con = ConexionBD.obtenerConexion();
-		stmt = con.prepareStatement(query);
-		stmt.setInt(1, idaviso);
-		rs = stmt.executeQuery();
-		if (rs.next()) {
-			vo.set(rs.getInt(1));
-			vo.set;
-		
-		}
-	} catch (SQLException e) {
-		System.err.println(e.getMessage());
-		throw new DAOExcepcion(e.getMessage());
-	} finally {
-		this.cerrarResultSet(rs);
-		this.cerrarStatement(stmt);
-		this.cerrarConexion(con);
-	}
-	return vo;
-}
+//public Collection<Seleccion> obtener(int idaviso) throws DAOExcepcion{
+//	Collection<Persona> c=new ArrayList<Persona>();
+//	Persona vo = new Persona();
+//	Connection con = null;
+//	PreparedStatement stmt = null;
+//	ResultSet rs = null;
+//	try {
+//		String query = "select seleccion_postulante.codPostulante, persona.nombrePersona from seleccion_postulante, persona where AVISO_idAVISO=? and seleccion_postulante.codPostulante=persona.idPersona";
+//		con = ConexionBD.obtenerConexion();
+//		stmt = con.prepareStatement(query);
+//		stmt.setInt(1, idaviso);
+//		rs = stmt.executeQuery();
+//		if (rs.next()) {
+//			vo.set(rs.getInt(1));
+//			vo.set;
+//		
+//		}
+//	} catch (SQLException e) {
+//		System.err.println(e.getMessage());
+//		throw new DAOExcepcion(e.getMessage());
+//	} finally {
+//		this.cerrarResultSet(rs);
+//		this.cerrarStatement(stmt);
+//		this.cerrarConexion(con);
+//	}
+//	return vo;
+//}
 }
