@@ -10,6 +10,7 @@ import com.proyecto.modelo.ConocimientoAdicional;
 import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
+import com.proyecto.modelo.PreferenciaSalarial;
 import com.proyecto.negocio.GestionPostulante;
 
 public class GestionPostulanteTest {
@@ -128,7 +129,7 @@ public class GestionPostulanteTest {
 	}
 	
 	//Test para Ingresar Informatica
-	@Test
+	//@Test
 	public void ingresarInformaticaTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		try {
@@ -144,6 +145,27 @@ public class GestionPostulanteTest {
 			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso de Informatica: " + e.getMessage());
+		}
+	}
+	
+	//Test para ingresar una Preferiencia Salarial
+	//@SuppressWarnings("deprecation")
+	@SuppressWarnings("deprecation")
+	@Test
+	public void ingresarPreferenciaSalarialTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		try {
+			PreferenciaSalarial monto=new PreferenciaSalarial();
+			monto.setMontoSoles(1800);
+			monto.setMontoDolares(0);
+			
+			negocio.insertarSalario(monto);
+			
+			PreferenciaSalarial nuevo=negocio.obtenerSalario(7);
+			
+			Assert.assertEquals(1800,nuevo.getMontoSoles());
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el Ingreso del Salario: " + e.getMessage());
 		}
 	}
 
