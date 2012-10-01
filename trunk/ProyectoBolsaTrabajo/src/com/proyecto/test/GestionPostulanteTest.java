@@ -11,6 +11,7 @@ import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.modelo.PreferenciaSalarial;
+import com.proyecto.modelo.Presentacion;
 import com.proyecto.negocio.GestionPostulante;
 
 public class GestionPostulanteTest {
@@ -166,6 +167,23 @@ public class GestionPostulanteTest {
 			Assert.assertEquals(Double.doubleToLongBits(2800),Double.doubleToLongBits(nuevo.getMontoSoles()));
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso del Salario: " + e.getMessage());
+		}
+	}
+	//Test que prueba el ingreso de una Presentacion
+	@Test
+	public void ingresarPresentacionTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		try {
+			Presentacion prese=new Presentacion();
+			prese.setDescripcionPres("Programador Java");
+			
+			negocio.insertarPresentacion(prese);
+			
+			Presentacion nuevo=negocio.obtenerPresentacion(3);
+			
+			Assert.assertEquals("Programador Java",nuevo.getDescripcionPres());
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el Ingreso de la Presentacion: " + e.getMessage());
 		}
 	}
 
