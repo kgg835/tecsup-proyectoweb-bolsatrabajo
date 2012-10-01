@@ -1,6 +1,7 @@
 package com.proyecto.modelo;
 
 import java.util.Collection;
+import com.proyecto.modelo.Presentacion;
 
 public class Postulante extends Persona {
 	private int idPostulante;
@@ -20,6 +21,7 @@ public class Postulante extends Persona {
 
 	// Un postulante puede consultar de 0 a muchos Avisos
 	private Collection<Aviso> listaAvisos;
+	private Presentacion presentacion;
 
 	// Un postulante tiene de 0 a muchas postulaciones
 	//private Collection<RegistroPostulacion> listaregistroPostulacion;
@@ -99,6 +101,14 @@ public class Postulante extends Persona {
 //	public Login getLoginPostulante() {
 //		return loginPostulante;
 //	}
+
+	public Presentacion getPresentacion() {
+		return presentacion;
+	}
+
+	public void setPresentacion(Presentacion presentacion) {
+		this.presentacion = presentacion;
+	}
 
 	public String getTelefonoFijo() {
 		return telefonoFijo;
