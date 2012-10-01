@@ -3,7 +3,6 @@ package com.proyecto.test;
 import java.util.Collection;
 
 import org.junit.Assert;
-import org.junit.Test;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
