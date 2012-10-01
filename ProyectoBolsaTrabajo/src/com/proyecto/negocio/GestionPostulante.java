@@ -8,6 +8,7 @@ import com.proyecto.dao.InformaticaDAO;
 import com.proyecto.dao.PostulanteDAO;
 import com.proyecto.dao.PreferenciaSalarialDAO;
 import com.proyecto.dao.PresentacionDAO;
+import com.proyecto.dao.ReferenciaDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
 import com.proyecto.modelo.Idioma;
@@ -15,6 +16,7 @@ import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.modelo.PreferenciaSalarial;
 import com.proyecto.modelo.Presentacion;
+import com.proyecto.modelo.Referencia;
 
 //Como postulante quiero registrarme en la bolsa de trabajo
 public class GestionPostulante {
@@ -189,5 +191,25 @@ public class GestionPostulante {
 	public void eliminarPresentacion(int idPresentacion) throws DAOExcepcion {
 		PresentacionDAO dao = new PresentacionDAO();
 		dao.eliminarPresentacion(idPresentacion);
+	}
+
+	// Metodo para Ingresar una Referencia del Postulante
+	public Referencia insertarReferencia(Referencia referencia)
+			throws DAOExcepcion {
+		ReferenciaDAO dao = new ReferenciaDAO();
+		return dao.insertarReferencia(referencia);
+	}
+
+	// Metodo que actualiza la Referencia del postulante
+	public Referencia actualizarReferencia(Referencia referencia)
+			throws DAOExcepcion {
+		ReferenciaDAO dao = new ReferenciaDAO();
+		return dao.actualizarReferencia(referencia);
+	}
+
+	// Obtiene una Referncia deacuerdo al ID
+	public Referencia obtenerReferencia(int idReferencia) throws DAOExcepcion {
+		ReferenciaDAO dao = new ReferenciaDAO();
+		return dao.obtenerReferencia(idReferencia);
 	}
 }

@@ -12,6 +12,7 @@ import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.modelo.PreferenciaSalarial;
 import com.proyecto.modelo.Presentacion;
+import com.proyecto.modelo.Referencia;
 import com.proyecto.negocio.GestionPostulante;
 
 public class GestionPostulanteTest {
@@ -170,7 +171,7 @@ public class GestionPostulanteTest {
 		}
 	}
 	//Test que prueba el ingreso de una Presentacion
-	@Test
+//	@Test
 	public void ingresarPresentacionTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		try {
@@ -184,6 +185,32 @@ public class GestionPostulanteTest {
 			Assert.assertEquals("Programador Java",nuevo.getDescripcionPres());
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso de la Presentacion: " + e.getMessage());
+		}
+	}
+	
+	//Test que prueba el Ingreso de una Referencia
+//	@Test
+	public void insertarReferenciaTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		try {
+			Referencia referencia=new Referencia();
+			referencia.setNombreReferencia("Francisco");
+			referencia.setCodPostulante(3);
+			referencia.setApellidoReferencia("Egas Ricaldi");
+			referencia.setEmail("franciscopendeivis@yahoo.com");
+			referencia.setTelefonoReferencia("3273208");
+			referencia.setRelacion("Director");
+			referencia.setPuestoEmpresa("profesor");
+			referencia.setExperienciaRelacionada("profesor de Secundaria");
+			
+			negocio.insertarReferencia(referencia);
+			
+			Referencia nuevo=negocio.obtenerReferencia(5);
+			
+			Assert.assertEquals("Francisco",nuevo.getNombreReferencia());
+			
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el Ingreso de la Referencia: " + e.getMessage());
 		}
 	}
 
