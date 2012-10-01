@@ -78,7 +78,7 @@ public class GestionPostulanteTest {
 
 			negocio.actualizarPostulante("Francisco","Egas Ricaldi","francisco@gmail.com",4);
 
-			Postulante nuevo = negocio.obtener(4);
+			Postulante nuevo = negocio.obtener(1);
 
 			Assert.assertEquals("Francisco", nuevo.getNombre());
 
@@ -94,14 +94,14 @@ public class GestionPostulanteTest {
 		GestionPostulante negocio=new GestionPostulante();
 		try {
 			Idioma idioma=new Idioma();
-			idioma.setNombreIdioma("Portugues");
+			idioma.setNombreIdioma("Ingles");
 			idioma.setNivelEscrito("Avanzado");
-			idioma.setNivelOral("Avanzado");
+			idioma.setNivelOral("intermedio");
 			
 			negocio.insertarIdioma(idioma);
 			
-			Idioma nuevo=negocio.obtenerIdioma(6);
-			Assert.assertEquals("Frances",nuevo.getNombreIdioma());
+			Idioma nuevo=negocio.obtenerIdioma(2);
+			Assert.assertEquals("Ingles",nuevo.getNombreIdioma());
 			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló la el ingreso: " + e.getMessage());
@@ -110,7 +110,7 @@ public class GestionPostulanteTest {
 	}
 	
 	//Test para ingresar un Conocimiento Adicional
-	//@Test
+//	@Test
 	public void ingresarConocimientoAdicionalTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		try {
@@ -119,7 +119,7 @@ public class GestionPostulanteTest {
 			conocimiento.setDescrpcionConocimiento("Programador en lenguaje PHP Web");
 			negocio.insertarConocimiento(conocimiento);
 			
-			ConocimientoAdicional nuevo=negocio.obtenerConocimientoAdicional(3);
+			ConocimientoAdicional nuevo=negocio.obtenerConocimientoAdicional(1);
 			
 			Assert.assertEquals("PHP",nuevo.getNombreConocimiento());
 			
@@ -129,7 +129,7 @@ public class GestionPostulanteTest {
 	}
 	
 	//Test para Ingresar Informatica
-	//@Test
+//	@Test
 	public void ingresarInformaticaTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		try {
@@ -139,7 +139,7 @@ public class GestionPostulanteTest {
 			
 			negocio.insertarInformatica(info);
 			
-			Informatica nuevo=negocio.obtenerInformatica(3);
+			Informatica nuevo=negocio.obtenerInformatica(1);
 			
 			Assert.assertEquals("Windows 8",nuevo.getTipoInformatica());
 			
@@ -151,19 +151,19 @@ public class GestionPostulanteTest {
 	//Test para ingresar una Preferiencia Salarial
 	//@SuppressWarnings("deprecation")
 	
-	@Test
+//	@Test
 	public void ingresarPreferenciaSalarialTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		try {
 			PreferenciaSalarial monto=new PreferenciaSalarial();
-			monto.setMontoSoles(2000);
+			monto.setMontoSoles(2800);
 			monto.setMontoDolares(0);
 			
 			negocio.insertarSalario(monto);
 			
-			PreferenciaSalarial nuevo=negocio.obtenerSalario(13);
+			PreferenciaSalarial nuevo=negocio.obtenerSalario(2);
 			
-			Assert.assertEquals(Double.doubleToLongBits(2000),Double.doubleToLongBits(nuevo.getMontoSoles()));
+			Assert.assertEquals(Double.doubleToLongBits(2800),Double.doubleToLongBits(nuevo.getMontoSoles()));
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso del Salario: " + e.getMessage());
 		}
