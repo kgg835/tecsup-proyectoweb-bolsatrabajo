@@ -6,11 +6,13 @@ import com.proyecto.dao.ConocimientoAdicionalDAO;
 import com.proyecto.dao.IdiomaDAO;
 import com.proyecto.dao.InformaticaDAO;
 import com.proyecto.dao.PostulanteDAO;
+import com.proyecto.dao.PreferenciaSalarialDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
 import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
+import com.proyecto.modelo.PreferenciaSalarial;
 
 //Como postulante quiero registrarme en la bolsa de trabajo
 public class GestionPostulante {
@@ -138,6 +140,27 @@ public class GestionPostulante {
 	public Informatica obtenerInformatica(int idInfo) throws DAOExcepcion {
 		InformaticaDAO dao = new InformaticaDAO();
 		return dao.obtenerInformatica(idInfo);
+	}
+
+	// Metodo para Ingresar el Salario Preferencial
+	public PreferenciaSalarial insertarSalario(PreferenciaSalarial monto)
+			throws DAOExcepcion {
+		PreferenciaSalarialDAO dao = new PreferenciaSalarialDAO();
+		return dao.insertarSalario(monto);
+	}
+
+	// Actualiza el Idioma del postulante
+	public PreferenciaSalarial actualizarSalario(PreferenciaSalarial monto)
+			throws DAOExcepcion {
+		PreferenciaSalarialDAO dao = new PreferenciaSalarialDAO();
+		return dao.actualizarSalario(monto);
+	}
+
+	// Obtiene el Salario deacuerdo al ID
+	public PreferenciaSalarial obtenerSalario(int idPreferenciaSalarial)
+			throws DAOExcepcion {
+		PreferenciaSalarialDAO dao = new PreferenciaSalarialDAO();
+		return dao.obtenerSalario(idPreferenciaSalarial);
 	}
 
 }
