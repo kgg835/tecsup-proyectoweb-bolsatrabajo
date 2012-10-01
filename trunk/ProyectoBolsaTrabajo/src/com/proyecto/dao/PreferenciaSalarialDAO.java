@@ -6,13 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.proyecto.exception.DAOExcepcion;
+import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.PreferenciaSalarial;
 import com.proyecto.util.ConexionBD;
 
 public class PreferenciaSalarialDAO extends BaseDAO{
-	//Metodo para Ingresar el Idioma 
-	public PreferenciaSalarial insertarIdioma(PreferenciaSalarial monto) throws DAOExcepcion {
-		String query = "insert into IDIOMA(nombreIdioma,nivelEscrito,nivelOral) values (?,?,?)";
+	//Metodo para Ingresar el Salario Preferencial 
+	public PreferenciaSalarial insertarSalario(PreferenciaSalarial monto) throws DAOExcepcion {
+		String query = "insert into preferencias_salarial(montoSoles,montoDolares) values (?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -21,9 +22,7 @@ public class PreferenciaSalarialDAO extends BaseDAO{
 			stmt = con.prepareStatement(query);
 			stmt.setDouble(1, monto.getMontoSoles());
 			stmt.setDouble(2, monto.getMontoDolares());
-		//	stmt.setString(3,idioma.getNivelOral());
-//			stmt.setString(1, vo.getNombre());
-//			stmt.setString(2, vo.getDescripcion());
+
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
@@ -38,6 +37,60 @@ public class PreferenciaSalarialDAO extends BaseDAO{
 			}
 			monto.setIdSalario(id);
 
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return monto;
+	}
+	
+	//Actualiza el Idioma del postulante
+	public PreferenciaSalarial actualizarSalario(PreferenciaSalarial monto) throws DAOExcepcion {
+		String query = "UPDATE preferencias_salarial SET montoSoles=?,montoDolares=? WHERE idPREFERENCIAS_SALARIALES=?";
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setDouble(1, monto.getMontoSoles());
+			stmt.setDouble(2, monto.getMontoDolares());
+			
+			int i = stmt.executeUpdate();
+			if (i != 1) {
+				throw new SQLException("No se pudo actualizar");
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return monto;
+	}
+	
+	//Obtiene el Salario deacuerdo al ID
+	public PreferenciaSalarial obtenerSalario(int idPreferenciaSalarial) throws DAOExcepcion {
+		PreferenciaSalarial monto = new PreferenciaSalarial();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			String query = "SELECT idPREFERENCIAS_SALARIALES, montoSoles,montoDolares FROM preferencias_salarial WHERE idPREFERENCIAS_SALARIALES=?";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1,idPreferenciaSalarial);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				monto.setIdSalario(rs.getInt(1));
+				monto.setMontoSoles(rs.getDouble(2));
+				monto.setMontoDolares(rs.getDouble(3));
+				
+			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
