@@ -150,20 +150,20 @@ public class GestionPostulanteTest {
 	
 	//Test para ingresar una Preferiencia Salarial
 	//@SuppressWarnings("deprecation")
-	@SuppressWarnings("deprecation")
+	
 	@Test
 	public void ingresarPreferenciaSalarialTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		try {
 			PreferenciaSalarial monto=new PreferenciaSalarial();
-			monto.setMontoSoles(1800);
+			monto.setMontoSoles(2000);
 			monto.setMontoDolares(0);
 			
 			negocio.insertarSalario(monto);
 			
-			PreferenciaSalarial nuevo=negocio.obtenerSalario(7);
+			PreferenciaSalarial nuevo=negocio.obtenerSalario(13);
 			
-			Assert.assertEquals(1800,nuevo.getMontoSoles());
+			Assert.assertEquals(Double.doubleToLongBits(2000),Double.doubleToLongBits(nuevo.getMontoSoles()));
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso del Salario: " + e.getMessage());
 		}
