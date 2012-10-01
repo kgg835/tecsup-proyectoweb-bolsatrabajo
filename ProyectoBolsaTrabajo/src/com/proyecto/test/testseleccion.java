@@ -27,17 +27,17 @@ public class testseleccion {
 	
 	
 	
-	public void listar(){
-
-		GestionSeleccion nego= new GestionSeleccion();
-		try{
-			Collection<Ofertante> listado=nego.listar();
-	for (Ofertante ofertante : listado) {
-		System.out.println(ofertante.getRazonsocial());
-	}
-		}catch(DAOExcepcion e)
-		{
-			Assert.fail("fallo"+ e.getMessage());
-		}
-	}
+//	public void listar(){
+//
+//		GestionSeleccion nego= new GestionSeleccion();
+//		try{
+//			Collection<Ofertante> listado=nego.listar();
+//	for (Ofertante ofertante : listado) {
+//		System.out.println(ofertante.getRazonsocial());
+//	}
+//		}catch(DAOExcepcion e)
+//		{
+//			Assert.fail("fallo"+ e.getMessage());
+//		}
+//	}
 }
