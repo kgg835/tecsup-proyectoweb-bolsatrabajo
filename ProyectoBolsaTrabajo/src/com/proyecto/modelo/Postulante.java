@@ -2,6 +2,7 @@ package com.proyecto.modelo;
 
 import java.util.Collection;
 import com.proyecto.modelo.Presentacion;
+import com.proyecto.modelo.PreferenciaSalarial;
 
 public class Postulante extends Persona {
 	private int idPostulante;
@@ -22,6 +23,7 @@ public class Postulante extends Persona {
 	// Un postulante puede consultar de 0 a muchos Avisos
 	private Collection<Aviso> listaAvisos;
 	private Presentacion presentacion;
+	private PreferenciaSalarial preferenciaSalarial;
 
 	// Un postulante tiene de 0 a muchas postulaciones
 	//private Collection<RegistroPostulacion> listaregistroPostulacion;
@@ -148,6 +150,14 @@ public class Postulante extends Persona {
 
 	public void setPasswordPE(String passwordPE) {
 		this.passwordPE = passwordPE;
+	}
+
+	public void setPreferenciaSalarial(PreferenciaSalarial preferenciaSalarial) {
+		this.preferenciaSalarial = preferenciaSalarial;
+	}
+
+	public PreferenciaSalarial getPreferenciaSalarial() {
+		return preferenciaSalarial;
 	}
 
 //	public void setListaregistroPostulacion(
