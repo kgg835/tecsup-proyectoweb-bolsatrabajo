@@ -1,6 +1,7 @@
 package com.proyecto.modelo;
 
 public class Referencia {
+	private int idReferencia;
 	private String nombreReferencia;
 	private String apellidoReferencia;
 	private String email;
@@ -8,6 +9,8 @@ public class Referencia {
 	private String relacion;
 	private String puestoEmpresa;
 	private String experienciaRelacionada;
+	//una Referencia pertenece a un Postulante
+	private int codPostulante;
 
 	// Get and Set
 	public String getNombreReferencia() {
@@ -64,6 +67,22 @@ public class Referencia {
 
 	public void setExperienciaRelacionada(String experienciaRelacionada) {
 		this.experienciaRelacionada = experienciaRelacionada;
+	}
+
+	public void setIdReferencia(int idReferencia) {
+		this.idReferencia = idReferencia;
+	}
+
+	public int getIdReferencia() {
+		return idReferencia;
+	}
+
+	public void setCodPostulante(int codPostulante) {
+		this.codPostulante = codPostulante;
+	}
+
+	public int getCodPostulante() {
+		return codPostulante;
 	}
 
 }

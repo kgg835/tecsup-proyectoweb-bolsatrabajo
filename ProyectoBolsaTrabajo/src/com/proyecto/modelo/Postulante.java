@@ -24,6 +24,9 @@ public class Postulante extends Persona {
 	private Collection<Aviso> listaAvisos;
 	private Presentacion presentacion;
 	private PreferenciaSalarial preferenciaSalarial;
+	
+	//Un Postulante tiene de 1 a mas Referencias
+	private Collection<Referencia> listaReferencias;
 
 	// Un postulante tiene de 0 a muchas postulaciones
 	//private Collection<RegistroPostulacion> listaregistroPostulacion;
@@ -158,6 +161,14 @@ public class Postulante extends Persona {
 
 	public PreferenciaSalarial getPreferenciaSalarial() {
 		return preferenciaSalarial;
+	}
+
+	public void setListaReferencias(Collection<Referencia> listaReferencias) {
+		this.listaReferencias = listaReferencias;
+	}
+
+	public Collection<Referencia> getListaReferencias() {
+		return listaReferencias;
 	}
 
 //	public void setListaregistroPostulacion(
