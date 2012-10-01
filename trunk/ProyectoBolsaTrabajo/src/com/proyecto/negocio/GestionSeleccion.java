@@ -20,7 +20,7 @@ public class GestionSeleccion {
 }
 	public Ofertante obtener(int idofertante) throws DAOExcepcion {
 		OFERTANTEDAO dao = new OFERTANTEDAO();
-		C
+		
 		
 		
 		return dao.obtener(idofertante);
