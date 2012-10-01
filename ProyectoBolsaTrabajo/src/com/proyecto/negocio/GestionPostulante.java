@@ -7,12 +7,14 @@ import com.proyecto.dao.IdiomaDAO;
 import com.proyecto.dao.InformaticaDAO;
 import com.proyecto.dao.PostulanteDAO;
 import com.proyecto.dao.PreferenciaSalarialDAO;
+import com.proyecto.dao.PresentacionDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
 import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.modelo.PreferenciaSalarial;
+import com.proyecto.modelo.Presentacion;
 
 //Como postulante quiero registrarme en la bolsa de trabajo
 public class GestionPostulante {
@@ -163,4 +165,29 @@ public class GestionPostulante {
 		return dao.obtenerSalario(idPreferenciaSalarial);
 	}
 
+	// Metodo para Insertar una Presentacion del Postulante
+	public Presentacion insertarPresentacion(Presentacion pres)
+			throws DAOExcepcion {
+		PresentacionDAO dao = new PresentacionDAO();
+		return dao.insertarPresentacion(pres);
+	}
+
+	// metodo que actualiza la presentacion de un Postulante
+	public Presentacion actualizar(Presentacion vo) throws DAOExcepcion {
+		PresentacionDAO dao = new PresentacionDAO();
+		return dao.actualizar(vo);
+	}
+
+	// Metodo para obtener un Presentacion del Postulante
+	public Presentacion obtenerPresentacion(int idPresentacion)
+			throws DAOExcepcion {
+		PresentacionDAO dao = new PresentacionDAO();
+		return dao.obtenerPresentacion(idPresentacion);
+	}
+
+	// Metodo que elimina una Presentacion del postulante
+	public void eliminarPresentacion(int idPresentacion) throws DAOExcepcion {
+		PresentacionDAO dao = new PresentacionDAO();
+		dao.eliminarPresentacion(idPresentacion);
+	}
 }

@@ -9,12 +9,9 @@ import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Presentacion;
 import com.proyecto.util.ConexionBD;
 
-
-
 public class PresentacionDAO extends BaseDAO {
-	
-	
-		public Presentacion insertar(Presentacion vo) throws DAOExcepcion {
+	//Metodo para Insertar una Presentacion del Postulante
+	public Presentacion insertarPresentacion(Presentacion vo)throws DAOExcepcion {
 		String query = "insert into presentacion(descripcion_pres) values (?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -27,7 +24,7 @@ public class PresentacionDAO extends BaseDAO {
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
 			}
-		//	 Obtener el ultimo id
+			// Obtener el ultimo id
 			int id = 0;
 			query = "select last_insert_id()";
 			stmt = con.prepareStatement(query);
@@ -47,17 +44,14 @@ public class PresentacionDAO extends BaseDAO {
 		}
 		return vo;
 	}
-
-		
-		
-				
-	public Presentacion obtener(int idPresentacion ) throws DAOExcepcion {
+	//Metodo para obtener un Presentacion del Postulante
+	public Presentacion obtenerPresentacion(int idPresentacion) throws DAOExcepcion {
 		Presentacion vo = new Presentacion();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select idPresentacion, descripcion_pres from presentacion where idpresentacion=?";
+			String query = "select idPresentacion, descripcion_pres from presentacion where idPRESENTACION=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, idPresentacion);
@@ -65,7 +59,7 @@ public class PresentacionDAO extends BaseDAO {
 			if (rs.next()) {
 				vo.setIdPresentacion(rs.getInt(1));
 				vo.setDescripcionPres(rs.getString(2));
-			
+
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -77,9 +71,9 @@ public class PresentacionDAO extends BaseDAO {
 		}
 		return vo;
 	}
-
-	public void eliminar(int idPresentacion) throws DAOExcepcion {
-		String query = "delete from categoria WHERE idpresentacion=?";
+	//Metodo que elimina una Presentacion del postulante
+	public void eliminarPresentacion(int idPresentacion) throws DAOExcepcion {
+		String query = "delete from presentacion WHERE idPRESENTACION=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -98,9 +92,9 @@ public class PresentacionDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 	}
-
+	//metodo que actualiza la presentacion de un Postulante
 	public Presentacion actualizar(Presentacion vo) throws DAOExcepcion {
-		String query = "update presentacion set descripcion_pres=? where idpresentacion=?";
+		String query = "update presentacion set descripcion_pres=? where idPRESENTACION=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -108,7 +102,7 @@ public class PresentacionDAO extends BaseDAO {
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, vo.getIdPresentacion());
 			stmt.setString(2, vo.getDescripcionPres());
-			
+
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo actualizar");
@@ -121,6 +115,5 @@ public class PresentacionDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 		return vo;
-	}}
-
-	
+	}
+}
