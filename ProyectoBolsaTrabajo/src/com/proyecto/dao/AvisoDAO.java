@@ -1,7 +1,6 @@
 package com.proyecto.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +8,6 @@ import java.text.SimpleDateFormat;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Aviso;
-import com.proyecto.modelo.Ofertante;
 import com.proyecto.util.ConexionBD;
 
 public class AvisoDAO extends BaseDAO {

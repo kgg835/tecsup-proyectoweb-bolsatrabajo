@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Area;
-import com.proyecto.modelo.Aviso;
 import com.proyecto.util.ConexionBD;
 
 public class AreaDAO extends BaseDAO {
