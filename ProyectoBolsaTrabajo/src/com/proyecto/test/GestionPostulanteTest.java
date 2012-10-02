@@ -3,9 +3,11 @@ package com.proyecto.test;
 import java.util.Collection;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
+import com.proyecto.modelo.ExperienciaLaboral;
 import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
@@ -210,6 +212,34 @@ public class GestionPostulanteTest {
 			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso de la Referencia: " + e.getMessage());
+		}
+	}
+	
+	//Test que prueba el ingreso de una Experiacia Laboral del postulante
+	@Test
+	public void insertarExperienciaLaboralTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		
+		try {
+			ExperienciaLaboral experiencia=new ExperienciaLaboral();
+			experiencia.setTituloPuesto("Jefe de Proyectos");
+			experiencia.setEmpresa("Synopsis S.A");
+			experiencia.setPais("Peru");
+			experiencia.setFechaInicio("06/08/2012");
+			experiencia.setFechaFinal("01/10/2012");
+			experiencia.setArea("Arquitectura y Sistemas TI");
+			experiencia.setSubArea("Desarrollo");
+			experiencia.setDescripcionResponsabilidad("Analista Programador");
+			experiencia.setNumPersonasCargo(0);
+			experiencia.setIdPostulante(4);
+			
+			negocio.insertarExperienciaLaboral(experiencia);
+			
+			ExperienciaLaboral nuevo=negocio.obtenerExperienciaLaboral(2);
+			
+			Assert.assertEquals("Jefe de Proyectos",nuevo.getTituloPuesto());
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el Ingreso de la Experiencia Laboral: " + e.getMessage());
 		}
 	}
 

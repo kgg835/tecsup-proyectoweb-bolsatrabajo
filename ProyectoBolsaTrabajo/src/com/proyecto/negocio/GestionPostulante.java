@@ -3,6 +3,7 @@ package com.proyecto.negocio;
 import java.util.Collection;
 
 import com.proyecto.dao.ConocimientoAdicionalDAO;
+import com.proyecto.dao.ExperienciaLaboralDAO;
 import com.proyecto.dao.IdiomaDAO;
 import com.proyecto.dao.InformaticaDAO;
 import com.proyecto.dao.PostulanteDAO;
@@ -11,6 +12,7 @@ import com.proyecto.dao.PresentacionDAO;
 import com.proyecto.dao.ReferenciaDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
+import com.proyecto.modelo.ExperienciaLaboral;
 import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
 import com.proyecto.modelo.Postulante;
@@ -211,5 +213,26 @@ public class GestionPostulante {
 	public Referencia obtenerReferencia(int idReferencia) throws DAOExcepcion {
 		ReferenciaDAO dao = new ReferenciaDAO();
 		return dao.obtenerReferencia(idReferencia);
+	}
+
+	// Metodo para Ingresar una Experiencia Laboral
+	public ExperienciaLaboral insertarExperienciaLaboral(
+			ExperienciaLaboral experiencialaboral) throws DAOExcepcion {
+		ExperienciaLaboralDAO dao = new ExperienciaLaboralDAO();
+		return dao.insertarExperienciaLaboral(experiencialaboral);
+	}
+
+	// Metodo que actualiza la Experiencia laboral del postulante
+	public ExperienciaLaboral actualizarExperienciaLaboral(
+			ExperienciaLaboral experiencia) throws DAOExcepcion {
+		ExperienciaLaboralDAO dao = new ExperienciaLaboralDAO();
+		return dao.actualizarExperienciaLaboral(experiencia);
+	}
+
+	// Obtiene la Experiencia Laboral deacuerdo al ID
+	public ExperienciaLaboral obtenerExperienciaLaboral(int idExperiencia)
+			throws DAOExcepcion {
+		ExperienciaLaboralDAO dao = new ExperienciaLaboralDAO();
+		return dao.obtenerExperienciaLaboral(idExperiencia);
 	}
 }

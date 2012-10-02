@@ -2,6 +2,7 @@ package com.proyecto.modelo;
 
 public class ExperienciaLaboral {
 	private int idExperienciaLaboral;
+	private int idPostulante;
 	private String tituloPuesto;
 	private String empresa;
 	private String pais;
@@ -11,6 +12,8 @@ public class ExperienciaLaboral {
 	private String subArea;
 	private String descripcionResponsabilidad;
 	private int numPersonasCargo;
+	//Una Experiencia Laboral pertenece a un Postulante
+	private Postulante postulante;
 	
 	//Get and Set
 	public int getIdExperienciaLaboral() {
@@ -72,6 +75,18 @@ public class ExperienciaLaboral {
 	}
 	public void setNumPersonasCargo(int numPersonasCargo) {
 		this.numPersonasCargo = numPersonasCargo;
+	}
+	public void setPostulante(Postulante postulante) {
+		this.postulante = postulante;
+	}
+	public Postulante getPostulante() {
+		return postulante;
+	}
+	public void setIdPostulante(int idPostulante) {
+		this.idPostulante = idPostulante;
+	}
+	public int getIdPostulante() {
+		return idPostulante;
 	}
 	
 	
