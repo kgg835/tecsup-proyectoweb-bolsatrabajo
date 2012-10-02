@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.proyecto.exception.DAOExcepcion;
-import com.proyecto.modelo.Ofertante;
 import com.proyecto.modelo.Puesto;
 import com.proyecto.util.ConexionBD;
 

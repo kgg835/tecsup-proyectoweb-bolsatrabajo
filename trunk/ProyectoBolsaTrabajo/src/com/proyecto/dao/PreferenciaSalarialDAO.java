@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.proyecto.exception.DAOExcepcion;
-import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.PreferenciaSalarial;
 import com.proyecto.util.ConexionBD;
 
