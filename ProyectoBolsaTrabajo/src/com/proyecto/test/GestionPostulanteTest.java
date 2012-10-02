@@ -222,22 +222,22 @@ public class GestionPostulanteTest {
 		
 		try {
 			ExperienciaLaboral experiencia=new ExperienciaLaboral();
-			experiencia.setTituloPuesto("Arquitecto Web");
+			experiencia.setTituloPuesto("Consultor Java");
 			experiencia.setEmpresa("Teamsoft");
 			experiencia.setPais("Peru");
 			experiencia.setFechaInicio("01/05/2012");
 			experiencia.setFechaFinal("15/07/2012");
 			experiencia.setArea("Arquitectura y Sistemas TI");
 			experiencia.setSubArea("Desarrollo");
-			experiencia.setDescripcionResponsabilidad("apoyo a requerimientos");
+			experiencia.setDescripcionResponsabilidad("apollo en desarrollo a los developers");
 			experiencia.setNumPersonasCargo(0);
-			experiencia.setIdPostulante(1);
+			experiencia.setIdPostulante(7);
 			
 			negocio.insertarExperienciaLaboral(experiencia);
 			
-			ExperienciaLaboral nuevo=negocio.obtenerExperienciaLaboral(4);
+			ExperienciaLaboral nuevo=negocio.obtenerExperienciaLaboral(5);
 			
-			Assert.assertEquals("Arquitecto Web",nuevo.getTituloPuesto());
+			Assert.assertEquals("Consultor Java",nuevo.getTituloPuesto());
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso de la Experiencia Laboral: " + e.getMessage());
 		}
