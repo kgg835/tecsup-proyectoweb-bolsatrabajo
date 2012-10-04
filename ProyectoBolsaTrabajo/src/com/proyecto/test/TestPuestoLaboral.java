@@ -5,7 +5,6 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import com.proyecto.exception.DAOExcepcion;
-import com.proyecto.negocio.GestionArea;
 import com.proyecto.negocio.GestionPuesto;
 
 public class TestPuestoLaboral {

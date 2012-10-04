@@ -6,7 +6,6 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.proyecto.dao.OFERTANTEDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Ofertante;
 import com.proyecto.negocio.GestionPostulante;
