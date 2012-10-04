@@ -1,12 +1,11 @@
 package com.proyecto.test;
 
-import org.junit.Test;
-
 import junit.framework.Assert;
+
+import org.junit.Test;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.negocio.GestionArea;
-import com.proyecto.negocio.Gestionofertante;
 
 public class testArea {
 	

@@ -1,15 +1,11 @@
 package com.proyecto.test;
 
-import java.util.Collection;
-
 import junit.framework.Assert;
 
 import org.junit.Test;
 
 import com.proyecto.exception.DAOExcepcion;
-import com.proyecto.modelo.Ofertante;
 import com.proyecto.negocio.GestionSeleccion;
-import com.proyecto.negocio.Gestionofertante;
 
 public class testseleccion {
 	@Test
