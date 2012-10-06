@@ -1,3 +1,0 @@
-Select PER_CON_AD_idPERSONA, PER_CON_AD_idCONOCIMIENTO_ADICIONAL from bd_bolsatrabajo.persona_conocimiento_adicional
-USE bd_bolsatrabajo;
-
