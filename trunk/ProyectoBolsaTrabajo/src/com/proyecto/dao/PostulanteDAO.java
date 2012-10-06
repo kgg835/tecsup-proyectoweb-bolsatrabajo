@@ -12,45 +12,43 @@ import com.proyecto.modelo.Postulante;
 import com.proyecto.util.ConexionBD;
 
 public class PostulanteDAO extends BaseDAO {
-	//Metodo que inserta un postulante
-	public Postulante insertarPostulante(Postulante postulante) throws DAOExcepcion {
-		String query = "insert into PERSONA(tipo_persona,nombrePersona,"
-				+ "apPellidos,dni,codPersona,passwordPe,email,pais,"
-				+ "provincia,ciudad,direccion,telefonoFijo,numeroCelular,"
-				+ "fechaNacimiento,sexo,estadoCivil)"
-				+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";// ?:por cada
-																// columna
+	// Metodo que inserta un postulante
+	public Postulante insertarPostulante(Postulante postulante)
+			throws DAOExcepcion {
+		String query = "INSERT INTO persona(tipo_persona,nombrePersona,"
+				+ "apellidosPersona,dni,codPersona,passwordPe,email,"
+				+ "pais,provincia,ciudad,direccion,telefonoFijo,"
+				+ "numeroCelular,fechaNacimiento,sexo,estadoCivil,"
+				+ "PER_idPRESENTACION,PER_idPREFERENCIAS_SALARIALES)"
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";// ?:por cada
+		// columna
 		Connection con = null;
 		PreparedStatement stmt = null;// sentencias preparadas
 		ResultSet rs = null;
 		try {
-			System.out.println("hola try");
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, "postulante");// se le asigna el valor para q se
-											// inserte a la columna asignada
+
+			stmt.setString(1, postulante.getTipoPersona());
 			stmt.setString(2, postulante.getNombre());
-			stmt.setString(3, "roman reynoso");
+			stmt.setString(3, postulante.getApellidos());
 			stmt.setString(4, postulante.getDni());
-
-			stmt.setString(5, "0000");
-
-			stmt.setString(6, "0111");
-			stmt.setString(7, "aroman@hotmail.com");
-			stmt.setString(8, "peru");
-			stmt.setString(9, "Lima");
-			stmt.setString(10, "Lima");
-
-			stmt.setString(11, "los alamos");
-			stmt.setInt(12, 3273208);
-			stmt.setInt(13, 0);
-			stmt.setString(14, "23/09/25");
-			stmt.setString(15, "M");
-			stmt.setString(16, "soltero");
-			System.out.println("5555");
+			stmt.setString(5, postulante.getCodPostulante());
+			stmt.setString(6, postulante.getPasswordPE());
+			stmt.setString(7, postulante.getEmail());
+			stmt.setString(8, postulante.getPaisPostulante());
+			stmt.setString(9, postulante.getProvinciaPostulante());
+			stmt.setString(10, postulante.getCiudadPostulante());
+			stmt.setString(11, postulante.getDireccion());
+			stmt.setString(12, postulante.getTelefonoFijo());
+			stmt.setString(13, postulante.getTelefonoCel());
+			stmt.setString(14, postulante.getFechaNacimiento());
+			stmt.setString(15, postulante.getSexo());
+			stmt.setString(16, postulante.getEstadoCivil());
+			stmt.setInt(17, postulante.getIdPresentacion());
+			stmt.setInt(18, postulante.getIdPreferencia_Salarial());
 			int i = stmt.executeUpdate();// executeUpdate() devuelve un entero=#
 											// de filas afectadas
-			System.out.println("i=" + i);
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar al Postulante");
 			}
@@ -78,20 +76,45 @@ public class PostulanteDAO extends BaseDAO {
 	// Metodo para obtener un Postulante
 
 	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
-		Postulante pos = new Postulante();
+		Postulante postulante = new Postulante();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select nombrePersona, dni from PERSONA where idPERSONA=?";
+			String query = "SELECT idPERSONA,tipo_persona,"
+					+ "nombrePersona,apellidosPersona,dni,"
+					+ "codPersona,passwordPe,email,pais,"
+					+ "provincia,ciudad,direccion,telefonoFijo,"
+					+ "numeroCelular,fechaNacimiento,sexo,estadoCivil,"
+					+ "PER_idPRESENTACION,PER_idPREFERENCIAS_SALARIALES "
+					+ "FROM persona WHERE idPERSONA=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, idPostulante);
 			rs = stmt.executeQuery();
 			if (rs.next()) {//
-				pos.setNombre(rs.getString(1));
-				pos.setDni(rs.getString(2));
-				// pos.setTipoPersona(rs.getString(3));
+				// postulante.setNombre(rs.getString(1));
+				// postulante.setDni(rs.getString(2));
+				postulante.setIdPostulante(rs.getInt(1));
+				postulante.setTipoPersona(rs.getString(2));
+				postulante.setNombre(rs.getString(3));
+				postulante.setApellidos(rs.getString(4));
+				postulante.setDni(rs.getString(5));
+				postulante.setCodPostulante(rs.getString(6));
+				postulante.setPasswordPE(rs.getString(7));
+				postulante.setEmail(rs.getString(8));
+				postulante.setPaisPostulante(rs.getString(9));
+				postulante.setProvinciaPostulante(rs.getString(10));
+				postulante.setCiudadPostulante(rs.getString(11));
+				postulante.setDireccion(rs.getString(12));
+				postulante.setTelefonoFijo(rs.getString(13));
+				postulante.setTelefonoCel(rs.getString(14));
+				postulante.setFechaNacimiento(rs.getString(15));
+				postulante.setSexo(rs.getString(16));
+				postulante.setEstadoCivil(rs.getString(17));
+				postulante.setIdPresentacion(rs.getInt(18));
+				postulante.setIdPreferencia_Salarial(rs.getInt(19));
+
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -101,7 +124,7 @@ public class PostulanteDAO extends BaseDAO {
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		return pos;
+		return postulante;
 	}
 
 	// metodo que actualiza los datos del Postulante
