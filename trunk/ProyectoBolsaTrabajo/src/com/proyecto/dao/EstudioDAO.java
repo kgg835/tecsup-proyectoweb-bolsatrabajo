@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.Estudio;
-import com.proyecto.modelo.Idioma;
 import com.proyecto.util.ConexionBD;
 
 public class EstudioDAO extends BaseDAO{
@@ -42,7 +41,7 @@ public class EstudioDAO extends BaseDAO{
 			if (rs.next()) {
 				id = rs.getInt(1);
 			}
-			idioma.setIdIdioma(id);
+			estudio.setIdEstudios(id);
 
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -52,6 +51,6 @@ public class EstudioDAO extends BaseDAO{
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		return idioma;
+		return estudio;
 	}
 }
