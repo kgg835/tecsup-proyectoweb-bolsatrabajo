@@ -75,7 +75,8 @@
 						</div>
 					</div>
 					<br>
-					<form class="navbar-form well">
+					<!-- EL FORMULARIO -->
+					<form class="navbar-form well" name="f1" action="ServletPostulante" method="post">
 						<div class="span2" style="width:100px; height:100px;" >
 							<!--Sidebar content-->
 							<img src="img/fotoCvGenericaGrande.jpg" class="fotoCvBox" color="green">
@@ -87,16 +88,16 @@
 							<!--Body content-->
 							<div class="container">
 								<label>Nombres(s)</label>
-								<input type="text" class="span3" placeholder="nombres"><br>
+								<input name="txtNombre" type="text" class="span3" placeholder="nombres"><br>
 								<label>Apellido(s)</label>
-								<input type="text" class="span3" placeholder="apellidos"><br>
+								<input name="txtApellido" type="text" class="span3" placeholder="apellidos"><br>
 								<label>E-mail</label>
-								<input type="text" class="span3" placeholder="hackromanux@gmail.com"><br>
+								<input name="txtEmail" type="text" class="span3" placeholder="hackromanux@gmail.com"><br>
 								<table>
 									<tr>
 										<td>
 											<label>Pais de residencia</label>
-											<select type="combobox" >
+											<select name="txtPais" type="combobox" >
 												<option selected="" value="">-</option>
 												<option value="PE">Peru</option>
 												<option value="CO">Colombia</option>
@@ -107,7 +108,7 @@
 										</td>
 										<td>
 											<label>Provincia o estado</label>
-											<select type="combobox" >
+											<select name="txtProvincia" type="combobox" >
 												<option selected="" value="">-</option>
 												<option value="LI">Lima</option>
 												<option value="TU">Tumbes</option>
@@ -121,13 +122,13 @@
 								<br>
 								<br>
 								<label>ciudad</label>
-								<input type="text" class="span3" placeholder="ciudad"><br>
+								<input name="txtCuidad" type="text" class="span3" placeholder="ciudad"><br>
 								<label>Direccion</label>
-								<input class="span4" type="text" placeholder="direccion"><br>
+								<input name="txtDireccion" class="span4" type="text" placeholder="direccion"><br>
 								<label>telefono fijo</label>
-								<input class="span3" type="text" placeholder="fijo"><br>
+								<input name="txtTelefonoFijo" class="span3" type="text" placeholder="fijo"><br>
 								<label>telefono celular</label>
-								<input class="span3" type="text" placeholder="celular"><br>
+								<input name="txtTelefonoCel" class="span3" type="text" placeholder="celular"><br>
 								<label>Nacionlidad</label>
 								<p>
 									<select type="combobox">
@@ -141,32 +142,32 @@
 								</p>
 								<p>
 									<label>Tipo y numero de Documento</label>
-									<select type="combobox">
+									<select  type="combobox">
 										<option selected="" value="">-</option>
 										<option value="PA">Pasaporte</option>
 										<option value="DN">DNI</option>
 									</select>
-									<input type="text" placeholder="....">									
+									<input name="txtDni" type="text" placeholder="....">									
 								</p>
 								<p>
 									
 										
 											<label>Fecha de nacimiento</label>
-											<select type="combobox" class="span1"> 
+											<select name="txtDia" type="combobox" class="span1"> 
 												<option selected="" value="">-</option>
 												<option value="PE">1</option>
 
 											</select>	
 										
 										
-											<select type="combobox" class="span2">
+											<select name="txtMes" type="combobox" class="span2">
 												<option selected="" value="">-</option>
 												<option value="LI">Enero</option>
 
 											</select>
 								
 
-											<select type="combobox" class="span1">
+											<select name="txtAnio" type="combobox" class="span1">
 												<option selected="" value="">-</option>
 												<option value="LI">1981</option>
 				
@@ -179,17 +180,17 @@
 								<div class="control-group">
 									<label>Sexo</label>
 									<br>
-									<input type="radio" name="#" value="1" >
+									<input  type="radio" name="txtSexo" value="M" >
 									<span>Masculino</span>
 									<br>
-									<input type="radio" name="#" value="2">
+									<input type="radio" name="txtSexo" value="F">
 									<span>Femenino</span>
 									<br>
 								</div>
 								</br></br>
 								<p>
 									<label>Estado civil</label>
-									<select type="combobox" class="span2">
+									<select name="txtEstadoCivil" type="combobox" class="span2">
 										<option selected="" value="">-</option>
 										<option value="5">Viudo/a</option>
 										<option value="290">Unión Libre</option>
