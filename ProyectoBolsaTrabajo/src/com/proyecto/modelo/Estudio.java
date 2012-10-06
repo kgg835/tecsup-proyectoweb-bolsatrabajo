@@ -15,7 +15,8 @@ public class Estudio {
 	private int cantidadMaterias;
 	private int idPersona;
 	private int idPresentacion;
-
+	//un Estudio Pertenece a un Postulante
+	private Postulante postulante;
 	// Get and Set
 	public int getIdEstudios() {
 		return idEstudios;
@@ -127,5 +128,13 @@ public class Estudio {
 
 	public void setIdPresentacion(int idPresentacion) {
 		this.idPresentacion = idPresentacion;
+	}
+
+	public void setPostulante(Postulante postulante) {
+		this.postulante = postulante;
+	}
+
+	public Postulante getPostulante() {
+		return postulante;
 	}
 }
