@@ -26,37 +26,25 @@ import com.proyecto.modelo.Referencia;
 public class GestionPostulante {
 
 	// como Postulantede quiero ingresar mis datos
-	public Postulante insertar(String nombre, String dni) throws DAOExcepcion {
+	public Postulante insertarPostulante(Postulante postulante) throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
-
-		Postulante postulante = new Postulante();
-		postulante.setNombre(nombre);
-
-		postulante.setDni(dni);
-
 		return dao.insertarPostulante(postulante);
 	}
 
-	public Postulante obtener(int idpostulante) throws DAOExcepcion {
+	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
-		return dao.obtenerPostulante(idpostulante);
+		return dao.obtenerPostulante(idPostulante);
 	}
 
 	// Metodo para eliminar un Postulante
-	public void eliminar(int idPostulante) throws DAOExcepcion {
+	public void eliminarPostulante(int idPostulante) throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
 		dao.eliminarPostulante(idPostulante);
 	}
 
 	// Como postulante quiero actualizar mi hoja de vida para las empresas.
-	public Postulante actualizarPostulante(String nombre, String apellido,
-			String mail, int id) throws DAOExcepcion {
+	public Postulante actualizarPostulante(Postulante postulante) throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
-		Postulante postulante = new Postulante();
-		postulante.setNombre(nombre);
-		postulante.setApellidos(apellido);
-		postulante.setEmail(mail);
-		postulante.setIdPostulante(id);
 		return dao.actualizarPostulante(postulante);
 	}
 
@@ -79,7 +67,7 @@ public class GestionPostulante {
 	}
 
 	// Metodo para listar todos los postulantes
-	public Collection<Postulante> listar() throws DAOExcepcion {
+	public Collection<Postulante> listarPostulante() throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
 		return dao.listarPostulante();
 	}

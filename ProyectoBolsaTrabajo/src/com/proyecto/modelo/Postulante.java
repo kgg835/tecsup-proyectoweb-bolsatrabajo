@@ -1,10 +1,13 @@
 package com.proyecto.modelo;
 
+import java.io.Serializable;
 import java.util.Collection;
 import com.proyecto.modelo.Presentacion;
 import com.proyecto.modelo.PreferenciaSalarial;
 
-public class Postulante extends Persona {
+public class Postulante extends Persona implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private int idPostulante;
 	private String codseleccion;
 	private String email;
@@ -15,6 +18,12 @@ public class Postulante extends Persona {
 	private String telefonoFijo;
 	private String telefonoCel;
 	private String passwordPE;
+	private String codPostulante;
+	private String paisPostulante;
+	private int idPresentacion;
+	private String provinciaPostulante;
+	private String ciudadPostulante;
+	private int idPreferencia_Salarial;
 
 
 	// Un postulante tiene un registro de login
@@ -191,6 +200,56 @@ public class Postulante extends Persona {
 	public Collection<Estudio> getListaEstudios() {
 		return listaEstudios;
 	}
+
+	public void setIdPresentacion(int idPresentacion) {
+		this.idPresentacion = idPresentacion;
+	}
+
+	public int getIdPresentacion() {
+		return idPresentacion;
+	}
+
+	public void setIdPreferencia_Salarial(int idPreferencia_Salarial) {
+		this.idPreferencia_Salarial = idPreferencia_Salarial;
+	}
+
+	public int getIdPreferencia_Salarial() {
+		return idPreferencia_Salarial;
+	}
+
+	public void setCiudadPostulante(String ciudadPostulante) {
+		this.ciudadPostulante = ciudadPostulante;
+	}
+
+	public String getCiudadPostulante() {
+		return ciudadPostulante;
+	}
+
+	public void setProvinciaPostulante(String provinciaPostulante) {
+		this.provinciaPostulante = provinciaPostulante;
+	}
+
+	public String getProvinciaPostulante() {
+		return provinciaPostulante;
+	}
+
+	public void setPaisPostulante(String paisPostulante) {
+		this.paisPostulante = paisPostulante;
+	}
+
+	public String getPaisPostulante() {
+		return paisPostulante;
+	}
+
+	public void setCodPostulante(String codPostulante) {
+		this.codPostulante = codPostulante;
+	}
+
+	public String getCodPostulante() {
+		return codPostulante;
+	}
+
+
 
 //	public void setListaregistroPostulacion(
 //			Collection<RegistroPostulacion> listaregistroPostulacion) {
