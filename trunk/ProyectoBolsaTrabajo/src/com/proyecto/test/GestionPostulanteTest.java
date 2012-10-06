@@ -217,7 +217,7 @@ public class GestionPostulanteTest {
 	}
 	
 	//Test que prueba el ingreso de una Experiacia Laboral del postulante
-	@Test
+//	@Test
 	public void insertarExperienciaLaboralTest(){
 		GestionPostulante negocio=new GestionPostulante();
 		
@@ -250,24 +250,24 @@ public class GestionPostulanteTest {
 		GestionPostulante negocio=new GestionPostulante();
 		try {
 			Estudio estudio=new Estudio();
-			estudio.setTituloEstudio("Administrador Base de Datos Oracle");
-			estudio.setFechaInicio("05/03/2013");
-			estudio.setFechaFinal("31/072013");
+			estudio.setTituloEstudio("Developer Certification Java");
+			estudio.setFechaInicio("04/05/2012");
+			estudio.setFechaFinal("30/11/2012");
 			estudio.setDescripcionInstutucion("CIBERTEC");
 			estudio.setPais("PERU");
 			estudio.setNivelEstudio("Superior");
 			estudio.setEstado("Activo");
 			estudio.setAreaEstudio("Sistemas de Informacion");
-			estudio.setPromedio(15.5);
-			estudio.setMateriasAprovadas(45);
-			estudio.setCantidadMaterias(60);
-			estudio.setIdPersona(2);
+			estudio.setPromedio(13);
+			estudio.setMateriasAprovadas(50);
+			estudio.setCantidadMaterias(50);
+			estudio.setIdPersona(3);
 			
 			negocio.insertarEstudio(estudio);
 			
-			Estudio nuevo=negocio.obtenerEstudio(5);
+			Estudio nuevo=negocio.obtenerEstudio(6);
 			
-			Assert.assertEquals("Administrador Base de Datos Oracle",nuevo.getTituloEstudio());
+			Assert.assertEquals("Developer Certification Java",nuevo.getTituloEstudio());
 			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso del Estudio del Postulante: " + e.getMessage());
