@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
+import com.proyecto.modelo.Estudio;
 import com.proyecto.modelo.ExperienciaLaboral;
 import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
@@ -240,6 +241,36 @@ public class GestionPostulanteTest {
 			Assert.assertEquals("Consultor Java",nuevo.getTituloPuesto());
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el Ingreso de la Experiencia Laboral: " + e.getMessage());
+		}
+	}
+	
+	//Test que prueba el ingreso de un Estudio realizado por el Postulante
+	@Test
+	public void ingresarEstudioTest(){
+		GestionPostulante negocio=new GestionPostulante();
+		try {
+			Estudio estudio=new Estudio();
+			estudio.setTituloEstudio("Administrador Base de Datos Oracle");
+			estudio.setFechaInicio("05/03/2013");
+			estudio.setFechaFinal("31/072013");
+			estudio.setDescripcionInstutucion("CIBERTEC");
+			estudio.setPais("PERU");
+			estudio.setNivelEstudio("Superior");
+			estudio.setEstado("Activo");
+			estudio.setAreaEstudio("Sistemas de Informacion");
+			estudio.setPromedio(15.5);
+			estudio.setMateriasAprovadas(45);
+			estudio.setCantidadMaterias(60);
+			estudio.setIdPersona(2);
+			
+			negocio.insertarEstudio(estudio);
+			
+			Estudio nuevo=negocio.obtenerEstudio(5);
+			
+			Assert.assertEquals("Administrador Base de Datos Oracle",nuevo.getTituloEstudio());
+			
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el Ingreso del Estudio del Postulante: " + e.getMessage());
 		}
 	}
 

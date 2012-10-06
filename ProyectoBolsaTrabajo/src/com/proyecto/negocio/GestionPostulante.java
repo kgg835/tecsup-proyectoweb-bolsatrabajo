@@ -3,6 +3,7 @@ package com.proyecto.negocio;
 import java.util.Collection;
 
 import com.proyecto.dao.ConocimientoAdicionalDAO;
+import com.proyecto.dao.EstudioDAO;
 import com.proyecto.dao.ExperienciaLaboralDAO;
 import com.proyecto.dao.IdiomaDAO;
 import com.proyecto.dao.InformaticaDAO;
@@ -12,6 +13,7 @@ import com.proyecto.dao.PresentacionDAO;
 import com.proyecto.dao.ReferenciaDAO;
 import com.proyecto.exception.DAOExcepcion;
 import com.proyecto.modelo.ConocimientoAdicional;
+import com.proyecto.modelo.Estudio;
 import com.proyecto.modelo.ExperienciaLaboral;
 import com.proyecto.modelo.Idioma;
 import com.proyecto.modelo.Informatica;
@@ -234,5 +236,17 @@ public class GestionPostulante {
 			throws DAOExcepcion {
 		ExperienciaLaboralDAO dao = new ExperienciaLaboralDAO();
 		return dao.obtenerExperienciaLaboral(idExperiencia);
+	}
+
+	// Metodo para Ingresar es Estudio del Postulante
+	public Estudio insertarEstudio(Estudio estudio) throws DAOExcepcion {
+		EstudioDAO dao = new EstudioDAO();
+		return dao.insertarEstudio(estudio);
+	}
+
+	// Obtiene el Estudio del Postulante de acuerdo al ID
+	public Estudio obtenerEstudio(int idEstudio) throws DAOExcepcion {
+		EstudioDAO dao = new EstudioDAO();
+		return dao.obtenerEstudio(idEstudio);
 	}
 }
