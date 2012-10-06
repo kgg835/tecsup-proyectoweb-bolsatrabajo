@@ -32,6 +32,10 @@ public class Postulante extends Persona {
 	//private Collection<RegistroPostulacion> listaregistroPostulacion;
 	// Un Postulante tiene de 0 a muchas Experiencias Laborales
 	private Collection<ExperienciaLaboral> listaExperiencialaboral;
+	
+	//Un Estudiante tiene de 1 a muchos Estudios Realizados
+	private Collection<Estudio> listaEstudios;
+	
 	// Un postulante es una Persona
 	public Postulante() {
 		super();
@@ -178,6 +182,14 @@ public class Postulante extends Persona {
 
 	public Collection<ExperienciaLaboral> getListaExperiencialaboral() {
 		return listaExperiencialaboral;
+	}
+
+	public void setListaEstudios(Collection<Estudio> listaEstudios) {
+		this.listaEstudios = listaEstudios;
+	}
+
+	public Collection<Estudio> getListaEstudios() {
+		return listaEstudios;
 	}
 
 //	public void setListaregistroPostulacion(
