@@ -1,18 +1,18 @@
 package com.proyecto.modelo;
 
-public class Postulacion {
+public class RegistroPostulacion {
 private int idPostulacion;
 private String fechPostulacion;
 private String estadoPostulacion;
 
 
-public Postulacion() {
-	super();
-	// TODO Auto-generated constructor stub
+
+public RegistroPostulacion() {
+	
 }
 
 
-public Postulacion(int idPostulacion, String fechPostulacion,
+public RegistroPostulacion(int idPostulacion, String fechPostulacion,
 		String estadoPostulacion) {
 	super();
 	this.idPostulacion = idPostulacion;
@@ -21,9 +21,11 @@ public Postulacion(int idPostulacion, String fechPostulacion,
 }
 
 
+
 public int getIdPostulacion() {
 	return idPostulacion;
 }
+
 
 
 public void setIdPostulacion(int idPostulacion) {
@@ -31,9 +33,11 @@ public void setIdPostulacion(int idPostulacion) {
 }
 
 
+
 public String getFechPostulacion() {
 	return fechPostulacion;
 }
+
 
 
 public void setFechPostulacion(String fechPostulacion) {
@@ -41,16 +45,16 @@ public void setFechPostulacion(String fechPostulacion) {
 }
 
 
+
 public String getEstadoPostulacion() {
 	return estadoPostulacion;
 }
 
 
+
 public void setEstadoPostulacion(String estadoPostulacion) {
 	this.estadoPostulacion = estadoPostulacion;
 }
-
-
 
 
 
