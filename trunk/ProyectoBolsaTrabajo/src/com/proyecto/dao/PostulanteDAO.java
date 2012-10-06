@@ -12,8 +12,8 @@ import com.proyecto.modelo.Postulante;
 import com.proyecto.util.ConexionBD;
 
 public class PostulanteDAO extends BaseDAO {
-	public Postulante insertar(Postulante postulante) throws DAOExcepcion {
-		System.out.println("hola");
+	//Metodo que inserta un postulante
+	public Postulante insertarPostulante(Postulante postulante) throws DAOExcepcion {
 		String query = "insert into PERSONA(tipo_persona,nombrePersona,"
 				+ "apPellidos,dni,codPersona,passwordPe,email,pais,"
 				+ "provincia,ciudad,direccion,telefonoFijo,numeroCelular,"
@@ -77,7 +77,7 @@ public class PostulanteDAO extends BaseDAO {
 
 	// Metodo para obtener un Postulante
 
-	public Postulante obtener(int idPostulante) throws DAOExcepcion {
+	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
 		Postulante pos = new Postulante();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -136,7 +136,7 @@ public class PostulanteDAO extends BaseDAO {
 	}
 
 	// Metodo para listar todos los postulantes
-	public Collection<Postulante> listar() throws DAOExcepcion {
+	public Collection<Postulante> listarPostulante() throws DAOExcepcion {
 		Collection<Postulante> c = new ArrayList<Postulante>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -226,7 +226,7 @@ public class PostulanteDAO extends BaseDAO {
 	}
 
 	// Metodo para eliminar un Postulante
-	public void eliminar(int idPostulante) throws DAOExcepcion {
+	public void eliminarPostulante(int idPostulante) throws DAOExcepcion {
 		String query = "delete from PERSONA WHERE idPERSONA=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
