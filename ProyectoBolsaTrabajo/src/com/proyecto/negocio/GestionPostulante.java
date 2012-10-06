@@ -34,18 +34,18 @@ public class GestionPostulante {
 
 		postulante.setDni(dni);
 
-		return dao.insertar(postulante);
+		return dao.insertarPostulante(postulante);
 	}
 
 	public Postulante obtener(int idpostulante) throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
-		return dao.obtener(idpostulante);
+		return dao.obtenerPostulante(idpostulante);
 	}
 
 	// Metodo para eliminar un Postulante
 	public void eliminar(int idPostulante) throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
-		dao.eliminar(idPostulante);
+		dao.eliminarPostulante(idPostulante);
 	}
 
 	// Como postulante quiero actualizar mi hoja de vida para las empresas.
@@ -81,7 +81,7 @@ public class GestionPostulante {
 	// Metodo para listar todos los postulantes
 	public Collection<Postulante> listar() throws DAOExcepcion {
 		PostulanteDAO dao = new PostulanteDAO();
-		return dao.listar();
+		return dao.listarPostulante();
 	}
 
 	// Busca al Postulante pos DNI

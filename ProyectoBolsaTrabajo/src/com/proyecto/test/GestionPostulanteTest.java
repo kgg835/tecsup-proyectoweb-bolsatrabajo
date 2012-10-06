@@ -20,7 +20,7 @@ import com.proyecto.negocio.GestionPostulante;
 public class GestionPostulanteTest {
 
 //	@Test
-	public void insertarTest() {
+	public void insertarPostulanteTest() {
 		GestionPostulante negocio = new GestionPostulante();
 		try {
 			negocio.insertar("Teresa","1000ac");
@@ -33,7 +33,7 @@ public class GestionPostulanteTest {
 		}
 	}
 //	@Test
-	public void listarTest() {
+	public void listarPostulanteTest() {
 
 		GestionPostulante negocio = new GestionPostulante();
 
@@ -53,7 +53,7 @@ public class GestionPostulanteTest {
 	}
 	
 //	@Test
-	public void eliminarTest() {
+	public void eliminarPostulanteTest() {
 
 		GestionPostulante negocio = new GestionPostulante();
 
@@ -74,7 +74,7 @@ public class GestionPostulanteTest {
 	}
 	
 //	@Test
-	public void actualizarTest() {
+	public void actualizarPostulanteTest() {
 
 		GestionPostulante negocio = new GestionPostulante();
 
