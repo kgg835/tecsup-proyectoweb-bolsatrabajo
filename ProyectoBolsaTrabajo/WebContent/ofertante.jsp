@@ -85,7 +85,8 @@
 							<!--Body content-->
 							<div class="container">
 								<label>RAZON SOCIAL</label>
-								<input type="text" class="span3" placeholder="RAZON SOCIAL" name="rasonsocial"><br>DESCRIPCION DE LA EMPRESA:<br><textarea style="height: 97px; width: 354px; name="descripcion""></textarea>
+								<input type="text" class="span3" placeholder="RAZON SOCIAL" name="rasonsocial"><br>DESCRIPCION DE LA EMPRESA:<br>
+								<textarea name="descripcion"></textarea>
 								<label>RUC</label>
 								<input type="text" class="span3" placeholder="RUC" name="ruc"><br>
 								<label>E-mail</label>

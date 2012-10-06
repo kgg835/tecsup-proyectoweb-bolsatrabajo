@@ -15,7 +15,7 @@ import com.proyecto.negocio.Gestionofertante;
 /**
  * Servlet implementation class Servletofertante
  */
-@WebServlet("/ServletOfertante")
+@WebServlet("/Servletofertante")
 public class Servletofertante extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -32,7 +32,7 @@ public class Servletofertante extends HttpServlet {
 		Gestionofertante negocio= new Gestionofertante();
 		try{
 			negocio.insertar(ruc,rs,correo,descripcion,usuario,password);
-
+			System.out.println("Sus datos fueron registrados correctamente");
 
 		}catch(DAOExcepcion e){
 			System.out.println("error");
@@ -55,7 +55,7 @@ public class Servletofertante extends HttpServlet {
 		String rasonsocial=request.getParameter("rasonsocial");
 		String correo=request.getParameter("correo");
 		String descempresa=request.getParameter("descripcion");
-		String usuario=request.getParameter("usuario");
+		String usuario=request.getParameter("correo");
 		String password=request.getParameter("password");
 		insertarofertante(ruc,rasonsocial,correo,descempresa,usuario,password);
 	
