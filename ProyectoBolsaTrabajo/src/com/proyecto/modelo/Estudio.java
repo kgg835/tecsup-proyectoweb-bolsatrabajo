@@ -13,6 +13,8 @@ public class Estudio {
 	private double promedio;
 	private int materiasAprovadas;
 	private int cantidadMaterias;
+	private int idPersona;
+	private int idPresentacion;
 
 	// Get and Set
 	public int getIdEstudios() {
@@ -109,5 +111,21 @@ public class Estudio {
 
 	public void setCantidadMaterias(int cantidadMaterias) {
 		this.cantidadMaterias = cantidadMaterias;
+	}
+
+	public int getIdPersona() {
+		return idPersona;
+	}
+
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
+	}
+
+	public int getIdPresentacion() {
+		return idPresentacion;
+	}
+
+	public void setIdPresentacion(int idPresentacion) {
+		this.idPresentacion = idPresentacion;
 	}
 }
