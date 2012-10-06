@@ -12,7 +12,8 @@ import com.proyecto.util.ConexionBD;
 public class IdiomaDAO extends BaseDAO{
 	//Metodo para Ingresar el Idioma 
 	public Idioma insertarIdioma(Idioma idioma) throws DAOExcepcion {
-		String query = "insert into IDIOMA(nombreIdioma,nivelEscrito,nivelOral) values (?,?,?)";
+		String query = "insert into IDIOMA(nombreIdioma," +
+				"nivelEscrito,nivelOral) values (?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -50,7 +51,8 @@ public class IdiomaDAO extends BaseDAO{
 	}
 	//Actualiza el Idioma del postulante
 	public Idioma actualizarIdioma(Idioma idioma) throws DAOExcepcion {
-		String query = "update IDIOMA set nombreIdioma=?,nivelEscrito=?,nivelOral=? where idIDIOMA=?";
+		String query = "update IDIOMA set nombreIdioma=?,nivelEscrito=?," +
+				"nivelOral=? where idIDIOMA=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -79,7 +81,8 @@ public class IdiomaDAO extends BaseDAO{
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select idIDIOMA, nombreIdioma,nivelEscrito,nivelOral from idioma where idIDIOMA=?";
+			String query = "select idIDIOMA, nombreIdioma,nivelEscrito," +
+					"nivelOral from idioma where idIDIOMA=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1,idIdioma);
