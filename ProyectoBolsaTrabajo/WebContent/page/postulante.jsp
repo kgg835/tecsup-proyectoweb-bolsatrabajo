@@ -9,9 +9,12 @@
 		
 		<meta name="description" content="Bootstrap 2.0">
 		<meta name="author" content="">
-		<!—[if lt IE 9]>
-		<!--script src="/bootstrap/js/html5.js"--><!--/script-->
-		<![endif]—>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
 		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 
 		<style type="text/css">
@@ -23,6 +26,7 @@
 		<link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="../bootstrap/css/docs.css" rel="stylesheet">
 		
+		<script src="../bootstrap/js/jquery.js"></script>
 		<script src="../bootstrap/js/bootstrap.js"></script>
 		<script src="../bootstrap/js/bootstrap-transition.js"></script>
 		<script src="../bootstrap/js/bootstrap-alert.js"></script>
@@ -36,7 +40,7 @@
 		<script src="../bootstrap/js/bootstrap-collapse.js"></script>
 		<script src="../bootstrap/js/bootstrap-carousel.js"></script>
 		<script src="../bootstrap/js/bootstrap-typeahead.js"></script>
-		<script src="../bootstrap/js/jquery.js"></script>
+		
 	
 	
 
@@ -75,7 +79,7 @@
 						</div>
 					</div>
 					<div class="row-fluid">
-						<div class="btn btn-info">
+						<div class="alert alert-info">
 						<p>
 							<strong>Bienvenido a Bolsa de trabajo,por favor completa tu datos personales</strong>
 						</p>
