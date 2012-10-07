@@ -1,1 +1,1 @@
-<%response.sendRedirect("paginas/inicio.jsp");%>
+<%response.sendRedirect("page/inicio.jsp");%>
