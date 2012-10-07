@@ -98,6 +98,32 @@
 						<div class="span8">
 							<!--Body content-->
 							<div class="container">
+								<div id="descripcion" >	
+											<table class="table">
+												<tr>
+													<td><output>Anderson Roman</output></td>
+												</tr>
+												<tr>
+													<td><output>Edad</output></td>
+												</tr>
+												<tr>
+													<td><output>Estado civil</output></td>
+												</tr>
+												<tr>
+													<td><output>Dni</output></td>
+												</tr>
+												<tr>
+													<td><output>Telefono casa</output></td>
+												</tr>
+												<tr>
+													<td><output>Movil</output></td>
+												</tr>
+												<tr>
+													<td><output>Email</output></td>
+												</tr>
+											</table>
+									</div>
+							  <div id="datosPersonal" style="display:none;">	
 								<label>Nombres(s)</label>
 								<input name="txtNombre" type="text" class="span3" placeholder="nombres"><br>
 								<label>Apellido(s)</label>
@@ -216,7 +242,7 @@
 									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
 									<button class="btn">Cancelar</button>
 								</div>
-							
+							</div>							
 								<script type="text/javascript">
 									$(document).ready(function(){
 									$('.combobox').combobox();
@@ -226,8 +252,10 @@
 						</div>
 					</form>
 				</div>
-			</div>
+			
+		</div>	
 		</div>
+	
 		
 		<footer>
         <p>&copy; Company 2012</p>
