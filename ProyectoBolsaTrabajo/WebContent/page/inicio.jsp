@@ -42,24 +42,45 @@
 		<script src="../bootstrap/js/bootstrap-typeahead.js"></script>
 </head>
 <body><!-- Este es el Body -->
-	<div>
+
+	<div class="container" class="well">
 		<table width="100%">
 			<tr>
-				<td>
-					<img src="../bootstrap/img/logo.jpg" >   
-				</td>
-				<td align="right" style="width: 885px; ">
+				<td style="width: 246px" width="246">
+					<label><h3 style="color: blue;">bolsaTrabajo.com</h3></label>
+					<!-- <img src="../bootstrap/img/logo.jpg" width="307" height="40"></td> -->
+				<td align="right" style="width: 885px; " width="688">
 					<form>
-						<input type="submit" value="Iniciar Sesion">
-						<input type="submit" value="Cargar mi CV">
+						<button type="submit" class="btn btn-large">Iniciar Sesion</button>
+						<button type="submit" class="btn btn-large btn-primary">Cargar mi CV</button>
 					</form>
 				</td>
 			</tr>
 		</table>
+		<br/><br/><br/><br/>
+	<!--  -->
+	<div class="row"> 
+		<div class="span4" >
+			<form ></form>
+		</div>
+		<div class="span4" >
+			<form class="well">
+	    		<label><h3>Ingresar a bolsaTrabajo.com</h3></label><br/>
+	    		<!--span class="help-inline">Texto de ayuda asociado!</span><br/>-->
+	    		<label>Email o Nombre de usuario</label>
+	    		<input type="text" class="span3" placeholder="Escribe algo?"><br/>
+	    		<label>Contraseña</label>
+	    		<input type="password" class="span3" placeholder="Escribe contraseña"><br/>
+	    		<label class="checkbox">
+	    			<input type="checkbox"> Seguir conectado
+	    		</label><br/>
+	   			<button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+	   		</form> 
+	    </div>
+	    <div class="span4">
+	    	<form ></form>
+	    </div>	
 	</div>
-	<div class="container">
-		<h1>Hola Mundo Cruel!!!!!!</h1>
-	</div>
-	
+</div>
 </body>
 </html>
