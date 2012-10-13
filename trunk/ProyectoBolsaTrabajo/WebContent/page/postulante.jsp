@@ -92,13 +92,14 @@
 							<!--Sidebar content-->
 							<img src="/ProyectoBolsaTrabajo/bootstrap/img/fotoCvGenericaGrande.jpg" class="fotoCvBox" color="green">
 						</div>
-						<br>
-						<br>
-						<br>
+
 						<div class="span8">
 							<!--Body content-->
 							<div class="container">
 								<div id="descripcion" >	
+								<div class="navbar">
+									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
+								</div>
 											<table class="table">
 												<tr>
 													<td><output>Anderson Roman</output></td>
@@ -237,7 +238,7 @@
 										<option value="4">Pareja de Hecho</option>
 									</select>
 								</p>
-								</br>
+								<br/>
 								<div class="navbar">
 									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
 									<button class="btn">Cancelar</button>
