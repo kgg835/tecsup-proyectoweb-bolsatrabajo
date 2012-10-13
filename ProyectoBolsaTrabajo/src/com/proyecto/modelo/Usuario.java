@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.proyecto.modelo.Rol;
 
 public class Usuario {
+	private int idUsuario;
 	private String nombreUsuario;
 	private String passwordUsuario;
 	private int idRol;
@@ -54,5 +55,13 @@ public class Usuario {
 
 	public int getIdRol() {
 		return idRol;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 }
