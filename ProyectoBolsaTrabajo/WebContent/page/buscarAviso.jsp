@@ -44,6 +44,7 @@
 </head>
 	<!----------------------------ESTE ES MI BODY:)-------------->
 	
+	
 	<body>
 
 	<!---------------------------- BARRA PRINCIPAL-------------->
@@ -95,41 +96,86 @@
 <option>Primer Empleo</option>
 <option>Por Horas</option>
 <option>Teletrabajo</option>
+</select>
+<label>Departamento</label>
+<select>
+<option>Arequipa</option>
+<option>Lima</option>
+<option>Ica</option>
+<option>Tacna</option>
+<option>Moquegua</option>
+<option>Lambayequen</option>
 </select></p>
+
 </form>
-Areas
-		<table border=0>
-			
+
+		<table class="table table-hover"  >
+
 			<tr>
-				<td><p>Abastecimiento y Logística</p>
-					<p>Administración, Contabilidad y Finanzas
-					<p>Aduana y Comercio Exterior</p>
-					<p>Atención al Cliente, Call Center y Telemarketing</p>
-					<p>Comercial, Ventas y Negocios</p>
-					<p>Comunicación, Relaciones Institucionales y Públicas</p>
-					<p>Diseño</p>
-					<p>Educación, Docencia e Investigación</p>
-					<p>Gastronomía y Turismo</p></td>
-				<td><p>Gerencia y Dirección General</p>
-					<p>Ingeniería Civil y Construcción</p>
-					<p>Ingenierías Legales</p>
-					<p>Marketing y Publicidad</p>
-					<p>Minería, Petróleo y Gas</p></td>
-				<td><p>Oficios y Otros</p>
-					<p>Producción y Manufactura</p>
-					<p>Recursos Humanos y Capacitación</p>
-					<p>Salud, Medicina y Farmacia</p>
-					<p>Secretarias y Recepción</p>
-					<p>Seguros</p>
-					<p>Tecnología, Sistemas y Telecomunicaciones</p></td>
+				<td colspan="3">Areas</td>
+
+
 			</tr>
 			<tr>
-				<td>Avisos</td>
-				<td>Cell</td>
-				<td>C</td>
+			<td><label><input type="checkbox" value=""> Abastecimiento y Logística</label>
+					<label><input type="checkbox" value=""> Administración, Contabilidad y Finanzas</label>
+					<label><input type="checkbox" value=""> Aduana y Comercio Exterior</label>
+					<label><input type="checkbox" value=""> Atención al Cliente, Call Center y Telemarketing</label>
+					<label><input type="checkbox" value=""> Comercial, Ventas y Negocios</label>
+					<label><input type="checkbox" value=""> Comunicación, Relaciones Institucionales y Públicas</label>
+					<label><input type="checkbox" value=""> Diseño</label></td>
+																
+				<td><label><input type="checkbox" value=""> Educación, Docencia e Investigación</label>
+					<label><input type="checkbox" value=""> Gastronomía y Turismo</label>
+					<label><input type="checkbox" value=""> Gerencia y Dirección General</label>
+					<label><input type="checkbox" value=""> Ingeniería Civil y Construcción</label>
+					<label><input type="checkbox" value=""> Ingenierías Legales</label>
+					<label><input type="checkbox" value=""> Marketing y Publicidad</label>
+					<label><input type="checkbox" value=""> Minería, Petróleo y Gas</label></td>
+					
+								
+					<td><label><input type="checkbox" value=""> Oficios y Otros</label>
+					<label><input type="checkbox" value=""> Producción y Manufactura</label>
+					<label><input type="checkbox" value=""> Recursos Humanos y Capacitación</label>
+					<label><input type="checkbox" value=""> Salud, Medicina y Farmacia</label>
+					<label><input type="checkbox" value=""> Secretarias y Recepción</label>
+					<label><input type="checkbox" value=""> Seguros</label>
+					<label><input type="checkbox" value=""> Tecnología, Sistemas y Telecomunicaciones</label></td>
+			</tr>
+
+			<tr>
+				<td colspan="3">Resusltado Avisos</td>
+
+
+			</tr>
+			<tr>
+				<td>Logo</td>
+				<td>Titulo</td>
+				<td>Empresa</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+
 			</tr>
 		</table>
+		<br>
 
+<table></table>
 	</div>			
 						
 					</div>
+		
