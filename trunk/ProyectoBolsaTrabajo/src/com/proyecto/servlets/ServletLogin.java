@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.proyecto.modelo.Usuario;
+import com.proyecto.negocio.GestionLogin;
+
 /**
  * Servlet implementation class ServletLogin
  */
@@ -36,8 +39,39 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
-		rd.forward(request, response);
+		
+//		String usuario=request.getParameter("txtUsuario");
+//		String password=request.getParameter("txtContrasena");
+		Usuario usuario=new Usuario();
+		usuario.setNombreUsuario(request.getParameter("txtUsuario"));
+		usuario.setPasswordUsuario(request.getParameter("txtContrasena"));
+		GestionLogin negocio=new GestionLogin();
+		try {
+			int id=negocio.obteneridUsuario(usuario);
+			String rol=negocio.obtenerRol(id);
+			if(rol.equals("A")){
+				//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+				//rd.forward(request, response);
+			}else{
+				if(rol.equals("OF")){
+					//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+					//rd.forward(request, response);
+				}else{
+					if(rol.equals("P")){
+						RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+						rd.forward(request, response);
+					}
+					else{
+						RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
+						rd.forward(request, response);
+					}
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		
 	}
-
+	
 }
