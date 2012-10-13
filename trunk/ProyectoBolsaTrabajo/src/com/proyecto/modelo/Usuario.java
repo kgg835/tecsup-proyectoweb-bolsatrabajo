@@ -6,8 +6,8 @@ import com.proyecto.modelo.Rol;
 
 public class Usuario {
 	private String nombreUsuario;
-	private String codUsuario;
 	private String passwordUsuario;
+	private int idRol;
 
 	// un Usuario puede Tener varios Roles
 	private Collection<Rol> listaRoles;
@@ -17,11 +17,10 @@ public class Usuario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(String nombreUsuario, String codUsuario,
+	public Usuario(String nombreUsuario,
 			String passwordUsuario) {
 		super();
-		this.nombreUsuario = nombreUsuario;
-		this.codUsuario = codUsuario;
+		this.nombreUsuario = nombreUsuario;	
 		this.passwordUsuario = passwordUsuario;
 	}
 
@@ -31,14 +30,6 @@ public class Usuario {
 
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
-	}
-
-	public String getCodUsuario() {
-		return codUsuario;
-	}
-
-	public void setCodUsuario(String codUsuario) {
-		this.codUsuario = codUsuario;
 	}
 
 	public String getPasswordUsuario() {
@@ -55,5 +46,13 @@ public class Usuario {
 
 	public Collection<Rol> getListaRoles() {
 		return listaRoles;
+	}
+
+	public void setIdRol(int idRol) {
+		this.idRol = idRol;
+	}
+
+	public int getIdRol() {
+		return idRol;
 	}
 }
