@@ -64,13 +64,13 @@
 			<form ></form>
 		</div>
 		<div class="span4" >
-			<form class="well">
+			<form class="well" action="/ProyectoBolsaTrabajo/ServletLogin" method="post">
 	    		<label><h3>Ingresar a bolsaTrabajo.com</h3></label><br/>
 	    		<!--span class="help-inline">Texto de ayuda asociado!</span><br/>-->
 	    		<label>Email o Nombre de usuario</label>
-	    		<input type="text" class="span3" placeholder="Escribe algo?"><br/>
+	    		<input type="text" class="span3" placeholder="Escribe algo?" name="txtUsuario"><br/>
 	    		<label>Contraseña</label>
-	    		<input type="password" class="span3" placeholder="Escribe contraseña"><br/>
+	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasena"><br/>
 	    		<label class="checkbox">
 	    			<input type="checkbox"> Seguir conectado
 	    		</label><br/>
