@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.jdbc.jdbc2.optional.SuspendableXAConnection;
 import com.proyecto.modelo.Usuario;
 import com.proyecto.negocio.GestionLogin;
 
@@ -48,26 +49,28 @@ public class ServletLogin extends HttpServlet {
 		GestionLogin negocio=new GestionLogin();
 		try {
 			int id=negocio.obteneridUsuario(usuario);
-			String rol=negocio.obtenerRol(id);
-			if(rol.equals("A")){
-				//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
-				//rd.forward(request, response);
-			}else{
-				if(rol.equals("OF")){
+			if(id!=0){
+				System.out.println("id=="+id);
+				String rol=negocio.obtenerRol(id);
+				
+				if(rol.equals("A")){
 					//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
 					//rd.forward(request, response);
 				}else{
-					if(rol.equals("P")){
-						RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
-						rd.forward(request, response);
-					}
-					else{
-						RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
-						rd.forward(request, response);
+					if(rol.equals("OF")){
+						//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+						//rd.forward(request, response);
+					}else{
+						if(rol.equals("P")){
+							RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+							rd.forward(request, response);
+						}
 					}
 				}
-			}
-			
+			}else{
+				RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
+				rd.forward(request, response);
+			}		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
