@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.jdbc.jdbc2.optional.SuspendableXAConnection;
 import com.proyecto.modelo.Usuario;
 import com.proyecto.negocio.GestionLogin;
 
