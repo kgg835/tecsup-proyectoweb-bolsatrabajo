@@ -111,7 +111,9 @@
                 tips.removeClass( "ui-state-highlight", 1500 );
             }, 500 );
         }
- 
+ 	/* 	function cargarCv(){
+ 			$('#cargaCV').submit
+ 		} */
         function checkLength( o, n, min, max ) {
             if ( o.val().length > max || o.val().length < min ) {
                 o.addClass( "ui-state-error" );
@@ -158,6 +160,7 @@
                     		//  $('#nombres').html(data.nombre);
                     		  $('#usuario').html(data.usuario);
                     		//  $('#claves').html(data.password);
+                    		
                     		 // return true;
                     	  }else{
                     		  alert("error de dato") ;
@@ -236,9 +239,10 @@
 <body><!-- Este es el Body -->
 
 	<div class="container" class="well">
-		usuario:<div id="usuario">
+		<div id="usuario" align="right">
 		</div>
-		<table width="100%">
+		<br/>
+		<table class="well" width="100%">
 			<tr>
 				<td style="width: 246px" width="246">
 					<label><h3 style="color: blue;">bolsaTrabajo.com</h3></label>
