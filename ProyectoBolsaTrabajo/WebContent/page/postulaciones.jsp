@@ -67,80 +67,93 @@
 					</div>
 				</div>
 			</div>
-	<!--------------------------------BARRA SECUNDARIA-------------->		
-	
-						<table class="table table-hover">
-							<tr>
+	<!--------------------------------BARRA SECUNDARIA-------------->
 
-								<th style="width: 53px;">#</th>
-								<th>Cell</th>
-								<th>Empresa</th>
-								<th style="width: 119px;">Puesto</th>
-								<th>Fecha de Postulacion</th>
-								<th>Cell</th>
-								
-								
-								<th style="width: 300px;"><a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    Estado
-    <span class="caret">
-     </span>
-  </a>
-  </th>
-							</tr>
-							<tbody>					
-								<tr>
+		<table class="table table-hover">
+			<tr>
 
-									<td>1</td>
-									<td>Cell</td>
-									<td>Hermes</td>
-									<td>Analista Programador</td>
-									<td>01/12/2012</td>
-									<td>Cell</td>
-									<td>ACTIVO</td>
-								</tr>
-								<tr>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td></td>
-									<td>Cell</td>
-									<td>Cell</td>
-								</tr>
-								<tr>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-								</tr>
-								<tr>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-								</tr>
-								<tr>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-									<td>Cell</td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="btn-group-left">
+				<th style="width: 53px;">#</th>
+
+				<th>Empresa</th>
+				<th style="width: 119px;">Aviso</th>
+				<th>Fecha de Publicacion</th>
+				<th>Fecha de Postulacion</th>
+
+
+
+				<th style="width: 300px;"><a class="btn dropdown-toggle"
+					data-toggle="dropdown" href="#"> Estado <span class="caret">
+					</span>
+				</a></th>
+			</tr>
+			<tbody>
+				<tr>
+
+					<td>1</td>
+
+					<td>Hermes</td>
+					<td>Digitador por Dia</td>
+					<td>01/12/2012</td>
+					<td>01/12/2012</td>
+
+					<td>En Espera</td>
+				</tr>
+				<tr>
+					<td>Cell</td>
+
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td></td>
+
+					<td>Activo</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td>Inactivo</td>
+				</tr>
+				<tr>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+
+					<td></td>
+				</tr>
+			</tbody>
+			<tr>
+				<td>Cell</td>
+				<td>Cell</td>
+				<td>Cell</td>
+				<td>Cell</td>
+				<td>Cell</td>
+				<td>Cell</td>
+			</tr>
+		</table>
+		<div class="btn-group-left">
   <button class="btn">1</button>
   <button class="btn">2</button>
-  <button class="btn">3</button>
-  <button class="btn">4</button>
+  
+  
 </div>
 						
 					</div>
