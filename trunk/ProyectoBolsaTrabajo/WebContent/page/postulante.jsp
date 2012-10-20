@@ -1,5 +1,6 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" --%>
-<%--     pageEncoding="ISO-8859-1"%> --%>
+<%@page import="com.proyecto.modelo.Usuario"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -111,7 +112,7 @@
 					</div>
 					<br>
 					<!-- EL FORMULARIO -->
-					<form class="navbar-form well" name="f1" action="ServletPostulante" method="post">
+					<form class="navbar-form well" name="f1" action="/ProyectoBolsaTrabajo/ServletPostulante" method="post">
 						
 							
 						<div class="span2" style="width:100px; height:100px;" >
@@ -131,32 +132,31 @@
 		
 									<input name="inputcerrar" type="button" class="boton" value="Cancelar" onClick="cerrartabla()" >
 								</div>
-							
-
-								<div id="descripcionDatos" >	
+								
+							<div id="descripcionDatos" >	
 								
 										<div id="mostrarDatos">
 											<table >
 												<tr>
-													<td><output><h4>Anderson Roman Reynoso</h4></output></td>
+													<td><output><h4>${usuario.nombre} ${usuario.apellidos}</h4></output></td>
 												</tr>
 												<tr>
-													<td><output>Ing. Sistemas</output></td>
+													<td><output>${usuario.fechaNacimiento}</output></td>
 												</tr>
 												<tr>
-													<td><output>Soltero</output></td>
+													<td><output>${usuario.estadoCivil}</output></td>
 												</tr>
 												<tr>
-													<td><output>09783964</output></td>
+													<td><output>Documento ${usuario.dni}</output></td>
 												</tr>
 												<tr>
-													<td><output>3273208</output></td>
+													<td><output>casa ${usuario.telefonoFijo}</output></td>
 												</tr>
 												<tr>
-													<td><output>998666731</output></td>
+													<td><output>Movil ${usuario.telefonoCel}</output></td>
 												</tr>
 												<tr>
-													<td><output>hackromanux@gmail.com</output></td>
+													<td><output>${usuario.email}</output></td>
 												</tr>
 											</table>
 										</div>

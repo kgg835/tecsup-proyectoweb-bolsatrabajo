@@ -40,6 +40,13 @@
 		<script src="../bootstrap/js/bootstrap-collapse.js"></script>
 		<script src="../bootstrap/js/bootstrap-carousel.js"></script>
 		<script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//$('#myusuario').val('');
+			});
+
+		</script>
+		
 </head>
 <body><!-- Este es el Body -->
 
@@ -68,9 +75,9 @@
 	    		<label><h3>Ingresar a bolsaTrabajo.com</h3></label><br/>
 	    		<!--span class="help-inline">Texto de ayuda asociado!</span><br/>-->
 	    		<label>Email o Nombre de usuario</label>
-	    		<input type="text" class="span3" placeholder="Escribe algo?" name="txtUsuario"><br/>
+	    		<input type="text" class="span3" placeholder="Escribe algo?" name="txtUsuario" id="txtUsuario"><br/>
 	    		<label>Contraseña</label>
-	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasena"><br/>
+	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasena" id="txtContrasena"><br/>
 	    		<label class="checkbox">
 	    			<input type="checkbox"> Seguir conectado
 	    		</label><br/>
