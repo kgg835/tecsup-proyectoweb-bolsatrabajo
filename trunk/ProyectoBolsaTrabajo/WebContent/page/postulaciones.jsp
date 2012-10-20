@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.proyecto.modelo.HistorialPostulaciones"%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -41,6 +42,21 @@
 		<script src="../bootstrap/js/bootstrap-collapse.js"></script>
 		<script src="../bootstrap/js/bootstrap-carousel.js"></script>
 		<script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+		
+		<script language="javascript">
+var Url = location.href;
+Url = Url.replace(/.*\?(.*?)/,"$1");
+Variables = Url.split ("&");
+for (i = 0; i < Variables.length; i++) {
+       Separ = Variables[i].split("=");
+       eval ('var '+Separ[0]+'="'+Separ[1]+'"');
+}
+
+//alert(id);
+</script>
+		
+		
+		
 </head>
 	<!----------------------------ESTE ES MI BODY:)-------------->
 	
@@ -86,15 +102,23 @@
 					</span>
 				</a></th>
 			</tr>
+			    <%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones" %>
+			<%
+			Collection<Historial> arreglo = (ArrayList<HistorialPostulaciones>)request.getAttribute("historial");
+			if(arreglo != null) { 
+			int i = 1;
+			for(HistorialPostulaciones x : arreglo) {
+			%>  
+			
 			<tbody>
 				<tr>
 
-					<td>1</td>
+					<td><%out.print(x.getIdpostulacion()); %></td>
 
-					<td>Hermes</td>
-					<td>Digitador por Dia</td>
-					<td>01/12/2012</td>
-					<td>01/12/2012</td>
+					<td><% out.print(x.getDescempresa()); %></td>
+					<td><% out.print(x.getTituloAviso()); %></td>
+					<td><% out.print(x.getFechapublicacion()); %></td>
+					<td><% out.print(x.getFechpostulacion()); %></td>
 
 					<td>En Espera</td>
 				</tr>
