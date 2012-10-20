@@ -16,30 +16,30 @@ import com.proyecto.modelo.Usuario;
 import com.proyecto.modelo.consulta_ofertante1;
 
 public class Gestionusuario {
-	public Usuario insertar(String nombre, String password)
-			throws DAOExcepcion {
-		UsuarioDAO dao = new UsuarioDAO();
-		Usuario vo = new Usuario();
-		vo.setNombreUsuario(nombre);
-		vo.setPasswordUsuario(password);
-		
-		return dao.insertar(vo);		
+//	public Usuario insertar(String nombre, String password)
+//			throws DAOExcepcion {
+//		UsuarioDAO dao = new UsuarioDAO();
+//		Usuario vo = new Usuario();
+//		vo.setNombreUsuario(nombre);
+//		vo.setPasswordUsuario(password);
+//		
+//		return dao.insertar(vo);		
 
-		
-}
-	public void insertar_urol(int cod,int tipo) throws DAOExcepcion
-	{		UsuarioDAO dao = new UsuarioDAO();
-
-		dao.insertar(cod,tipo);
-		
-	}
-
-	
-	public consulta_ofertante1 validarUsuario(String idUsuario, String clave)
-			throws DAOExcepcion, LoginExcepcion {
-		UsuarioDAO dao = new UsuarioDAO();
-		return dao.validar(idUsuario, clave);
-	}
+//		
+//}
+//	public void insertar_urol(int cod,int tipo) throws DAOExcepcion
+//	{		UsuarioDAO dao = new UsuarioDAO();
+//
+//		dao.insertar(cod,tipo);
+//		
+//	}
+//
+//	
+//	public consulta_ofertante1 validarUsuario(String idUsuario, String clave)
+//			throws DAOExcepcion, LoginExcepcion {
+//		UsuarioDAO dao = new UsuarioDAO();
+//		return dao.validar(idUsuario, clave);
+//	}
 
 	
 	
