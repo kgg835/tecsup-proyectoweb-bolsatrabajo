@@ -64,7 +64,7 @@
 			<form ></form>
 		</div>
 		<div class="span4" >
-			<form class="well" name="mensajeOK" action="inicio.jsp" >
+			<form class="well" name="mensajeOK" action="/ProyectoBolsaTrabajo/page/inicio.jsp" >
 	    		 <div class="alert alert-success ">
     			 	<a class="close" data-dismiss="alert">×</a>
 					<h4>Bien Hecho ya tienes tu cuenta creada</h4>
