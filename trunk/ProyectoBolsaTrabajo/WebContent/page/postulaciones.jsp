@@ -82,7 +82,7 @@ for (i = 0; i < Variables.length; i++) {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div><%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones"%>
 	<!--------------------------------BARRA SECUNDARIA-------------->
 
 		<table class="table table-hover">
@@ -102,9 +102,9 @@ for (i = 0; i < Variables.length; i++) {
 					</span>
 				</a></th>
 			</tr>
-			    <%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones" %>
+			    
 			<%
-			Collection<Historial> arreglo = (ArrayList<HistorialPostulaciones>)request.getAttribute("historial");
+			Collection<HistorialPostulaciones> arreglo = (ArrayList<HistorialPostulaciones>)request.getAttribute("historial");
 			if(arreglo != null) { 
 			int i = 1;
 			for(HistorialPostulaciones x : arreglo) {
@@ -120,17 +120,20 @@ for (i = 0; i < Variables.length; i++) {
 					<td><% out.print(x.getFechapublicacion()); %></td>
 					<td><% out.print(x.getFechpostulacion()); %></td>
 
-					<td>En Espera</td>
+					<td></td>
 				</tr>
+				<% }  
+			  } %>
+				
 				<tr>
-					<td>Cell</td>
-
-					<td>Cell</td>
-					<td>Cell</td>
-					<td>Cell</td>
 					<td></td>
 
-					<td>Activo</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
 				</tr>
 				<tr>
 					<td>
@@ -141,7 +144,17 @@ for (i = 0; i < Variables.length; i++) {
 					<td></td>
 					<td></td>
 
-					<td>Inactivo</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+					<td></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -150,27 +163,17 @@ for (i = 0; i < Variables.length; i++) {
 					<td></td>
 					<td></td>
 					<td></td>
-
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-
-					<td>Cell</td>
-					<td>Cell</td>
-					<td>Cell</td>
-					<td>Cell</td>
 
 					<td></td>
 				</tr>
 			</tbody>
 			<tr>
-				<td>Cell</td>
-				<td>Cell</td>
-				<td>Cell</td>
-				<td>Cell</td>
-				<td>Cell</td>
-				<td>Cell</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 		</table>
 		<div class="btn-group-left">
