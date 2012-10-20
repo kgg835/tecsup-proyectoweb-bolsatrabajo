@@ -50,8 +50,8 @@ public class ServletLogin extends HttpServlet {
 		
 		String user=request.getParameter("txtUsuario");
 		String passw=request.getParameter("txtContrasena");
-		System.out.println("user== "+user);
-		System.out.println("pass== "+passw);
+		System.out.println("userLOG== "+user);
+		System.out.println("passLoG== "+passw);
 		Usuario usuario=new Usuario();
 		Postulante postulante=new Postulante();
 		usuario.setNombreUsuario(request.getParameter("txtUsuario"));
@@ -59,9 +59,12 @@ public class ServletLogin extends HttpServlet {
 		GestionLogin negocio=new GestionLogin();
 		GestionPostulante negocioP=new GestionPostulante();
 		try {
+			System.out.println("entro al login del try");
 			int id=negocio.obteneridUsuario(usuario);
 			postulante=negocioP.obtenerPostulante(id);
-			if(id!=0 && postulante !=null){
+			System.out.println("id1=0 "+id);
+			System.out.println("PostulanteID1== "+postulante.getIdPostulante());
+			if(id!=0 && postulante.getIdPostulante() !=0){
 				System.out.println("id=="+id);
 				
 				String rol=negocio.obtenerRol(id);
@@ -77,16 +80,18 @@ public class ServletLogin extends HttpServlet {
 						if(rol.equals("P")){
 							//PrintWriter out=response.getWriter();
 							//out.println(usuario);
-							request.setAttribute("usuario",usuario);
+							request.setAttribute("usuario",postulante);
+							request.setAttribute("estado",0);
+							System.out.println("Entro en Estado=0");
 							RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
 							rd.forward(request, response);
 						}
 					}
 				}
 			}else{
-				if(id!=0 && postulante.equals(null)){
-					System.out.println("id=="+id);
-					
+				if(id!=0 && postulante.getIdPostulante()==0){
+					System.out.println("id2=="+id);
+					System.out.println("postulante2=="+postulante.getIdPostulante());
 					String rol=negocio.obtenerRol(id);
 					
 					if(rol.equals("A")){
@@ -102,13 +107,17 @@ public class ServletLogin extends HttpServlet {
 								//out.println(usuario);
 								request.setAttribute("estado",1);
 								request.setAttribute("IDUsuario",id);
+								System.out.println("Entro en Estado=1");
 								RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
 								rd.forward(request, response);
 							}
 						}
 					}
 				}
-//				else
+				else{
+					RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
+					rd.forward(request, response);
+				}
 //				RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
 //				rd.forward(request, response);
 			}		
