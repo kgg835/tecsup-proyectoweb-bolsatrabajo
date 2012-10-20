@@ -24,6 +24,7 @@ public class Postulante extends Persona implements Serializable{
 	private String provinciaPostulante;
 	private String ciudadPostulante;
 	private int idPreferencia_Salarial;
+	private int idUsuario;
 
 
 	// Un postulante tiene un registro de login
@@ -255,6 +256,14 @@ public class Postulante extends Persona implements Serializable{
 
 	public void setListaregistroPostulacion(Collection<RegistroPostulacion> listaregistroPostulacion) {
 		this.listaregistroPostulacion = listaregistroPostulacion;
+	}
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 

@@ -52,25 +52,32 @@ public class ServletCrearUsuario extends HttpServlet {
 		String mensaje="";
 		Usuario usuario=new Usuario();
 		try {
-			if(passwvalida.equals(passw)){
-				usuario.setNombreUsuario(user);
-				usuario.setPasswordUsuario(passw);
-				usuario.setIdRol(2);
-				GestionLogin negocio=new GestionLogin();
-				negocio.insertarUsuario(usuario);
-				mensaje="el usuario: "+user+"ha sido registrado correctamente";
-				PrintWriter pw=response.getWriter();
-				pw.println(mensaje);
-				
-				RequestDispatcher rd=request.getRequestDispatcher("/page/mensajeCreacion.jsp");
-				rd.forward(request, response);
-			}else{
-				mensaje="ERROR!!!.. "+user+"No ha sido registrado correctamente";
-				PrintWriter pw=response.getWriter();
-				pw.println(mensaje);
-				RequestDispatcher rd=request.getRequestDispatcher("/page/mensajeErrorCreacion.jsp");
-				rd.forward(request, response);
+			if(user.equals("")&&passw.equals("")){
+				mensaje="ERROR!!!.. "+"los campos faltan llenar";
+				System.out.println("Faltan llenar los campos");
 			}
+			else{
+				if(passwvalida.equals(passw)){
+					usuario.setNombreUsuario(user);
+					usuario.setPasswordUsuario(passw);
+					usuario.setIdRol(2);
+					GestionLogin negocio=new GestionLogin();
+					negocio.insertarUsuario(usuario);
+					mensaje="el usuario: "+user+"ha sido registrado correctamente";
+					PrintWriter pw=response.getWriter();
+					pw.println(mensaje);
+					
+					RequestDispatcher rd=request.getRequestDispatcher("/page/mensajeCreacion.jsp");
+					rd.forward(request, response);
+				}else{
+					mensaje="ERROR!!!.. "+user+"No ha sido registrado correctamente";
+					PrintWriter pw=response.getWriter();
+					pw.println(mensaje);
+					RequestDispatcher rd=request.getRequestDispatcher("/page/mensajeErrorCreacion.jsp");
+					rd.forward(request, response);
+				}
+			}
+			
 		} catch (DAOExcepcion e) {
 			// TODO: handle exception
 			e.printStackTrace();

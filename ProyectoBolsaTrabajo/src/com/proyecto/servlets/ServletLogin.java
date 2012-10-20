@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.proyecto.modelo.Postulante;
 import com.proyecto.modelo.Usuario;
 import com.proyecto.negocio.GestionLogin;
+import com.proyecto.negocio.GestionPostulaciones;
+import com.proyecto.negocio.GestionPostulante;
 
 /**
  * Servlet implementation class ServletLogin
@@ -50,13 +53,17 @@ public class ServletLogin extends HttpServlet {
 		System.out.println("user== "+user);
 		System.out.println("pass== "+passw);
 		Usuario usuario=new Usuario();
+		Postulante postulante=new Postulante();
 		usuario.setNombreUsuario(request.getParameter("txtUsuario"));
 		usuario.setPasswordUsuario(request.getParameter("txtContrasena"));
 		GestionLogin negocio=new GestionLogin();
+		GestionPostulante negocioP=new GestionPostulante();
 		try {
 			int id=negocio.obteneridUsuario(usuario);
-			if(id!=0){
+			postulante=negocioP.obtenerPostulante(id);
+			if(id!=0 && postulante !=null){
 				System.out.println("id=="+id);
+				
 				String rol=negocio.obtenerRol(id);
 				
 				if(rol.equals("A")){
@@ -68,14 +75,42 @@ public class ServletLogin extends HttpServlet {
 						//rd.forward(request, response);
 					}else{
 						if(rol.equals("P")){
+							//PrintWriter out=response.getWriter();
+							//out.println(usuario);
+							request.setAttribute("usuario",usuario);
 							RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
 							rd.forward(request, response);
 						}
 					}
 				}
 			}else{
-				RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
-				rd.forward(request, response);
+				if(id!=0 && postulante.equals(null)){
+					System.out.println("id=="+id);
+					
+					String rol=negocio.obtenerRol(id);
+					
+					if(rol.equals("A")){
+						//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+						//rd.forward(request, response);
+					}else{
+						if(rol.equals("OF")){
+							//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+							//rd.forward(request, response);
+						}else{
+							if(rol.equals("P")){
+								//PrintWriter out=response.getWriter();
+								//out.println(usuario);
+								request.setAttribute("estado",1);
+								request.setAttribute("IDUsuario",id);
+								RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+								rd.forward(request, response);
+							}
+						}
+					}
+				}
+//				else
+//				RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
+//				rd.forward(request, response);
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();

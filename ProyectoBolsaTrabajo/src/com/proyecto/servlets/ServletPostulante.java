@@ -25,7 +25,7 @@ public class ServletPostulante extends HttpServlet {
 	 */
 	public ServletPostulante() {
 		super();
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stub0
 	}
 
 	/**
