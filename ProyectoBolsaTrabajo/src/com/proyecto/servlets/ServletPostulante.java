@@ -43,38 +43,38 @@ public class ServletPostulante extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-//		try {
-////			GestionPostulante negocio = new GestionPostulante();
-//			Postulante postulante = new Postulante();
-//			postulante.setTipoPersona("Postulante");
-//			postulante.setNombre(request.getParameter("txtNombre"));
-//			postulante.setApellidos(request.getParameter("txtApellido"));
-//			postulante.setDni(request.getParameter("txtDni"));
-//			postulante.setCodPostulante("000000");
-//			postulante.setPasswordPE("123456");
-//			postulante.setEmail(request.getParameter("txtEmail"));
-//			postulante.setPaisPostulante(request.getParameter("txtPais"));
-//			postulante.setProvinciaPostulante(request
-//					.getParameter("txtProvincia"));
-//			postulante.setCiudadPostulante(request.getParameter("txtCuidad"));
-//			postulante.setDireccion(request.getParameter("txtDireccion"));
-//			postulante.setTelefonoFijo(request.getParameter("txtTelefonoFijo"));
-//			postulante.setTelefonoCel(request.getParameter("txtTelefonoCel"));
-//			postulante.setFechaNacimiento(request.getParameter("txtDia") + "/"
-//					+ request.getParameter("txtMes") + "/"
-//					+ request.getParameter("txtAnio"));
-//			postulante.setSexo(request.getParameter("txtSexo"));
-//			postulante.setEstadoCivil(request.getParameter("txtEstadoCivil"));
-//			postulante.setIdPresentacion(1);
-//			postulante.setIdPreferencia_Salarial(1);
-//			negocio.insertarPostulante(postulante);
-//
-//			RequestDispatcher rd = request
-//					.getRequestDispatcher("postulante.jsp");
-//			rd.forward(request, response);
-//		} catch (DAOExcepcion e) {
-//			e.printStackTrace();
-//		}
+		try {
+			GestionPostulante negocio = new GestionPostulante();
+			Postulante postulante = new Postulante();
+			postulante.setTipoPersona("Postulante");
+			postulante.setNombre(request.getParameter("txtNombre"));
+			postulante.setApellidos(request.getParameter("txtApellido"));
+			postulante.setDni(request.getParameter("txtDni"));
+			postulante.setCodPostulante("000000");
+			postulante.setPasswordPE("123456");
+			postulante.setEmail(request.getParameter("txtEmail"));
+			postulante.setPaisPostulante(request.getParameter("txtPais"));
+			postulante.setProvinciaPostulante(request
+					.getParameter("txtProvincia"));
+			postulante.setCiudadPostulante(request.getParameter("txtCuidad"));
+			postulante.setDireccion(request.getParameter("txtDireccion"));
+			postulante.setTelefonoFijo(request.getParameter("txtTelefonoFijo"));
+			postulante.setTelefonoCel(request.getParameter("txtTelefonoCel"));
+			postulante.setFechaNacimiento(request.getParameter("txtDia") + "/"
+					+ request.getParameter("txtMes") + "/"
+					+ request.getParameter("txtAnio"));
+			postulante.setSexo(request.getParameter("txtSexo"));
+			postulante.setEstadoCivil(request.getParameter("txtEstadoCivil"));
+			postulante.setIdPresentacion(1);
+			postulante.setIdPreferencia_Salarial(1);
+			negocio.insertarPostulante(postulante);
+
+			RequestDispatcher rd = request
+					.getRequestDispatcher("postulante.jsp");
+			rd.forward(request, response);
+		} catch (DAOExcepcion e) {
+			e.printStackTrace();
+		}
 		String postulante=request.getParameter("postulante");
 		if(postulante!=null && postulante!=""){
 			RequestDispatcher rd = request.getRequestDispatcher("postulante.jsp");
