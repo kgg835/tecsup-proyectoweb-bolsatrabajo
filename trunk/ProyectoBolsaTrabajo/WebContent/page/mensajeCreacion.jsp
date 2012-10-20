@@ -64,13 +64,13 @@
 			<form ></form>
 		</div>
 		<div class="span4" >
-			<form class="well" action="#" method="post">
+			<form class="well" name="mensajeOK" action="inicio.jsp" >
 	    		 <div class="alert alert-success ">
     			 	<a class="close" data-dismiss="alert">×</a>
 					<h4>Bien Hecho ya tienes tu cuenta creada</h4>
 					<h4>puedes iniciar sesion con tu cuenta</h4>
     			</div>
-	   			<button type="submit" class="btn btn-primary"  onclick="window.location='postulante.jsp'">ir a Sesion</button>
+	   			<button type="submit" class="btn btn-primary"  >ir a Sesion</button>
 	   		</form> 
 	    </div>
 	    <div class="span4">

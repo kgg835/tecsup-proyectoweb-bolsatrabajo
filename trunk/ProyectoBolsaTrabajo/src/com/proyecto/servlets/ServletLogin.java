@@ -47,6 +47,8 @@ public class ServletLogin extends HttpServlet {
 		
 		String user=request.getParameter("txtUsuario");
 		String passw=request.getParameter("txtContrasena");
+		System.out.println("user== "+user);
+		System.out.println("pass== "+passw);
 		Usuario usuario=new Usuario();
 		usuario.setNombreUsuario(request.getParameter("txtUsuario"));
 		usuario.setPasswordUsuario(request.getParameter("txtContrasena"));
