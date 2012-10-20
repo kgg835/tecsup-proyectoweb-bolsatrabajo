@@ -41,6 +41,30 @@
 		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-carousel.js"></script>
 		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-typeahead.js"></script>
 		
+		<script type="text/javascript">
+	    	$(document).ready(function(){
+				jQuery("#mostrarDatos").show();
+				jQuery("#mostrarResidencia").show();
+
+			});
+	   		 function ActivaEditar(){
+			  jQuery("#datosPersonal").show();
+			   $("#mostrarDatos").hide();
+			}
+			function cerrartabla(){
+			  jQuery("#datosPersonal").hide();
+			  jQuery("#mostrarDatos").show();
+			}
+			
+			 function ActivaEditarResidencia(){
+			  jQuery("#EditarResidencia").show();
+			   $("#mostrarResidencia").hide();
+			}
+			function cerrarResidencia(){
+			  jQuery("#EditarResidencia").hide();
+			  jQuery("#mostrarResidencia").show();
+			}	
+	 </script>
 	
 	
 
@@ -88,42 +112,60 @@
 					<br>
 					<!-- EL FORMULARIO -->
 					<form class="navbar-form well" name="f1" action="ServletPostulante" method="post">
+						
+							
 						<div class="span2" style="width:100px; height:100px;" >
 							<!--Sidebar content-->
 							<img src="/ProyectoBolsaTrabajo/bootstrap/img/fotoCvGenericaGrande.jpg" class="fotoCvBox" color="green">
 						</div>
-
+							
+						
 						<div class="span8">
 							<!--Body content-->
 							<div class="container">
-								<div id="descripcion" >	
+								
+									
 								<div class="navbar">
-									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
+									<i class=" icon-edit"></i>
+									<input name="input" type="button" class="ui-icon-pencil" value="Editar" onClick="ActivaEditar()" >
+		
+									<input name="inputcerrar" type="button" class="boton" value="Cancelar" onClick="cerrartabla()" >
 								</div>
-											<table class="table">
+							
+
+								<div id="descripcionDatos" >	
+								
+										<div id="mostrarDatos">
+											<table >
 												<tr>
-													<td><output>Anderson Roman</output></td>
+													<td><output><h4>Anderson Roman Reynoso</h4></output></td>
 												</tr>
 												<tr>
-													<td><output>Edad</output></td>
+													<td><output>Ing. Sistemas</output></td>
 												</tr>
 												<tr>
-													<td><output>Estado civil</output></td>
+													<td><output>Soltero</output></td>
 												</tr>
 												<tr>
-													<td><output>Dni</output></td>
+													<td><output>09783964</output></td>
 												</tr>
 												<tr>
-													<td><output>Telefono casa</output></td>
+													<td><output>3273208</output></td>
 												</tr>
 												<tr>
-													<td><output>Movil</output></td>
+													<td><output>998666731</output></td>
 												</tr>
 												<tr>
-													<td><output>Email</output></td>
+													<td><output>hackromanux@gmail.com</output></td>
 												</tr>
 											</table>
+										</div>
+									
 									</div>
+									<div class="navbar" style="display:none">
+										<button class="btn btn-primary" type="submit">Guardar datos personales</button>
+									</div>
+									
 							  <div id="datosPersonal" style="display:none;">	
 								<label>Nombres(s)</label>
 								<input name="txtNombre" type="text" class="span3" placeholder="nombres"><br>
@@ -135,24 +177,32 @@
 									<tr>
 										<td>
 											<label>Pais de residencia</label>
-											<select name="txtPais" type="combobox" >
+											<select name="txtPais" >
 												<option selected="" value="">-</option>
-												<option value="PE">Peru</option>
-												<option value="CO">Colombia</option>
-												<option value="NI">Nicaragua</option>
+												<option value="AR">Argentina</option>
+												<option value="BR">Brazil</option>
 												<option value="BO">Bolivia</option>
-												<option value="BR">Brasil</option>
+												<option value="CO">Colombia</option>
+												<option value="CH">Chile</option>
+												<option value="EC">Ecuador</option>
+												<option value="PA">Paraguay</option>
+												<option value="PE">Peru</option>
+												<option value="VE">Venezuela</option>
 											</select>	
 										</td>
 										<td>
 											<label>Provincia o estado</label>
-											<select name="txtProvincia" type="combobox" >
+											<select name="txtProvincia" >
 												<option selected="" value="">-</option>
+												<option value="AR">Arequipa</option>
 												<option value="LI">Lima</option>
 												<option value="TU">Tumbes</option>
 												<option value="IA">Ica</option>
 												<option value="HU">Huancayo</option>
 												<option value="IQ">Iquitos</option>
+												<option value="TA">Tacna</option>
+												<option value="CU">Cuzco</option>
+												<option value="IC">Ica</option>
 											</select>
 										</td>
 									</tr>
@@ -180,7 +230,7 @@
 								</p>
 								<p>
 									<label>Tipo y numero de Documento</label>
-									<select  type="combobox">
+									<select >
 										<option selected="" value="">-</option>
 										<option value="PA">Pasaporte</option>
 										<option value="DN">DNI</option>
@@ -191,7 +241,7 @@
 									
 										
 											<label>Fecha de nacimiento</label>
-											<select name="txtDia" type="combobox" class="span1"> 
+											<select name="txtDia" class="span1"> 
 												<option selected="" value="">-</option>
 												<option value="PE">1</option>
 
@@ -200,18 +250,31 @@
 										
 											<select name="txtMes" type="combobox" class="span2">
 												<option selected="" value="">-</option>
-												<option value="LI">Enero</option>
-
+												<option value="1">Enero</option>
+												<option value="2">Febrero</option>
+												<option value="3">Marzo</option>
+												<option value="4">Abril</option>
+												<option value="5">Mayo</option>
+												<option value="6">Junio</option>
+												<option value="7">Julio</option>
+												<option value="8">Agosto</option>
+												<option value="9">Septiembre</option>
+												<option value="10">Octubre</option>
+												<option value="11">Noviembre</option>
+												<option value="12">Diciembre</option>
 											</select>
 								
 
-											<select name="txtAnio" type="combobox" class="span1">
+											<select name="txtAnio"  class="span1">
 												<option selected="" value="">-</option>
-												<option value="LI">1981</option>
-				
+												<option value="01">2006</option>
+												<option value="02">2007</option>
+												<option value="03">2008</option>
+												<option value="04">2009</option>
+												<option value="05">2010</option>
+												<option value="06">2011</option>
+												<option value="07">2012</option>
 											</select>
-											
-								
 								</p>	
 									</br>
 									
@@ -225,17 +288,17 @@
 									<span>Femenino</span>
 									<br>
 								</div>
-								</br></br>
+								<br><br>
 								<p>
 									<label>Estado civil</label>
-									<select name="txtEstadoCivil" type="combobox" class="span2">
+									<select name="txtEstadoCivil" class="span2">
 										<option selected="" value="">-</option>
-										<option value="5">Viudo/a</option>
-										<option value="290">UniÃ³n Libre</option>
-										<option value="2">Casado/a</option>
-										<option value="1">Soltero/a</option>
-										<option value="3">Divorciado/a</option>
-										<option value="4">Pareja de Hecho</option>
+										<option value="1">Viudo/a</option>
+										<option value="2">Unión Libre</option>
+										<option value="3">Casado/a</option>
+										<option value="4">Soltero/a</option>
+										<option value="5">Divorciado/a</option>
+										<option value="6">Pareja de Hecho</option>
 									</select>
 								</p>
 								<br/>
@@ -243,23 +306,46 @@
 									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
 									<button class="btn">Cancelar</button>
 								</div>
-							</div>							
-								<script type="text/javascript">
-									$(document).ready(function(){
-									$('.combobox').combobox();
-									});
-								</script>						
+							</div>													
+							</div><!--Residencia  -->
+							<br>
+							<br>
+						<div id="Residencia">
+							<h4>Lugar de Residencia</h4>	
+							<div >
+								<i class=" icon-edit"></i>
+								<input name="input" type="button" class="btn btn-primary" value="Editar" onClick="ActivaEditarResidencia()" >
+								<input name="inputcerrar" type="button" class="btn" value="Cancelar" onClick="cerrarResidencia()" >
 							</div>
+							<br/>
+							<div id="EditarResidencia" style="display: none;">
+								<label>Direccion</label>
+								<input type="text" name="direccion" class="span4">
+								<br>
+								<br/>
+								<div class="navbar" >
+									<button class="btn btn-primary" type="submit">Guardar Residencia</button>
+									<button class="btn">Cancelar</button>
+								</div>
+							</div>
+							<div id="mostrarResidencia">
+								<output>calle Trinitaria 281 El Agustino</output>
+							</div>
+		
 						</div>
+						</div><!--Residencia fin -->
+						<br>
+					
 					</form>
 				</div>
 			
-		</div>	
+		</div><br>	
+		<footer>
+        <p>&copy; Anderson Company 2012</p>
+      </footer>
 		</div>
 	
 		
-		<footer>
-        <p>&copy; Company 2012</p>
-      </footer>		
+			
 	</body>
 </html>
