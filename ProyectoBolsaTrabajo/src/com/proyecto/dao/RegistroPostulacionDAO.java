@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+
+
 
 import com.proyecto.exception.DAOExcepcion;
+import com.proyecto.modelo.Aviso;
 import com.proyecto.modelo.RegistroPostulacion;
 import com.proyecto.util.ConexionBD;
 
@@ -124,35 +129,49 @@ public class RegistroPostulacionDAO extends BaseDAO {
 	
 	//----------------------------------------------------------------------------------------------
 	
-//	public Collection<Categoria> listar() throws DAOExcepcion {
-//		Collection<Categoria> c = new ArrayList<Categoria>();
-//		Connection con = null;
-//		PreparedStatement stmt = null;
-//		ResultSet rs = null;
-//		try {
-//			con = ConexionBD.obtenerConexion();
-//			String query = "select id_categoria,nombre,descripcion from categoria order by nombre";
-//			stmt = con.prepareStatement(query);
-//			rs = stmt.executeQuery();
-//			while (rs.next()) {
-//				Categoria vo = new Categoria();
-//				vo.setIdCategoria(rs.getInt("id_categoria"));
-//				vo.setNombre(rs.getString("nombre"));
-//				vo.setDescripcion(rs.getString("descripcion"));
-//				c.add(vo);
-//			}
-//
-//		} catch (SQLException e) {
-//			System.err.println(e.getMessage());
-//			throw new DAOExcepcion(e.getMessage());
-//		} finally {
-//			this.cerrarResultSet(rs);
-//			this.cerrarStatement(stmt);
-//			this.cerrarConexion(con);
-//		}
-//		return c;
-//	}
-//
-//}
-
+	public Collection<RegistroPostulacion> obtenerPostulaciones(int idPostulacion) throws DAOExcepcion {
+		Collection<RegistroPostulacion> l = new ArrayList<RegistroPostulacion>();
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String query;
+		try {
+			 
+				// System.out.println("En las otras " + tipo);
+				query = "SELECT c.secuencial, c.idarticulo, a.descripcion, c.idcita, c.cantidad, c.total " +
+						" FROM detalle_factura c INNER JOIN articulo a " +
+						" WHERE c.idarticulo=a.idarticulo and c.idfactura='" + idPostulacion + "' order by c.secuencial asc"; 
+				
+								
+			 con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			// stmt.setString(1, codigo_persona);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				RegistroPostulacion vo = new RegistroPostulacion();
+					
+				vo.setFechPostulacion(rs.getString("fechpostulacion"));
+				vo.setEstadoPostulacion(rs.getString("Estado"));
+				
+				
+				Aviso av = new Aviso();
+				
+				av.setTitulo(rs.getString("a.tituloAviso"));
+			    av.setFec_publicacion(rs.getDate("a.fechaPublicacion"));
+				
+			
+			} 
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return l;
+	}
 }
+
+
