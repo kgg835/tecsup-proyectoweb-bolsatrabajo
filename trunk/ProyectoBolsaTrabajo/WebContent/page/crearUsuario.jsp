@@ -43,7 +43,7 @@
 </head>
 <body><!-- Este es el Body -->
 
-	<div class="container" class="well">
+	<div class="container">
 		<table width="100%">
 			<tr>
 				<td style="width: 246px" width="246">
@@ -64,22 +64,26 @@
 			<form ></form>
 		</div>
 		<div class="span4" >
-			<form class="well" action="/ProyectoBolsaTrabajo/ServletLogin" method="post">
-	    		<label><h3>Ingresar a bolsaTrabajo.com</h3></label><br/>
+			<form class="well" action="/ProyectoBolsaTrabajo/ServletCrearUsuario" method="post">
+	    		<label><h3>Crear Cuenta para bolsaTrabajo.com</h3></label><br/>
 	    		<!--span class="help-inline">Texto de ayuda asociado!</span><br/>-->
 	    		<label>Email o Nombre de usuario</label>
-	    		<input type="text" class="span3" placeholder="Escribe algo?" name="txtUsuario"><br/>
+	    		<input type="text" class="span3" placeholder="Escribe algo?" name="txtUsuarioC"><br/>
 	    		<label>Contraseña</label>
-	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasena"><br/>
+	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasenaC"><br/>
+	    		<label>Vuelve a escribir tu Contraseña</label>
+	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasenavalida"><br/>
 	    		<label class="checkbox">
 	    			<input type="checkbox"> Seguir conectado
 	    		</label><br/>
-	   			<button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+	   			<button type="submit" class="btn btn-success" >Crear Usuario</button>
 	   		</form> 
 	    </div>
 	    <div class="span4">
-	    	<form ></form>
-	    </div>	
+	    	<form >
+	    	</form>
+	    </div>
+	       	
 	</div>
 </div>
 </body>

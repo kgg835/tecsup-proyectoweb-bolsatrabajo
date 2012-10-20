@@ -64,17 +64,13 @@
 			<form ></form>
 		</div>
 		<div class="span4" >
-			<form class="well" action="/ProyectoBolsaTrabajo/ServletLogin" method="post">
-	    		<label><h3>Ingresar a bolsaTrabajo.com</h3></label><br/>
-	    		<!--span class="help-inline">Texto de ayuda asociado!</span><br/>-->
-	    		<label>Email o Nombre de usuario</label>
-	    		<input type="text" class="span3" placeholder="Escribe algo?" name="txtUsuario"><br/>
-	    		<label>Contraseña</label>
-	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasena"><br/>
-	    		<label class="checkbox">
-	    			<input type="checkbox"> Seguir conectado
-	    		</label><br/>
-	   			<button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+			<form class="well" action="#" method="post">
+	    		 <div class="alert alert-success ">
+    			 	<a class="close" data-dismiss="alert">×</a>
+					<h4>Bien Hecho ya tienes tu cuenta creada</h4>
+					<h4>puedes iniciar sesion con tu cuenta</h4>
+    			</div>
+	   			<button type="submit" class="btn btn-primary"  onclick="window.location='postulante.jsp'">ir a Sesion</button>
 	   		</form> 
 	    </div>
 	    <div class="span4">
