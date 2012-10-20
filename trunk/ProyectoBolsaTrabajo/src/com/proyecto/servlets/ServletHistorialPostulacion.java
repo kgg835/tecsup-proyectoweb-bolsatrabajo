@@ -46,23 +46,23 @@ public class ServletHistorialPostulacion extends HttpServlet {
 String idPostulacion = request.getParameter("id");
 		
 		GestionPostulaciones historial = new GestionPostulaciones();
-		try {
-			
-			Collection<RegistroPostulacion> o = historial.obtenerRegistroPostulaciones(idPostulacion);
-			Collection<RegistroPostulacion> lista = new ArrayList<RegistroPostulacion>();
-			
-			lista.addAll(o);
-			// Guardar en el ambiente de request
-			request.setAttribute("postulaciones", lista);
-			RequestDispatcher rd = request
-					.getRequestDispatcher("postulaciones.jsp");
-			rd.forward(request, response);
-
-		} catch (DAOExcepcion e) {
-			System.out.println(e.getMessage());
-			//RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-			//rd.forward(request, response);
-		}	
+//		try {
+//			
+//			Collection<RegistroPostulacion> o = historial.obtenerRegistroPostulaciones(idPostulacion);
+//			Collection<RegistroPostulacion> lista = new ArrayList<RegistroPostulacion>();
+//			
+//			lista.addAll(o);
+//			// Guardar en el ambiente de request
+//			request.setAttribute("postulaciones", lista);
+//			RequestDispatcher rd = request
+//					.getRequestDispatcher("postulaciones.jsp");
+//			rd.forward(request, response);
+//
+//		} catch (DAOExcepcion e) {
+//			System.out.println(e.getMessage());
+//			//RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+//			//rd.forward(request, response);
+//		}	
 	}
 
 }
