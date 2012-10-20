@@ -8,5 +8,8 @@
 </head>
 <body>
 	<h1>Usuario no Registrado</h1>
+	<form action="/ProyectoBolsaTrabajo/page/crearUsuario.jsp" id="errorRedireccionar" >
+		<button type="submit" value="Crear Cuenta"></button>
+	</form>
 </body>
 </html>
