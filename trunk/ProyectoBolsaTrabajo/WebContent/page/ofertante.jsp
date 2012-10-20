@@ -73,7 +73,7 @@
 						</div>
 					</div>
 					<br>
-					<form class="navbar-form well" name="f2" action="Servletofertante" method="post">
+					<form class="navbar-form well" name="f2" action="../Servletofertante" method="post">
 						<div class="span2" style="width:100px; height:100px;" >
 							<!--Sidebar content-->
 							<img src="../bootstrap/img/fotoCvGenericaGrande.jpg" class="fotoCvBox" color="green">
