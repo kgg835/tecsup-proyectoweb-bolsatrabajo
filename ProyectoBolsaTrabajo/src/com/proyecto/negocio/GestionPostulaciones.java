@@ -1,10 +1,11 @@
 package com.proyecto.negocio;
 
-import java.util.Date;
+import java.util.Collection;
 
-
+import com.proyecto.dao.HistorialPostulacionesDAO;
 import com.proyecto.dao.RegistroPostulacionDAO;
 import com.proyecto.exception.DAOExcepcion;
+import com.proyecto.modelo.HistorialPostulaciones;
 import com.proyecto.modelo.RegistroPostulacion;
 
 public class GestionPostulaciones {
@@ -18,4 +19,10 @@ public class GestionPostulaciones {
 		vo.setEstadoPostulacion(estadoPostulacion);
 		
 		return dao.insertar(vo);
+}
+
+	
+public    Collection<HistorialPostulaciones> obtenerPostulaciones(String idPostulacion) throws DAOExcepcion {
+	HistorialPostulacionesDAO dao = new HistorialPostulacionesDAO();
+	return dao.obtenerPostulaciones(idPostulacion);
 }}
