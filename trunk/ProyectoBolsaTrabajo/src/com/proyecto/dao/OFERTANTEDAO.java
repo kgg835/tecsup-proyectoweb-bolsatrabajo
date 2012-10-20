@@ -19,6 +19,7 @@ public Ofertante insertar(Ofertante vo) throws DAOExcepcion{
 	String query="Insert into ofertante(ruc,razonSocial,correo,descEmpresa,usuarioOf,passwordOf) values(?,?,?,?,?,?)";
 	Connection con=null;
 	PreparedStatement stmt=null;
+
 	ResultSet rs=null;
 	try{
 		con=ConexionBD.obtenerConexion();
