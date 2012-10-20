@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 import com.proyecto.exception.DAOExcepcion;
-import com.proyecto.modelo.RegistroPostulacion;
+import com.proyecto.modelo.HistorialPostulaciones;
+
 import com.proyecto.negocio.GestionPostulaciones;
 
 
@@ -46,23 +49,25 @@ public class ServletHistorialPostulacion extends HttpServlet {
 String idPostulacion = request.getParameter("id");
 		
 		GestionPostulaciones historial = new GestionPostulaciones();
-//		try {
-//			
-//			Collection<RegistroPostulacion> o = historial.obtenerRegistroPostulaciones(idPostulacion);
-//			Collection<RegistroPostulacion> lista = new ArrayList<RegistroPostulacion>();
-//			
-//			lista.addAll(o);
-//			// Guardar en el ambiente de request
-//			request.setAttribute("postulaciones", lista);
-//			RequestDispatcher rd = request
-//					.getRequestDispatcher("postulaciones.jsp");
-//			rd.forward(request, response);
-//
-//		} catch (DAOExcepcion e) {
-//			System.out.println(e.getMessage());
-//			//RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
-//			//rd.forward(request, response);
-//		}	
+		try {
+			
+			Collection<HistorialPostulaciones> h = historial.obtenerPostulaciones(idPostulacion);
+			Collection<HistorialPostulaciones> lista = new ArrayList<HistorialPostulaciones>();
+			
+			lista.addAll(h);
+			// Guardar en el ambiente de request
+			request.setAttribute("historial", lista);
+			RequestDispatcher rd = request
+					.getRequestDispatcher("postulaciones.jsp");
+			rd.forward(request, response);
+
+		} catch (DAOExcepcion e) {
+			System.out.println(e.getMessage());
+			//RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			//rd.forward(request, response);
+		}
+		
 	}
 
 }
+
