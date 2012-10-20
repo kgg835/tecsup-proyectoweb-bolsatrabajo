@@ -70,21 +70,22 @@ public class ServletPostulante extends HttpServlet {
 			postulante.setIdPostulante(Integer.parseInt(request.getParameter("usuarioID")));
 			negocio.insertarPostulante(postulante);
 
-			RequestDispatcher rd = request
-					.getRequestDispatcher("postulante.jsp");
-			rd.forward(request, response);
+			
 		} catch (DAOExcepcion e) {
 			e.printStackTrace();
 		}
-		String postulante=request.getParameter("postulante");
-		if(postulante!=null && postulante!=""){
-			RequestDispatcher rd = request.getRequestDispatcher("postulante.jsp");
-			rd.forward(request, response);
-		}
-		else{
-			RequestDispatcher rd = request.getRequestDispatcher("error_postulante.jsp");
-			rd.forward(request, response);
-		}
+		RequestDispatcher rd = request
+				.getRequestDispatcher("/page/postulante.jsp");
+		rd.forward(request, response);
+//		String postulante=request.getParameter("postulante");
+//		if(postulante!=null && postulante!=""){
+//			RequestDispatcher rd = request.getRequestDispatcher("postulante.jsp");
+//			rd.forward(request, response);
+//		}
+//		else{
+//			RequestDispatcher rd = request.getRequestDispatcher("error_postulante.jsp");
+//			rd.forward(request, response);
+//		}
 		
 		
 	}
