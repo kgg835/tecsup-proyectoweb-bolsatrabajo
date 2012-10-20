@@ -58,8 +58,8 @@
 					<!-- <img src="../bootstrap/img/logo.jpg" width="307" height="40"></td> -->
 				<td align="right" style="width: 885px; " width="688">
 					<form>
-						<button type="submit" class="btn btn-large">Iniciar Sesion</button>
-						<button type="submit" class="btn btn-large btn-primary">Cargar mi CV</button>
+						<button type="submit" class="btn btn-large disabled">Iniciar Sesion</button>
+						<button type="submit" class="btn btn-large btn-primary disabled">Cargar mi CV</button>
 					</form>
 				</td>
 			</tr>

@@ -60,7 +60,7 @@ public class ServletCrearUsuario extends HttpServlet {
 				if(passwvalida.equals(passw)){
 					usuario.setNombreUsuario(user);
 					usuario.setPasswordUsuario(passw);
-					usuario.setIdRol(2);
+					usuario.setIdRol(3);
 					GestionLogin negocio=new GestionLogin();
 					negocio.insertarUsuario(usuario);
 					mensaje="el usuario: "+user+"ha sido registrado correctamente";

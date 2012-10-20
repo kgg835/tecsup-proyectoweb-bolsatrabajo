@@ -43,10 +43,19 @@
 		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-typeahead.js"></script>
 		
 		<script type="text/javascript">
+			var activador=${estado};
+			
 	    	$(document).ready(function(){
-				jQuery("#mostrarDatos").show();
-				jQuery("#mostrarResidencia").show();
-
+		    	if(activador==0){
+		    		jQuery("#mostrarDatos").show();
+					jQuery("#mostrarResidencia").show();
+			    }else{
+				    if(activador==1){
+				    	jQuery("#datosPersonal").show();
+				    	jQuery("#mostrarDatos").hide();
+					}
+			    	
+				    }
 			});
 	   		 function ActivaEditar(){
 			  jQuery("#datosPersonal").show();
@@ -243,7 +252,7 @@
 											<label>Fecha de nacimiento</label>
 											<select name="txtDia" class="span1"> 
 												<option selected="" value="">-</option>
-												<option value="PE">1</option>
+												<option value="1">1</option>
 
 											</select>	
 										
@@ -323,6 +332,9 @@
 								<input type="text" name="direccion" class="span4">
 								<br>
 								<br/>
+								<div style="display: none;">
+									<input type="text" value="${IDUsuario}" name="usuarioID">
+								</div>
 								<div class="navbar" >
 									<button class="btn btn-primary" type="submit">Guardar Residencia</button>
 									<button class="btn">Cancelar</button>

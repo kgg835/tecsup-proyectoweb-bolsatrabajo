@@ -67,6 +67,7 @@ public class ServletPostulante extends HttpServlet {
 			postulante.setEstadoCivil(request.getParameter("txtEstadoCivil"));
 			postulante.setIdPresentacion(1);
 			postulante.setIdPreferencia_Salarial(1);
+			postulante.setIdPostulante(Integer.parseInt(request.getParameter("usuarioID")));
 			negocio.insertarPostulante(postulante);
 
 			RequestDispatcher rd = request
@@ -79,7 +80,8 @@ public class ServletPostulante extends HttpServlet {
 		if(postulante!=null && postulante!=""){
 			RequestDispatcher rd = request.getRequestDispatcher("postulante.jsp");
 			rd.forward(request, response);
-		}else{
+		}
+		else{
 			RequestDispatcher rd = request.getRequestDispatcher("error_postulante.jsp");
 			rd.forward(request, response);
 		}

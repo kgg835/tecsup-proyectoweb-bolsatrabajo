@@ -19,8 +19,8 @@ public class PostulanteDAO extends BaseDAO {
 				+ "apellidosPersona,dni,codPersona,passwordPe,email,"
 				+ "pais,provincia,ciudad,direccion,telefonoFijo,"
 				+ "numeroCelular,fechaNacimiento,sexo,estadoCivil,"
-				+ "PER_idPRESENTACION,PER_idPREFERENCIAS_SALARIALES)"
-				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";// ?:por cada
+				+ "idUsuario,PER_idPRESENTACION,PER_idPREFERENCIAS_SALARIALES)"
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";// ?:por cada
 		// columna
 		Connection con = null;
 		PreparedStatement stmt = null;// sentencias preparadas
@@ -45,8 +45,9 @@ public class PostulanteDAO extends BaseDAO {
 			stmt.setString(14, postulante.getFechaNacimiento());
 			stmt.setString(15, postulante.getSexo());
 			stmt.setString(16, postulante.getEstadoCivil());
-			stmt.setInt(17, postulante.getIdPresentacion());
-			stmt.setInt(18, postulante.getIdPreferencia_Salarial());
+			stmt.setInt(17, postulante.getIdPostulante());
+			stmt.setInt(18, postulante.getIdPresentacion());
+			stmt.setInt(19, postulante.getIdPreferencia_Salarial());
 			int i = stmt.executeUpdate();// executeUpdate() devuelve un entero=#
 											// de filas afectadas
 			if (i != 1) {
@@ -86,8 +87,8 @@ public class PostulanteDAO extends BaseDAO {
 					+ "codPersona,passwordPe,email,pais,"
 					+ "provincia,ciudad,direccion,telefonoFijo,"
 					+ "numeroCelular,fechaNacimiento,sexo,estadoCivil,"
-					+ "PER_idPRESENTACION,PER_idPREFERENCIAS_SALARIALES "
-					+ "FROM persona WHERE idPERSONA=?";
+					+ "idUsuario,PER_idPRESENTACION,PER_idPREFERENCIAS_SALARIALES "
+					+ "FROM persona WHERE idUsuario=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, idPostulante);
@@ -112,8 +113,9 @@ public class PostulanteDAO extends BaseDAO {
 				postulante.setFechaNacimiento(rs.getString(15));
 				postulante.setSexo(rs.getString(16));
 				postulante.setEstadoCivil(rs.getString(17));
-				postulante.setIdPresentacion(rs.getInt(18));
-				postulante.setIdPreferencia_Salarial(rs.getInt(19));
+				postulante.setIdPostulante(rs.getInt(18));
+				postulante.setIdPresentacion(rs.getInt(19));
+				postulante.setIdPreferencia_Salarial(rs.getInt(20));
 
 			}
 		} catch (SQLException e) {
