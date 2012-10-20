@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+import com.proyecto.dao.UsuarioDAO;
 import com.proyecto.exception.DAOExcepcion;
+import com.proyecto.modelo.Usuario;
 import com.proyecto.negocio.Gestionofertante;
+import com.proyecto.negocio.Gestionusuario;
 
 /**
  * Servlet implementation class Servletofertante
@@ -29,9 +32,20 @@ public class Servletofertante extends HttpServlet {
     }
     //metodos base de datos
     public void insertarofertante(String ruc,String rs,String correo,String descripcion,String usuario,String password){
-		Gestionofertante negocio= new Gestionofertante();
+		Gestionofertante ofertante= new Gestionofertante();
+		Gestionusuario usua=new Gestionusuario();
+Usuario u=new Usuario();
+
 		try{
-			negocio.insertar(ruc,rs,correo,descripcion,usuario,password);
+			u=usua.insertar(correo, password);
+			
+			System.out.println(u.getId());
+			
+			
+			usua.insertar_urol(u.getId(),1);
+			
+			ofertante.insertar(ruc,rs,correo,descripcion,usuario,password);
+
 			System.out.println("Sus datos fueron registrados correctamente");
 
 		}catch(DAOExcepcion e){
