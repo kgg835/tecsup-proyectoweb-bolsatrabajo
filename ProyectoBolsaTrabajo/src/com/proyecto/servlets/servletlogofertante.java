@@ -50,23 +50,23 @@ public class servletlogofertante extends HttpServlet {
 
 		Gestionusuario negocio = new Gestionusuario();
 
-		try {
-			consulta_ofertante1 vo = negocio.validarUsuario(usuario, clave);
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("USUARIO_ACTUAL", vo);
-			
-			response.sendRedirect("servletportofertante");
-			return;
-		} catch (DAOExcepcion e) {
-			System.err.println("Error");
-			RequestDispatcher rd = request.getRequestDispatcher("/error.jsp");
-			rd.forward(request, response);
-		} catch (LoginExcepcion e) {
-			System.err.println("Error");
-			RequestDispatcher rd = request.getRequestDispatcher("/error_login.jsp");
-			rd.forward(request, response);
-		}
+//		try {
+//		//	consulta_ofertante1 vo = negocio.validarUsuario(usuario, clave);
+//			
+//			HttpSession session = request.getSession();
+//		//	session.setAttribute("USUARIO_ACTUAL", vo);
+//			
+//			response.sendRedirect("servletportofertante");
+//			return;
+//		} catch (DAOExcepcion e) {
+//			System.err.println("Error");
+//			RequestDispatcher rd = request.getRequestDispatcher("/error.jsp");
+//			rd.forward(request, response);
+//		} catch (LoginExcepcion e) {
+//			System.err.println("Error");
+//			RequestDispatcher rd = request.getRequestDispatcher("/error_login.jsp");
+//			rd.forward(request, response);
+//		}
 
 	}
 	}
