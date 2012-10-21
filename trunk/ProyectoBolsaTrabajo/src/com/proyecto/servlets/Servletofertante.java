@@ -36,21 +36,21 @@ public class Servletofertante extends HttpServlet {
 		Gestionusuario usua=new Gestionusuario();
 Usuario u=new Usuario();
 
-		try{
-			u=usua.insertar(correo, password);
-			
-			System.out.println(u.getId());
-			
-			
-			usua.insertar_urol(u.getId(),1);
-			
-			ofertante.insertar(ruc,rs,correo,descripcion,usuario,password);
-
-			System.out.println("Sus datos fueron registrados correctamente");
-
-		}catch(DAOExcepcion e){
-			System.out.println("error");
-		}
+//		try{
+//			u=usua.insertar(correo, password);
+//			
+//			System.out.println(u.getId());
+//			
+//			
+//			usua.insertar_urol(u.getId(),1);
+//			
+//			ofertante.insertar(ruc,rs,correo,descripcion,usuario,password);
+//
+//			System.out.println("Sus datos fueron registrados correctamente");
+//
+//		}catch(DAOExcepcion e){
+//			System.out.println("error");
+//		}
 	
 	}
 
