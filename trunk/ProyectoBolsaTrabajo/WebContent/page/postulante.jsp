@@ -184,59 +184,25 @@
 								<input name="txtApellido" type="text" class="span3" placeholder="apellidos"><br>
 								<label>E-mail</label>
 								<input name="txtEmail" type="text" class="span3" placeholder="hackromanux@gmail.com"><br>
-								<table>
-									<tr>
-										<td>
-											<label>Pais de residencia</label>
-											<select name="txtPais" >
-												<option selected="" value="">-</option>
-												<option value="AR">Argentina</option>
-												<option value="BR">Brazil</option>
-												<option value="BO">Bolivia</option>
-												<option value="CO">Colombia</option>
-												<option value="CH">Chile</option>
-												<option value="EC">Ecuador</option>
-												<option value="PA">Paraguay</option>
-												<option value="PE">Peru</option>
-												<option value="VE">Venezuela</option>
-											</select>	
-										</td>
-										<td>
-											<label>Provincia o estado</label>
-											<select name="txtProvincia" >
-												<option selected="" value="">-</option>
-												<option value="AR">Arequipa</option>
-												<option value="LI">Lima</option>
-												<option value="TU">Tumbes</option>
-												<option value="IA">Ica</option>
-												<option value="HU">Huancayo</option>
-												<option value="IQ">Iquitos</option>
-												<option value="TA">Tacna</option>
-												<option value="CU">Cuzco</option>
-												<option value="IC">Ica</option>
-											</select>
-										</td>
-									</tr>
-								</table>
-								<br>
-								<br>
-								<label>ciudad</label>
-								<input name="txtCuidad" type="text" class="span3" placeholder="ciudad"><br>
-								<label>Direccion</label>
-								<input name="txtDireccion" class="span4" type="text" placeholder="direccion"><br>
+
+
 								<label>telefono fijo</label>
 								<input name="txtTelefonoFijo" class="span3" type="text" placeholder="fijo"><br>
 								<label>telefono celular</label>
 								<input name="txtTelefonoCel" class="span3" type="text" placeholder="celular"><br>
-								<label>Nacionlidad</label>
-								<p>
+			
+								<p><label>Nacionalidad</label>
 									<select type="combobox">
 										<option selected="" value="">-</option>
-										<option value="LI">Lima</option>
-										<option value="TU">Tumbes</option>
-										<option value="IA">Ica</option>
-										<option value="HU">Huancayo</option>
-										<option value="IQ">Iquitos</option>
+										<option value="AR">Argentina</option>
+										<option value="BR">Brazil</option>
+										<option value="BO">Bolivia</option>
+										<option value="CO">Colombia</option>
+										<option value="CH">Chile</option>
+										<option value="EC">Ecuador</option>
+										<option value="PA">Paraguay</option>
+										<option value="PE">Peru</option>
+										<option value="VE">Venezuela</option>
 									</select>
 								</p>
 								<p>

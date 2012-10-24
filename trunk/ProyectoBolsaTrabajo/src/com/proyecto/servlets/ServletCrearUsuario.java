@@ -67,7 +67,7 @@ public class ServletCrearUsuario extends HttpServlet {
 					PrintWriter pw=response.getWriter();
 					pw.println(mensaje);
 					
-					RequestDispatcher rd=request.getRequestDispatcher("/page/mensajeCreacion.jsp");
+					RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
 					rd.forward(request, response);
 				}else{
 					mensaje="ERROR!!!.. "+user+"No ha sido registrado correctamente";
