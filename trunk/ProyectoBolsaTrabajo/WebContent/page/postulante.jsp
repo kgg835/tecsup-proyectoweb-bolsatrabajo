@@ -96,9 +96,11 @@
 						<a class="brand" href="#">Bolsa de Empleo</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#bio">Bio</a></li>
-							<li><a href="#contacto">Contacto</a></li>
+							<li class="active"><a href="http://localhost:8080/ProyectoBolsaTrabajo/page/inicio.jsp">Inicio</a></li>
+							<li><a href="#bio">Buscar Avisos</a></li>
+							<li><a href="#bio">Mis Postulaciones</a></li>
+							<li><a href="#contacto">Mi CV</a></li>
+							<li><a href="#bio">Herramientas</a></li>
 						</ul>
 						</div>
 					</div>

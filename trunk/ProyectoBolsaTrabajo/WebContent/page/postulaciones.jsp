@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@page import="com.proyecto.modelo.HistorialPostulaciones"%>
+<%-- <%@page import="com.proyecto.modelo.HistorialPostulaciones"%> --%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
