@@ -39,7 +39,6 @@
     this.listen()
   }
   
-
   Typeahead.prototype = {
 
     constructor: Typeahead
