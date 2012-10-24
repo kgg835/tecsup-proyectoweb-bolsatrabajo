@@ -108,14 +108,14 @@ public class ServletLogin extends HttpServlet {
 								request.setAttribute("estado",1);
 								request.setAttribute("IDUsuario",id);
 								System.out.println("Entro en Estado=1");
-								RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+								RequestDispatcher rd=request.getRequestDispatcher("page/postulante.jsp");
 								rd.forward(request, response);
 							}
 						}
 					}
 				}
 				else{
-					RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
+					RequestDispatcher rd=request.getRequestDispatcher("/page/crearUsuario.jsp");
 					rd.forward(request, response);
 				}
 //				RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");

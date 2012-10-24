@@ -15,7 +15,7 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="/ProyectoBolsaTrabajo/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 		<style type="text/css">
 			body { 
@@ -23,23 +23,23 @@
 				padding-top: 10px; 
 			}
 		</style>
-		<link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-		<link href="../bootstrap/css/docs.css" rel="stylesheet">
+		<link href="/ProyectoBolsaTrabajo/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="/ProyectoBolsaTrabajo/bootstrap/css/docs.css" rel="stylesheet">
 		
-		<script src="../bootstrap/js/jquery.js"></script>
-		<script src="../bootstrap/js/bootstrap.js"></script>
-		<script src="../bootstrap/js/bootstrap-transition.js"></script>
-		<script src="../bootstrap/js/bootstrap-alert.js"></script>
-		<script src="../bootstrap/js/bootstrap-modal.js"></script>
-		<script src="../bootstrap/js/bootstrap-dropdown.js"></script>
-		<script src="../bootstrap/js/bootstrap-scrollspy.js"></script>
-		<script src="../bootstrap/js/bootstrap-tab.js"></script>
-		<script src="../bootstrap/js/bootstrap-tooltip.js"></script>
-		<script src="../bootstrap/js/bootstrap-popover.js"></script>
-		<script src="../bootstrap/js/bootstrap-button.js"></script>
-		<script src="../bootstrap/js/bootstrap-collapse.js"></script>
-		<script src="../bootstrap/js/bootstrap-carousel.js"></script>
-		<script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/jquery.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-transition.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-alert.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-modal.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-dropdown.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-scrollspy.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-tab.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-tooltip.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-popover.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-button.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-collapse.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-carousel.js"></script>
+		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-typeahead.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
 				//$('#myusuario').val('');
@@ -50,7 +50,7 @@
 </head>
 <body><!-- Este es el Body -->
 
-	<div class="container" class="well">
+	<div class="container">
 		<table width="100%">
 			<tr>
 				<td style="width: 246px" width="246">
