@@ -38,6 +38,7 @@
     this.shown = false
     this.listen()
   }
+  
 
   Typeahead.prototype = {
 
