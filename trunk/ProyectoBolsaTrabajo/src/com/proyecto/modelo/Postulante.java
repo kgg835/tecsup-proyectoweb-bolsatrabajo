@@ -39,7 +39,7 @@ public class Postulante extends Persona implements Serializable{
 	private Collection<Referencia> listaReferencias;
 
 	// Un postulante tiene de 0 a muchas postulaciones
-	private Collection<RegistroPostulacion> listaregistroPostulacion;
+	
 	// Un Postulante tiene de 0 a muchas Experiencias Laborales
 	private Collection<ExperienciaLaboral> listaExperiencialaboral;
 	
@@ -250,14 +250,10 @@ public class Postulante extends Persona implements Serializable{
 		return codPostulante;
 	}
 
-	public Collection<RegistroPostulacion> getListaregistroPostulacion() {
-		return listaregistroPostulacion;
-	}
+	
+	
 
-	public void setListaregistroPostulacion(Collection<RegistroPostulacion> listaregistroPostulacion) {
-		this.listaregistroPostulacion = listaregistroPostulacion;
-	}
-
+	
 	public int getIdUsuario() {
 		return idUsuario;
 	}
