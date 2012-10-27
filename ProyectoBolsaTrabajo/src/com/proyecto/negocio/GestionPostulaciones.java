@@ -9,8 +9,9 @@ import com.proyecto.modelo.HistorialPostulaciones;
 
 public class GestionPostulaciones {
 
-	
-public    Collection<HistorialPostulaciones> obtenerPostulaciones(String idPostulacion) throws DAOExcepcion {
-	HistorialPostulacionesDAO dao = new HistorialPostulacionesDAO();
-	return dao.obtenerPostulaciones(idPostulacion);
-}}
+	public Collection<HistorialPostulaciones> listarpostulaciones()
+			throws DAOExcepcion {
+		HistorialPostulacionesDAO dao = new HistorialPostulacionesDAO();
+		return dao.listarpostulaciones();
+	}
+}
