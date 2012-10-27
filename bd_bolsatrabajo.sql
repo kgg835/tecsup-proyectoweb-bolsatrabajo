@@ -25,6 +25,7 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`rol` (
   `tipoRol` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`idROL`) )
 ENGINE = InnoDB
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -44,6 +45,7 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`usuario` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -95,18 +97,6 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `bd_bolsatrabajo`.`presentacion`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`presentacion` (
-  `idPRESENTACION` INT(11) NOT NULL AUTO_INCREMENT ,
-  `descripcion_Pres` VARCHAR(45) NULL DEFAULT NULL ,
-  PRIMARY KEY (`idPRESENTACION`) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 6
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
 -- Table `bd_bolsatrabajo`.`preferencia_salarial`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`preferencia_salarial` (
@@ -115,7 +105,17 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`preferencia_salarial` (
   `montoDolares` DECIMAL(10,0) NULL DEFAULT NULL ,
   PRIMARY KEY (`idPREFERENCIA_SALARIAL`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `bd_bolsatrabajo`.`presentacion`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`presentacion` (
+  `idPRESENTACION` INT(11) NOT NULL AUTO_INCREMENT ,
+  `descripcion_Pres` VARCHAR(45) NULL DEFAULT NULL ,
+  PRIMARY KEY (`idPRESENTACION`) )
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -128,12 +128,8 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`persona` (
   `nombrePersona` VARCHAR(60) NOT NULL ,
   `apellidosPersona` VARCHAR(60) NOT NULL ,
   `dni` VARCHAR(45) NOT NULL ,
-  `codPersona` VARCHAR(60) NOT NULL ,
-  `passwordPe` VARCHAR(60) NOT NULL ,
   `email` VARCHAR(80) NOT NULL ,
   `pais` VARCHAR(45) NOT NULL ,
-  `provincia` VARCHAR(45) NOT NULL ,
-  `ciudad` VARCHAR(45) NOT NULL ,
   `direccion` VARCHAR(80) NOT NULL ,
   `telefonoFijo` VARCHAR(45) NULL DEFAULT NULL ,
   `numeroCelular` VARCHAR(45) NULL DEFAULT NULL ,
@@ -149,9 +145,9 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`persona` (
   INDEX `fk_persona_usuario1` (`idUsuario` ASC) ,
   INDEX `fk_persona_presentacion1` (`presentacion_idPRESENTACION` ASC) ,
   INDEX `fk_persona_preferencia_salarial1` (`preferencia_salarial_idPREFERENCIA_SALARIAL` ASC) ,
-  CONSTRAINT `fk_persona_usuario1`
-    FOREIGN KEY (`idUsuario` )
-    REFERENCES `bd_bolsatrabajo`.`usuario` (`idUsuario` )
+  CONSTRAINT `fk_persona_preferencia_salarial1`
+    FOREIGN KEY (`preferencia_salarial_idPREFERENCIA_SALARIAL` )
+    REFERENCES `bd_bolsatrabajo`.`preferencia_salarial` (`idPREFERENCIA_SALARIAL` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_presentacion1`
@@ -159,13 +155,12 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`persona` (
     REFERENCES `bd_bolsatrabajo`.`presentacion` (`idPRESENTACION` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_persona_preferencia_salarial1`
-    FOREIGN KEY (`preferencia_salarial_idPREFERENCIA_SALARIAL` )
-    REFERENCES `bd_bolsatrabajo`.`preferencia_salarial` (`idPREFERENCIA_SALARIAL` )
+  CONSTRAINT `fk_persona_usuario1`
+    FOREIGN KEY (`idUsuario` )
+    REFERENCES `bd_bolsatrabajo`.`usuario` (`idUsuario` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -211,7 +206,6 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`conocimiento_adicional` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -244,7 +238,6 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`estudio` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -275,7 +268,6 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`experiencia_laboral` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -289,7 +281,6 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`idioma` (
   `nivelOral` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`idIDIOMA`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -302,7 +293,6 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`informatica` (
   `nivelInformatica` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`idINFORMATICA`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -316,14 +306,14 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`persona_idioma` (
   `idioma_idIDIOMA` INT(11) NOT NULL ,
   INDEX `fk_persona_idioma_persona1` (`persona_idPERSONA` ASC, `persona_PER_idPRESENTACION` ASC, `persona_PER_idPREFERENCIAS_SALARIALES` ASC) ,
   INDEX `fk_persona_idioma_idioma1` (`idioma_idIDIOMA` ASC) ,
-  CONSTRAINT `fk_persona_idioma_persona1`
-    FOREIGN KEY (`persona_idPERSONA` , `persona_PER_idPRESENTACION` , `persona_PER_idPREFERENCIAS_SALARIALES` )
-    REFERENCES `bd_bolsatrabajo`.`persona` (`idPERSONA` , `PER_idPRESENTACION` , `PER_idPREFERENCIAS_SALARIALES` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_persona_idioma_idioma1`
     FOREIGN KEY (`idioma_idIDIOMA` )
     REFERENCES `bd_bolsatrabajo`.`idioma` (`idIDIOMA` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_persona_idioma_persona1`
+    FOREIGN KEY (`persona_idPERSONA` , `persona_PER_idPRESENTACION` , `persona_PER_idPREFERENCIAS_SALARIALES` )
+    REFERENCES `bd_bolsatrabajo`.`persona` (`idPERSONA` , `PER_idPRESENTACION` , `PER_idPREFERENCIAS_SALARIALES` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -369,14 +359,14 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`puesto` (
   PRIMARY KEY (`idPUESTO`) ,
   INDEX `fk_puesto_persona1` (`persona_idPERSONA` ASC, `persona_PER_idPRESENTACION` ASC, `persona_PER_idPREFERENCIAS_SALARIALES` ASC) ,
   INDEX `fk_puesto_area1` (`area_idAREA` ASC) ,
-  CONSTRAINT `fk_puesto_persona1`
-    FOREIGN KEY (`persona_idPERSONA` , `persona_PER_idPRESENTACION` , `persona_PER_idPREFERENCIAS_SALARIALES` )
-    REFERENCES `bd_bolsatrabajo`.`persona` (`idPERSONA` , `PER_idPRESENTACION` , `PER_idPREFERENCIAS_SALARIALES` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_puesto_area1`
     FOREIGN KEY (`area_idAREA` )
     REFERENCES `bd_bolsatrabajo`.`area` (`idAREA` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_puesto_persona1`
+    FOREIGN KEY (`persona_idPERSONA` , `persona_PER_idPRESENTACION` , `persona_PER_idPREFERENCIAS_SALARIALES` )
+    REFERENCES `bd_bolsatrabajo`.`persona` (`idPERSONA` , `PER_idPRESENTACION` , `PER_idPREFERENCIAS_SALARIALES` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -408,7 +398,6 @@ CREATE  TABLE IF NOT EXISTS `bd_bolsatrabajo`.`referencia` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = latin1;
 
 
