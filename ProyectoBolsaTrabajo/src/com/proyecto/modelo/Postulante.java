@@ -29,7 +29,7 @@ public class Postulante extends Persona implements Serializable{
 
 	// Un postulante tiene un registro de login
 //	private Login loginPostulante;
-
+	private Collection<HistorialPostulaciones> historialPostulacion;
 	// Un postulante puede consultar de 0 a muchos Avisos
 	private Collection<Aviso> listaAvisos;
 	private Presentacion presentacion;
@@ -260,6 +260,14 @@ public class Postulante extends Persona implements Serializable{
 
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+
+	public Collection<HistorialPostulaciones> getHistorialPostulacion() {
+		return historialPostulacion;
+	}
+
+	public void setHistorialPostulacion(Collection<HistorialPostulaciones> historialPostulacion) {
+		this.historialPostulacion = historialPostulacion;
 	}
 
 
