@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Nuevo proyecto con Bootstrap 2.0</title>
+		<title>Mi Bolsa de Empleo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<meta name="description" content="Bootstrap 2.0">
@@ -97,9 +97,9 @@
 						<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="active"><a href="http://localhost:8080/ProyectoBolsaTrabajo/page/inicio.jsp">Inicio</a></li>
-							<li><a href="#bio">Buscar Avisos</a></li>
-							<li><a href="#bio">Mis Postulaciones</a></li>
-							<li><a href="#contacto">Mi CV</a></li>
+							<li><a href="buscarAviso.jsp">Buscar Avisos</a></li>
+							<li><a href="postulaciones.jsp">Mis Postulaciones</a></li>
+							<li><a href="postulante.jsp">Mi CV</a></li>
 							<li><a href="#bio">Herramientas</a></li>
 						</ul>
 						</div>

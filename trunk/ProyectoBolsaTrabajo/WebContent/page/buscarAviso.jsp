@@ -49,7 +49,7 @@
 
 	<!---------------------------- BARRA PRINCIPAL-------------->
 <div class="container">
-			<div class="navbar navbar-inner">
+		<div class="navbar navbar-inner">
 				<div class="navbar-inner">
 					<div class="container">
 						 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -60,10 +60,10 @@
 						<a class="brand" href="#">Bolsa de Empleo</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li><a href="#inicio">Inicio</a></li>
-							<li><a href="#bio">Registro Postulante</a></li>
-							<li><a href="#regPostulaciones">Registro Postulacion</a></li>
-							<li class="active"><a href="#Aviso">Buscar Avisos</a></li>
+							<li><a href="postulante.jsp">Mi Cv</a></li>
+							<li class="active"><a href="buscarAviso.jsp">Buscar Avisos</a></li>
+							<li><a href="postulaciones.jsp">Mis Postulaciones</a></li>
+						<li><a href="buscaraviso.jsp">Herramientas</a></li>
 						</ul>
 						</div>
 					</div>
