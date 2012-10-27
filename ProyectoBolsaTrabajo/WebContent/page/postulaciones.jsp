@@ -43,18 +43,7 @@
 		<script src="../bootstrap/js/bootstrap-carousel.js"></script>
 		<script src="../bootstrap/js/bootstrap-typeahead.js"></script>
 		
-		<script language="javascript">
-var Url = location.href;
-Url = Url.replace(/.*\?(.*?)/,"$1");
-Variables = Url.split ("&");
-for (i = 0; i < Variables.length; i++) {
-       Separ = Variables[i].split("=");
-       eval ('var '+Separ[0]+'="'+Separ[1]+'"');
-}
-
-//alert(id);
-</script>
-		
+	
 		
 		
 </head>
@@ -82,7 +71,7 @@ for (i = 0; i < Variables.length; i++) {
 						</div>
 					</div>
 				</div>
-			</div><%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones"%>
+			</div>
 	<!--------------------------------BARRA SECUNDARIA-------------->
 
 		<table class="table table-hover">
@@ -103,78 +92,26 @@ for (i = 0; i < Variables.length; i++) {
 				</a></th>
 			</tr>
 			    
-			<%
-			Collection<HistorialPostulaciones> arreglo = (ArrayList<HistorialPostulaciones>)request.getAttribute("historial");
-			if(arreglo != null) { 
-			int i = 1;
-			for(HistorialPostulaciones x : arreglo) {
-			%>  
-			
-			<tbody>
-				<tr>
-
-					<td><%out.print(x.getIdpostulacion()); %></td>
-
-					<td><% out.print(x.getDescempresa()); %></td>
-					<td><% out.print(x.getTituloAviso()); %></td>
-					<td><% out.print(x.getFechapublicacion()); %></td>
-					<td><% out.print(x.getFechpostulacion()); %></td>
-
-					<td></td>
-				</tr>
-				<% }  
-			  } %>
+			<%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones" %>
+<%
+Collection<HistorialPostulaciones> postulaciones = (ArrayList<HistorialPostulaciones>)request.getAttribute("postulaciones");
+if(postulaciones != null) { 
+int i = 1;
+for(HistorialPostulaciones postulacion : postulaciones) {
+%>  
+  <tr>
+    <td><%=i++ %></td>
+<td><%out.print(postulacion.getIdpostulacion()); %></td>
+    <td><% out.print(postulacion.getTituloAviso()); %></td>
+    <td><% out.print(postulacion.getNombreEmpresa()); %></td>
+    <td><% out.print(postulacion.getFechpostulacion()); %></td>
+    <td><% out.print(postulacion.getEstado()); %></td>
+       
+  </tr>
+<% }  
+  } %>
 				
-				<tr>
-					<td></td>
-
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-					</td>
-
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-
-					<td></td>
-				</tr>
-			</tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+				
 		</table>
 		<div class="btn-group-left">
   <button class="btn">1</button>
