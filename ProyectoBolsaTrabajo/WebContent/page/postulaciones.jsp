@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Twitter Bootstrap</title>
+ <title>Mi Bolsa de Empleo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -64,9 +64,10 @@
 						<a class="brand" href="#">Bolsa de Empleo</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li><a href="#inicio">Inicio</a></li>
-							<li><a href="#bio">Registro Postulante</a></li>
-							<li class="active"><a href="#regPostulaciones">Registro Postulacion</a></li>
+							<li><a href="postulante.jsp">Mi Cv</a></li>
+							<li><a href="buscarAviso.jsp">Buscar Avisos</a></li>
+							<li class="active"><a href="postulaciones.jsp">Mis Postulaciones</a></li>
+						<li><a href="buscaraviso.jsp">Herramientas</a></li>
 						</ul>
 						</div>
 					</div>
