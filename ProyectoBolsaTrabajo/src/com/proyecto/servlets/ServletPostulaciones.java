@@ -56,7 +56,7 @@ public class ServletPostulaciones extends HttpServlet {
 			e.printStackTrace();
 		}
 		RequestDispatcher rd = request
-				.getRequestDispatcher("page/postulaciones.jsp");
+				.getRequestDispatcher("/page/postulaciones.jsp");
 		rd.forward(request, response);
 	}
 
