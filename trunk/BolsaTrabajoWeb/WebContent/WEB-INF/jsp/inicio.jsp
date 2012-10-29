@@ -57,10 +57,10 @@
 					<label><h3 style="color: blue;">bolsaTrabajo.com</h3></label>
 					<!-- <img src="../bootstrap/img/logo.jpg" width="307" height="40"></td> -->
 				<td align="right" style="width: 885px; " width="688">
-					<form>
-						<button type="submit" class="btn btn-large disabled">Iniciar Sesion</button>
+					<div>
+						<button class="btn btn-large" onclick="location.href='cargarLogin.html'">Iniciar Sesion</button>
 						<button type="submit" class="btn btn-large btn-primary disabled">Cargar mi CV</button>
-					</form>
+					</div>
 				</td>
 			</tr>
 		</table>

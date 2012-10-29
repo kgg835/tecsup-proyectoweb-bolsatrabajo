@@ -16,7 +16,7 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-		<link href="/ProyectoBolsaTrabajo//bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="/BolsaTrabajoWeb//bootstrap/css/bootstrap.css" rel="stylesheet">
 
 		<style type="text/css">
 			body { 
@@ -24,23 +24,23 @@
 				padding-top: 10px; 
 			}
 		</style>
-		<link href="/ProyectoBolsaTrabajo/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-		<link href="/ProyectoBolsaTrabajo/bootstrap/css/docs.css" rel="stylesheet">
+		<link href="/BolsaTrabajoWeb/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="/BolsaTrabajoWeb/bootstrap/css/docs.css" rel="stylesheet">
 		
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/jquery.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-transition.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-alert.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-modal.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-dropdown.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-scrollspy.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-tab.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-tooltip.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-popover.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-button.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-collapse.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-carousel.js"></script>
-		<script src="/ProyectoBolsaTrabajo/bootstrap/js/bootstrap-typeahead.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/jquery.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-transition.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-alert.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-modal.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-dropdown.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-scrollspy.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-tab.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-tooltip.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-popover.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-button.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-collapse.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-carousel.js"></script>
+		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-typeahead.js"></script>
 		
 		<script type="text/javascript">
 			var activador=${estado};
@@ -96,7 +96,7 @@
 						<a class="brand" href="#">Bolsa de Empleo</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active"><a href="http://localhost:8080/ProyectoBolsaTrabajo/page/inicio.jsp">Inicio</a></li>
+							<li class="active"><a href="http://localhost:8080/BolsaTrabajoWeb/page/inicio.jsp">Inicio</a></li>
 							<li><a href="buscarAviso.jsp">Buscar Avisos</a></li>
 							<li><a href="postulaciones.jsp">Mis Postulaciones</a></li>
 							<li><a href="postulante.jsp">Mi CV</a></li>
@@ -123,12 +123,12 @@
 					</div>
 					<br>
 					<!-- EL FORMULARIO -->
-					<form class="navbar-form well" name="f1" action="/ProyectoBolsaTrabajo/ServletPostulante" method="post">
+					<form class="navbar-form well" name="f1" action="/BolsaTrabajoWeb/ServletPostulante" method="post">
 						
 							
 						<div class="span2" style="width:100px; height:100px;" >
 							<!--Sidebar content-->
-							<img src="/ProyectoBolsaTrabajo/bootstrap/img/fotoCvGenericaGrande.jpg" class="fotoCvBox" color="green">
+							<img src="/BolsaTrabajoWeb/bootstrap/img/fotoCvGenericaGrande.jpg" class="fotoCvBox" color="green">
 						</div>
 							
 						
