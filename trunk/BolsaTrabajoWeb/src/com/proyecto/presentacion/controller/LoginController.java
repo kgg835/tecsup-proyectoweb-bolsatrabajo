@@ -1,5 +1,6 @@
 package com.proyecto.presentacion.controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.proyecto.exception.LoginExcepcion;
+import com.proyecto.modelo.Postulante;
 import com.proyecto.modelo.Usuario;
+import com.proyecto.negocio.GestionLogin;
+import com.proyecto.negocio.GestionPostulante;
 import com.proyecto.negocio.service.UsuarioService;
 
 @Controller
@@ -24,7 +28,7 @@ public class LoginController {
 		System.out.println("Dentro de LoginController");
 		//ModelAndView mv = null;
 
-		return new ModelAndView("crearUsuario");
+		return new ModelAndView("login");
 	}
 
 	
@@ -93,5 +97,111 @@ public class LoginController {
 	public void setUsuarioService(UsuarioService usuarioService) {
 		this.usuarioService = usuarioService;
 	}
+	
+	//Para validar el usuario
+
+	@RequestMapping(value = "/validarUsuario")
+	protected ModelAndView validarUsuario(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		System.out.println("Dentro de Validar Usuario");
+		ModelAndView mv = null;
+		
+		String user=request.getParameter("txtUsuario");
+		String passw=request.getParameter("txtContrasena");
+		System.out.println("userLOG== "+user);
+		System.out.println("passLoG== "+passw);
+		Usuario usuario=new Usuario();
+		Postulante postulante=new Postulante();
+		usuario.setNombreUsuario(request.getParameter("txtUsuario"));
+		usuario.setPasswordUsuario(request.getParameter("txtContrasena"));
+//		GestionLogin negocio=new GestionLogin();
+//		GestionPostulante negocioP=new GestionPostulante();
+		try {
+			System.out.println("entro al login del try");
+			int id=negocio.obteneridUsuario(usuario);
+			postulante=negocioP.obtenerPostulante(id);
+			System.out.println("id1=0 "+id);
+			System.out.println("PostulanteID1== "+postulante.getIdPostulante());
+			if(id!=0 && postulante.getIdPostulante() !=0){
+				System.out.println("id=="+id);
+				
+				String rol=negocio.obtenerRol(id);
+				
+				if(rol.equals("A")){
+					//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+					//rd.forward(request, response);
+				}else{
+					if(rol.equals("OF")){
+						//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+						//rd.forward(request, response);
+					}else{
+						if(rol.equals("P")){
+							//PrintWriter out=response.getWriter();
+							//out.println(usuario);
+							request.setAttribute("usuario",postulante);
+							request.setAttribute("estado",0);
+							System.out.println("Entro en Estado=0");
+							RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+							rd.forward(request, response);
+						}
+					}
+				}
+			}else{
+				if(id!=0 && postulante.getIdPostulante()==0){
+					System.out.println("id2=="+id);
+					System.out.println("postulante2=="+postulante.getIdPostulante());
+					String rol=negocio.obtenerRol(id);
+					
+					if(rol.equals("A")){
+						//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+						//rd.forward(request, response);
+					}else{
+						if(rol.equals("OF")){
+							//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
+							//rd.forward(request, response);
+						}else{
+							if(rol.equals("P")){
+								//PrintWriter out=response.getWriter();
+								//out.println(usuario);
+								request.setAttribute("estado",1);
+								request.setAttribute("IDUsuario",id);
+								System.out.println("Entro en Estado=1");
+								RequestDispatcher rd=request.getRequestDispatcher("page/postulante.jsp");
+								rd.forward(request, response);
+							}
+						}
+					}
+				}
+				else{
+					RequestDispatcher rd=request.getRequestDispatcher("/page/crearUsuario.jsp");
+					rd.forward(request, response);
+				}
+//				RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
+//				rd.forward(request, response);
+			}		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+//		JSONObject json = new JSONObject();
+//		System.out.println("user=="+user);
+//		System.out.println("password=="+passw);
+//		json.put("usuario",user);
+//		response.setContentType("text/plain");
+//        PrintWriter output = response.getWriter();
+//	
+//		output.println(json);
+
+
+
+//		try {
+//			seguridadService.validar(u, p);
+//			mv = new ModelAndView("redirect:portada.html");
+//		} catch (LoginExcepcion e) {
+//			mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
+//		}
+
+		return mv;
+	}
+
 
 }

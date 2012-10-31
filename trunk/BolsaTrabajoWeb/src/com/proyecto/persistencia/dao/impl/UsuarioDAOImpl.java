@@ -1,7 +1,11 @@
 package com.proyecto.persistencia.dao.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.proyecto.exception.DAOExcepcion;
@@ -38,5 +42,22 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         return usuario;
 
 	}
+	
+	@Override
+	public int obteneridUsuario(Usuario user) throws DAOExcepcion {
+
+        String sql = "SELECT idUsuario FROM usuario WHERE nombreUsuario=? AND passwordUsuario=?";
+
+        RowMapper mapper = new RowMapper() {
+
+                public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Usuario usuario = new Usuario();
+                        usuario.setIdUsuario(rs.getInt("idUsuario"));
+                        return usuario.getIdUsuario();
+                }
+        };
+        Usuario usu=(Usuario)jdbcTemplate.queryForObject(sql, new Object[] {user.getNombreUsuario(),user.getPasswordUsuario() }, mapper);
+        return usu.getIdUsuario(); 
+}
 
 }
