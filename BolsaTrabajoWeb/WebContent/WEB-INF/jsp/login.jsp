@@ -1,5 +1,3 @@
-<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>--%>
 <!DOCTYPE html >
 <html lang="en">
 <head>
@@ -50,122 +48,42 @@
 </head>
 <body><!-- Este es el Body -->
 
-	<div class="container-fluid">
+	<div class="container">
 		<table width="100%">
 			<tr>
 				<td style="width: 246px" width="246">
 					<label><h1 style="color: blue;">BolsaTrabajo.com</h1></label>
 					<!-- <img src="../bootstrap/img/logo.jpg" width="307" height="40"></td> -->
 				<td align="right" style="width: 885px; " width="688">
-					<div>
-						<button class="btn btn-large" onclick="location.href='cargarLogin.html'">Iniciar Sesion</button>
+					<form>
+						<button type="submit" class="btn btn-large disabled">Iniciar Sesion</button>
 						<button type="submit" class="btn btn-large btn-primary disabled">Cargar mi CV</button>
-					</div>
+					</form>
 				</td>
 			</tr>
 		</table>
-		
+		<br><br><br><br><br>
 	<!--  -->
-	<div class="row-fluid"> 
-		<div class="span3" >
-			<form class="well" >
-	    		<label><h3>Crear Cuenta</h3></label><br/>
-	    		
+	<div class="row"> 
+		<div class="span4" >
+			<form ></form>
+		</div>
+		<div class="span4" >
+			<form class="well" action="index.html" method="post">
+	    		<label><h3>Ingresar a bolsaTrabajo.com</h3></label><br/>
+	    		<!--span class="help-inline">Texto de ayuda asociado!</span><br/>-->
 	    		<label>Email o Nombre de usuario</label>
-	    		<input type="text" class="span12" placeholder="Escribe algo?" name="txtUsuarioC"><br/>
+	    		<input type="text" class="span3" placeholder="Escribe algo?" name="txtUsuario" id="txtUsuario"><br/>
 	    		<label>Contraseña</label>
-	    		<input type="password" class="span12" placeholder="Escribe contraseña" name="txtContrasenaC"><br/>
-	    		<label>Vuelve a escribir tu Contraseña</label>
-	    		<input type="password" class="span12" placeholder="Escribe contraseña" name="txtContrasenavalida"><br/>
+	    		<input type="password" class="span3" placeholder="Escribe contraseña" name="txtContrasena" id="txtContrasena"><br/>
 	    		<label class="checkbox">
 	    			<input type="checkbox"> Seguir conectado
 	    		</label><br/>
-	   			<button type="submit" class="btn btn-success btn-large" >Crear Cuenta y Cargar CV</button>
-			</form>
-			<div class="well">
-		
-			<label><h3>Areas</h3></label>
-			<table>
-				<tr>
-					<td>
-						Administracion
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Call center
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Diseño
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Construccion
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Educaciion
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Finanzas
-					</td>
-				</tr>
-			</table>
-			</div>
-		</div>
-		<div class="span9" >
-			<form class="well form-search">
-				<label><h3> Búsqueda avanzada &nbsp;</h3></label>
-				<input class="input-xlarge search-query" type="text">
-				<button class="btn btn-large" type="submit">Buscar</button>
-			</form>
-
-				<label><h3>Empleos destacados en Lima</h3></label>
-			<div class="well">
-				<table class="table table-bordered">
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-    			</table>
-			</div>
+	   			<button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+	   		</form> 
+	    </div>
+	    <div class="span4">
+	    	<form ></form>
 	    </div>	
 	</div>
 </div>

@@ -9,8 +9,8 @@ import com.proyecto.negocio.service.UsuarioService;
 import com.proyecto.persistencia.dao.UsuarioDAO;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService{
-	
+public class UsuarioServiceImpl implements UsuarioService {
+
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 
@@ -26,6 +26,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
 		this.usuarioDAO = usuarioDAO;
+	}
+
+	@Override
+	public int obteneridUsuario(Usuario user) throws DAOExcepcion {
+		return usuarioDAO.obteneridUsuario(user);
 	}
 
 }
