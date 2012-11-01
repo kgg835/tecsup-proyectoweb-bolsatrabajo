@@ -14,4 +14,16 @@ public class GestionPostulaciones {
 		HistorialPostulacionesDAO dao = new HistorialPostulacionesDAO();
 		return dao.listarpostulaciones();
 	}
+	
+	public HistorialPostulaciones insertar(String tituloAviso, String nombreEmpresa,String fechaPostulacion,String estado)throws DAOExcepcion{
+		HistorialPostulacionesDAO dao=new HistorialPostulacionesDAO();
+		HistorialPostulaciones vo=new HistorialPostulaciones();
+		vo.setTituloAviso(tituloAviso);
+		vo.setNombreEmpresa(nombreEmpresa);
+		vo.setFechpostulacion(fechaPostulacion);
+		vo.setEstado(estado);
+				
+		return dao.insertar(vo);
+		
+	}
 }
