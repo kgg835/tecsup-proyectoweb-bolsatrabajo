@@ -34,4 +34,15 @@ public class TestPostulacion {
 
 		}
 
-	}}
+	}
+	public void insertar(){
+GestionPostulaciones negocio=new GestionPostulaciones();
+try {
+	negocio.insertar("sffdsf", "sdfdsf", "12/12/12", "asfdf");
+	
+} catch (DAOExcepcion e) {
+	Assert.fail("No inserto!"+e.getMessage());
+}
+		
+	}
+}
