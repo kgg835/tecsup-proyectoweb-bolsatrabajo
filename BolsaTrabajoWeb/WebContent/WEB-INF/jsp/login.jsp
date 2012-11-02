@@ -69,7 +69,7 @@
 			<form ></form>
 		</div>
 		<div class="span4" >
-			<form class="well" action="index.html" method="post">
+			<form class="well" action="validarUsuario.html" method="post">
 	    		<label><h3>Ingresar a bolsaTrabajo.com</h3></label><br/>
 	    		<!--span class="help-inline">Texto de ayuda asociado!</span><br/>-->
 	    		<label>Email o Nombre de usuario</label>

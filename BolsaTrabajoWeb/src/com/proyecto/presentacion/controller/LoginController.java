@@ -9,11 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.proyecto.exception.LoginExcepcion;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.modelo.Usuario;
-import com.proyecto.negocio.GestionLogin;
-import com.proyecto.negocio.GestionPostulante;
+import com.proyecto.negocio.service.PostulanteService;
 import com.proyecto.negocio.service.UsuarioService;
 
 @Controller
@@ -21,6 +19,9 @@ public class LoginController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
+	
+	@Autowired
+	private PostulanteService postulanteService;
 	
 	@RequestMapping(value = "/cargarLogin")
 	protected ModelAndView logeo(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -118,14 +119,14 @@ public class LoginController {
 //		GestionPostulante negocioP=new GestionPostulante();
 		try {
 			System.out.println("entro al login del try");
-			int id=negocio.obteneridUsuario(usuario);
-			postulante=negocioP.obtenerPostulante(id);
+			int id=usuarioService.obteneridUsuario(usuario);
+			postulante=postulanteService.obtenerPostulante(id);
 			System.out.println("id1=0 "+id);
 			System.out.println("PostulanteID1== "+postulante.getIdPostulante());
 			if(id!=0 && postulante.getIdPostulante() !=0){
 				System.out.println("id=="+id);
 				
-				String rol=negocio.obtenerRol(id);
+				String rol=usuarioService.obtenerRol(id);
 				
 				if(rol.equals("A")){
 					//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
@@ -141,8 +142,7 @@ public class LoginController {
 							request.setAttribute("usuario",postulante);
 							request.setAttribute("estado",0);
 							System.out.println("Entro en Estado=0");
-							RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
-							rd.forward(request, response);
+							mv=new ModelAndView("postulante");
 						}
 					}
 				}
@@ -150,7 +150,7 @@ public class LoginController {
 				if(id!=0 && postulante.getIdPostulante()==0){
 					System.out.println("id2=="+id);
 					System.out.println("postulante2=="+postulante.getIdPostulante());
-					String rol=negocio.obtenerRol(id);
+					String rol=usuarioService.obtenerRol(id);
 					
 					if(rol.equals("A")){
 						//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
@@ -166,40 +166,18 @@ public class LoginController {
 								request.setAttribute("estado",1);
 								request.setAttribute("IDUsuario",id);
 								System.out.println("Entro en Estado=1");
-								RequestDispatcher rd=request.getRequestDispatcher("page/postulante.jsp");
-								rd.forward(request, response);
+								mv=new ModelAndView("postulante");
 							}
 						}
 					}
 				}
 				else{
-					RequestDispatcher rd=request.getRequestDispatcher("/page/crearUsuario.jsp");
-					rd.forward(request, response);
+					mv=new ModelAndView("crearUsuario");
 				}
-//				RequestDispatcher rd=request.getRequestDispatcher("/page/error.jsp");
-//				rd.forward(request, response);
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		JSONObject json = new JSONObject();
-//		System.out.println("user=="+user);
-//		System.out.println("password=="+passw);
-//		json.put("usuario",user);
-//		response.setContentType("text/plain");
-//        PrintWriter output = response.getWriter();
-//	
-//		output.println(json);
-
-
-
-//		try {
-//			seguridadService.validar(u, p);
-//			mv = new ModelAndView("redirect:portada.html");
-//		} catch (LoginExcepcion e) {
-//			mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
-//		}
-
 		return mv;
 	}
 

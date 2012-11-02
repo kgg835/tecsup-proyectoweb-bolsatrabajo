@@ -33,4 +33,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return usuarioDAO.obteneridUsuario(user);
 	}
 
+	@Override
+	public String obtenerRol(int idRol) throws DAOExcepcion {
+		
+		return usuarioDAO.obtenerRol(idRol);
+	}
+
 }
