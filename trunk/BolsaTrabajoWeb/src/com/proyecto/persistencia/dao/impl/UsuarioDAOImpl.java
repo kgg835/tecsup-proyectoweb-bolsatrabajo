@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.proyecto.exception.DAOExcepcion;
+import com.proyecto.modelo.Rol;
 import com.proyecto.modelo.Usuario;
 import com.proyecto.persistencia.dao.UsuarioDAO;
 
@@ -58,6 +59,24 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         };
         Usuario usu=(Usuario)jdbcTemplate.queryForObject(sql, new Object[] {user.getNombreUsuario(),user.getPasswordUsuario() }, mapper);
         return usu.getIdUsuario(); 
-}
+	}
+	
+	//Obtiene el Rol del Usuario 
+	public String obtenerRol(int idRol) throws DAOExcepcion {
+		
+		String sql = "Select r.tipoRol from rol r,usuario u where u.idUsuario =? AND r.idROL = u.idROL";
+		RowMapper mapper=new RowMapper() {
+
+			@Override
+			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Rol rol=new Rol();
+				rol.setTipoRol(rs.getString("tipoRol"));
+				return rol.getTipoRol();
+			}
+		
+		};	
+		
+		return (String)jdbcTemplate.queryForObject(sql, new Object[]{idRol,"1"},mapper);
+	}
 
 }

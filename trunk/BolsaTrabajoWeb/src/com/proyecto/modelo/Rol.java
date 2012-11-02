@@ -3,6 +3,7 @@ package com.proyecto.modelo;
 import java.util.Collection;
 
 public class Rol {
+	private int rolId;
 	private String tipoRol;
 	private String codRol;
 	// Rol Puede tener varios Usuarios
@@ -41,5 +42,13 @@ public class Rol {
 
 	public Collection<Usuario> getListaUsuarios() {
 		return listaUsuarios;
+	}
+
+	public void setRolId(int rolId) {
+		this.rolId = rolId;
+	}
+
+	public int getRolId() {
+		return rolId;
 	}
 }
