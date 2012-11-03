@@ -54,11 +54,12 @@ public class UsuarioDAOImpl implements UsuarioDAO{
                 public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Usuario usuario = new Usuario();
                         usuario.setIdUsuario(rs.getInt("idUsuario"));
-                        return usuario.getIdUsuario();
+                        return usuario;
                 }
         };
-        Usuario usu=(Usuario)jdbcTemplate.queryForObject(sql, new Object[] {user.getNombreUsuario(),user.getPasswordUsuario() }, mapper);
-        return usu.getIdUsuario(); 
+       // Usuario usu=(Usuario)jdbcTemplate.queryForObject(sql, new Object[] {user.getNombreUsuario(),user.getPasswordUsuario()}, mapper);
+        return jdbcTemplate.queryForObject(sql, new Object[] {user.getNombreUsuario(),user.getPasswordUsuario()}, mapper);
+        		//usu.getIdUsuario(); 
 	}
 	
 	//Obtiene el Rol del Usuario 
