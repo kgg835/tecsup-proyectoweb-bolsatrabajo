@@ -9,7 +9,6 @@ public class Postulante extends Persona implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private int idPostulante;
-	private String codseleccion;
 	private String email;
 	private String sexo;
 	private String fechaNacimiento;
@@ -17,12 +16,8 @@ public class Postulante extends Persona implements Serializable{
 	private String estadoCivil;
 	private String telefonoFijo;
 	private String telefonoCel;
-	private String passwordPE;
-	private String codPostulante;
 	private String paisPostulante;
 	private int idPresentacion;
-	private String provinciaPostulante;
-	private String ciudadPostulante;
 	private int idPreferencia_Salarial;
 	private int idUsuario;
 
@@ -51,18 +46,7 @@ public class Postulante extends Persona implements Serializable{
 		super();
 	}
 
-	public Postulante(String codseleccion) {
-		super();
-		this.codseleccion = codseleccion;
-	}
 
-	public String getCodseleccion() {
-		return codseleccion;
-	}
-
-	public void setCodseleccion(String codseleccion) {
-		this.codseleccion = codseleccion;
-	}
 
 	public String getEmail() {
 		return email;
@@ -162,14 +146,6 @@ public class Postulante extends Persona implements Serializable{
 		return listaAvisos;
 	}
 
-	public String getPasswordPE() {
-		return passwordPE;
-	}
-
-	public void setPasswordPE(String passwordPE) {
-		this.passwordPE = passwordPE;
-	}
-
 	public void setPreferenciaSalarial(PreferenciaSalarial preferenciaSalarial) {
 		this.preferenciaSalarial = preferenciaSalarial;
 	}
@@ -218,42 +194,13 @@ public class Postulante extends Persona implements Serializable{
 		return idPreferencia_Salarial;
 	}
 
-	public void setCiudadPostulante(String ciudadPostulante) {
-		this.ciudadPostulante = ciudadPostulante;
-	}
-
-	public String getCiudadPostulante() {
-		return ciudadPostulante;
-	}
-
-	public void setProvinciaPostulante(String provinciaPostulante) {
-		this.provinciaPostulante = provinciaPostulante;
-	}
-
-	public String getProvinciaPostulante() {
-		return provinciaPostulante;
-	}
-
 	public void setPaisPostulante(String paisPostulante) {
 		this.paisPostulante = paisPostulante;
 	}
 
 	public String getPaisPostulante() {
 		return paisPostulante;
-	}
-
-	public void setCodPostulante(String codPostulante) {
-		this.codPostulante = codPostulante;
-	}
-
-	public String getCodPostulante() {
-		return codPostulante;
-	}
-
-	
-	
-
-	
+	}	
 	public int getIdUsuario() {
 		return idUsuario;
 	}
