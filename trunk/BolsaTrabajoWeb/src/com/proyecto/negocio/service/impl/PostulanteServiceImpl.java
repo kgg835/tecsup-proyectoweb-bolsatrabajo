@@ -19,4 +19,9 @@ public class PostulanteServiceImpl implements PostulanteService{
 		return postulanteDAO.obtenerPostulante(idPostulante);
 	}
 
+	@Override
+	public Postulante insertarPostulante(Postulante postulante)throws DAOExcepcion{
+		return postulanteDAO.insertarPostulante(postulante);
+	}
+
 }

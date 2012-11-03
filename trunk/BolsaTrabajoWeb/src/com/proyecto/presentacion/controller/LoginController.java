@@ -1,6 +1,5 @@
 package com.proyecto.presentacion.controller;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -120,13 +119,14 @@ public class LoginController {
 		try {
 			System.out.println("entro al login del try");
 			int id=usuarioService.obteneridUsuario(usuario);
-			postulante=postulanteService.obtenerPostulante(id);
-			System.out.println("id1=0 "+id);
+		//	postulante=postulanteService.obtenerPostulante(id);
+			System.out.println("id1= "+id);
 			System.out.println("PostulanteID1== "+postulante.getIdPostulante());
 			if(id!=0 && postulante.getIdPostulante() !=0){
 				System.out.println("id=="+id);
 				
 				String rol=usuarioService.obtenerRol(id);
+				System.out.println("rol=="+rol);
 				
 				if(rol.equals("A")){
 					//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
@@ -166,7 +166,7 @@ public class LoginController {
 								request.setAttribute("estado",1);
 								request.setAttribute("IDUsuario",id);
 								System.out.println("Entro en Estado=1");
-								mv=new ModelAndView("postulante");
+								mv=new ModelAndView("redirect:cargarPaginaPostulante.html");
 							}
 						}
 					}

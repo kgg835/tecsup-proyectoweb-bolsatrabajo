@@ -5,4 +5,5 @@ import com.proyecto.modelo.Postulante;
 
 public interface PostulanteDAO {
 	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion;
+	public Postulante insertarPostulante(Postulante postulante)throws DAOExcepcion;
 }

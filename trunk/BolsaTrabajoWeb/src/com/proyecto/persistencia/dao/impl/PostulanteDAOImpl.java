@@ -20,6 +20,46 @@ public class PostulanteDAOImpl implements PostulanteDAO{
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+	
+	// Metodo que inserta un postulante
+	public Postulante insertarPostulante(Postulante postulante)
+			throws DAOExcepcion {
+		
+		System.out.println("insertar");
+		String query = "INSERT INTO persona(tipo_persona,nombrePersona,"
+			+ "apellidosPersona,dni,email,"
+			+ "pais,direccion,telefonoFijo,"
+			+ "numeroCelular,fechaNacimiento,sexo,estadoCivil,"
+			+ "idUsuario,PER_idPRESENTACION,PER_idPREFERENCIAS_SALARIALES)"
+			+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";// ?:por cada
+	// columna
+		Object[] params=new Object[]{
+				postulante.getTipoPersona(),
+				postulante.getNombre(),
+				postulante.getApellidos(),
+				postulante.getDni(),
+				postulante.getEmail(),
+				postulante.getPaisPostulante(),
+				postulante.getDireccion(),
+				postulante.getTelefonoFijo(),
+				postulante.getTelefonoCel(),
+				postulante.getFechaNacimiento(),
+				postulante.getSexo(),
+				postulante.getEstadoCivil(),
+				postulante.getIdPostulante(),
+				postulante.getIdPresentacion(),
+				postulante.getIdPreferencia_Salarial()
+		};
+		try {
+			jdbcTemplate.update(query, params);
+			System.out.println("se Inserto correctamente...");
+		} catch (Exception e) {
+			throw new DAOExcepcion(e.getMessage());
+		}
+		return postulante;
+	}
+	
+	
 	@Override
 	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
 		// TODO Auto-generated method stub
@@ -40,21 +80,17 @@ public class PostulanteDAOImpl implements PostulanteDAO{
 				postulante.setNombre(rs.getString(3));
 				postulante.setApellidos(rs.getString(4));
 				postulante.setDni(rs.getString(5));
-				postulante.setCodPostulante(rs.getString(6));
-				postulante.setPasswordPE(rs.getString(7));
-				postulante.setEmail(rs.getString(8));
-				postulante.setPaisPostulante(rs.getString(9));
-				postulante.setProvinciaPostulante(rs.getString(10));
-				postulante.setCiudadPostulante(rs.getString(11));
-				postulante.setDireccion(rs.getString(12));
-				postulante.setTelefonoFijo(rs.getString(13));
-				postulante.setTelefonoCel(rs.getString(14));
-				postulante.setFechaNacimiento(rs.getString(15));
-				postulante.setSexo(rs.getString(16));
-				postulante.setEstadoCivil(rs.getString(17));
-				postulante.setIdPostulante(rs.getInt(18));
-				postulante.setIdPresentacion(rs.getInt(19));
-				postulante.setIdPreferencia_Salarial(rs.getInt(20));
+				postulante.setEmail(rs.getString(6));
+				postulante.setPaisPostulante(rs.getString(7));
+				postulante.setDireccion(rs.getString(8));
+				postulante.setTelefonoFijo(rs.getString(9));
+				postulante.setTelefonoCel(rs.getString(10));
+				postulante.setFechaNacimiento(rs.getString(11));
+				postulante.setSexo(rs.getString(12));
+				postulante.setEstadoCivil(rs.getString(13));
+				postulante.setIdPostulante(rs.getInt(14));
+				postulante.setIdPresentacion(rs.getInt(15));
+				postulante.setIdPreferencia_Salarial(rs.getInt(16));
 	            return postulante;
 	        }
 		};

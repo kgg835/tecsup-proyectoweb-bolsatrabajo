@@ -96,7 +96,7 @@
 						<a class="brand" href="#">Bolsa de Empleo</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active"><a href="http://localhost:8080/BolsaTrabajoWeb/page/inicio.jsp">Inicio</a></li>
+							<li class="active"><a href="http://localhost:8080/BolsaTrabajoWeb/jsp/index.jsp">Inicio</a></li>
 							<li><a href="buscarAviso.jsp">Buscar Avisos</a></li>
 							<li><a href="postulaciones.jsp">Mis Postulaciones</a></li>
 							<li><a href="postulante.jsp">Mi CV</a></li>
@@ -123,7 +123,7 @@
 					</div>
 					<br>
 					<!-- EL FORMULARIO -->
-					<form class="navbar-form well" name="f1" action="/BolsaTrabajoWeb/ServletPostulante" method="post">
+					<form class="navbar-form well" name="f1" action="insertarDatosPostulante.html" method="post">
 						
 							
 						<div class="span2" style="width:100px; height:100px;" >
@@ -179,9 +179,9 @@
 									
 							  <div id="datosPersonal" style="display:none;">	
 								<label>Nombres(s)</label>
-								<input name="txtNombre" type="text" class="span3" placeholder="nombres"><br>
+								<input name="txtNombre" type="text" class="span3" placeholder="txtnombres"><br>
 								<label>Apellido(s)</label>
-								<input name="txtApellido" type="text" class="span3" placeholder="apellidos"><br>
+								<input name="txtApellido" type="text" class="span3" placeholder="txtapellidos"><br>
 								<label>E-mail</label>
 								<input name="txtEmail" type="text" class="span3" placeholder="hackromanux@gmail.com"><br>
 
@@ -192,7 +192,7 @@
 								<input name="txtTelefonoCel" class="span3" type="text" placeholder="celular"><br>
 			
 								<p><label>Nacionalidad</label>
-									<select type="combobox">
+									<select type="combobox" name="txtnacionalidad">
 										<option selected="" value="">-</option>
 										<option value="AR">Argentina</option>
 										<option value="BR">Brazil</option>
@@ -207,7 +207,7 @@
 								</p>
 								<p>
 									<label>Tipo y numero de Documento</label>
-									<select >
+									<select name="txttipoDocumento">
 										<option selected="" value="">-</option>
 										<option value="1">Pasaporte</option>
 										<option value="2">DNI</option>
@@ -271,15 +271,15 @@
 										
 								</p>
 									
-									</br>
+									
 									
 								<div class="control-group">
 									<label>Sexo</label>
 								
-									<input  type="radio" name="txtSexo" value="M" >
+									<input  type="radio" name="txtSexoM" value="M" >
 									<span>Masculino</span>
 									<br>
-									<input type="radio" name="txtSexo" value="F">
+									<input type="radio" name="txtSexoF" value="F">
 									<span>Femenino</span>
 									<br>
 								</div>
@@ -288,12 +288,12 @@
 									<label>Estado civil</label>
 									<select name="txtEstadoCivil" class="span2">
 										<option selected="" value="">-</option>
-										<option value="1">Viudo/a</option>
-										<option value="2">Unión Libre</option>
-										<option value="3">Casado/a</option>
-										<option value="4">Soltero/a</option>
-										<option value="5">Divorciado/a</option>
-										<option value="6">Pareja de Hecho</option>
+										<option value="Viudo/a">Viudo/a</option>
+										<option value="Unión Libre">Unión Libre</option>
+										<option value="Casado/a">Casado/a</option>
+										<option value="Soltero/a">Soltero/a</option>
+										<option value="Divorciado/a">Divorciado/a</option>
+										<option value="Pareja de Hecho">Pareja de Hecho</option>
 									</select>
 								</p>
 								<br/>
