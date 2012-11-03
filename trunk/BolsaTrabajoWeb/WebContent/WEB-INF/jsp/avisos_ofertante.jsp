@@ -10,7 +10,7 @@
 		<!—[if lt IE 9]>
 		<!--script src="js/html5.js"--><!--/script-->
 		<![endif]—>
-		<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
  
 		<style type="text/css">
 			body { 
@@ -18,7 +18,7 @@
 				padding-top: 10px; 
 			}
 		</style>
-		<link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="css/docs.css" rel="stylesheet">
 		
 		<script src="../bootstrap/js/bootstrap.js"></script>
@@ -73,10 +73,10 @@
 						</div>
 					</div>
 					<br>
-					<form class="navbar-form well" name="f2" action="../servletaviso" method="post">
+					<form class="navbar-form well" name="f2" action="aviso.html" method="post">
 						<div class="span2" style="width:100px; height:100px;" >
 							<!--Sidebar content-->
-							<img src="../bootstrap/img/AVISO.jpg" class="fotoCvBox" color="green">
+							<img src="/bootstrap/img/aviso.jpg" class="fotoCvBox" color="green">
 						</div>
 						<br>
 						<br>
@@ -125,7 +125,7 @@
 									<button class="btn">Cancelar</button>
 								</div>
 							
-														
+								${mensaje}						
 							
 					</form>
 				</div>
