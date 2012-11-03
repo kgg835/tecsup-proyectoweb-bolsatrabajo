@@ -6,9 +6,12 @@ import java.util.Date;
 public class Aviso {
 	int idOfertante;
 	int id_puesto;
+	int id_area;
 	String titulo;
+	String descripcion;
 	Date fec_publicacion;
 	Date fec_caduc;
+	
 	//Aviso tiene de 0 a muchos postulantes
 	private Collection<Postulante> listaPostulantes;
 	//Un Aviso le Pertenece a un Ofertante
@@ -21,12 +24,14 @@ public class Aviso {
 	public Aviso() {
 	}
 
-	public Aviso(int idOfertante,int id_puesto, String titulo, Date fec_publicacion,
+	public Aviso(int idOfertante,int id_puesto,int id_area, String titulo,String descripcion, Date fec_publicacion,
 			Date fec_caduc) {
 		super();
 	this.idOfertante=idOfertante;
 	this.id_puesto=id_puesto;
+	this.id_area=id_area;
 		this.titulo = titulo;
+		this.descripcion=descripcion;
 		this.fec_publicacion = fec_publicacion;
 		this.fec_caduc = fec_caduc;
 	
@@ -34,6 +39,22 @@ public class Aviso {
 
 
 
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public int getId_area() {
+		return id_area;
+	}
+
+	public void setId_area(int id_area) {
+		this.id_area = id_area;
+	}
 
 	public int getIdOfertante() {
 		return idOfertante;
