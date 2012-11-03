@@ -46,20 +46,27 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	
 	@Override
 	public int obteneridUsuario(Usuario user) throws DAOExcepcion {
-
+		System.out.println("usuario1=== "+user.getNombreUsuario());
+		System.out.println("password1== "+user.getPasswordUsuario());
         String sql = "SELECT idUsuario FROM usuario WHERE nombreUsuario=? AND passwordUsuario=?";
 
-        RowMapper mapper = new RowMapper() {
+		RowMapper mapper = new RowMapper() {
 
                 public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Usuario usuario = new Usuario();
                         usuario.setIdUsuario(rs.getInt("idUsuario"));
+                        usuario.setNombreUsuario(rs.getString("nombreUsuario"));
+                        usuario.setPasswordUsuario(rs.getString("passwordUsuario"));
+                        usuario.setIdRol(rs.getInt("idROL"));
                         return usuario;
                 }
         };
-       // Usuario usu=(Usuario)jdbcTemplate.queryForObject(sql, new Object[] {user.getNombreUsuario(),user.getPasswordUsuario()}, mapper);
-        return jdbcTemplate.queryForObject(sql, new Object[] {user.getNombreUsuario(),user.getPasswordUsuario()}, mapper);
-        		//usu.getIdUsuario(); 
+        Usuario usu=(Usuario)jdbcTemplate.queryForObject(sql, new Object[]{user.getNombreUsuario(),user.getPasswordUsuario()},mapper);
+        System.out.println("usu=="+usu);
+        
+        return usu.getIdUsuario(); 
+        //(Integer)jdbcTemplate.queryForInt(sql, new Object[]{user.getNombreUsuario(),user.getPasswordUsuario()});
+        //return (Integer)jdbcTemplate.queryForObject(sql, new Object[]{user.getNombreUsuario(),user.getPasswordUsuario()}, mapper); 
 	}
 	
 	//Obtiene el Rol del Usuario 
@@ -77,7 +84,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		
 		};	
 		
-		return (String)jdbcTemplate.queryForObject(sql, new Object[]{idRol,"1"},mapper);
+		
+		return(String)jdbcTemplate.queryForObject(sql, new Object[]{idRol,"1"},mapper);
 	}
 
 }
