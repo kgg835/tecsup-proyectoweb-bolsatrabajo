@@ -2,7 +2,9 @@ package com.proyecto.presentacion.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +31,9 @@ public class PostulanteController {
 		System.out.println("Dentro de PostulanteController");
 		System.out.println(request.getAttribute("IDUsuario"));
 		setIdusuario((String)request.getAttribute("IDUsuario"));
-		System.out.println("idUsuario= "+getIdusuario());
+		HttpSession session= request.getSession();
+		Object lista=(Object)session.getAttribute("IDUsuario");
+		System.out.println("idUsuario= "+lista.toString());
 //		try {
 //			seguridadService.validar(u, p);
 //			mv = new ModelAndView("redirect:portada.html");
@@ -42,10 +46,12 @@ public class PostulanteController {
 
 	@RequestMapping(value = "/insertarDatosPostulante")
 	protected ModelAndView insertarDatosPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
+		HttpSession session= request.getSession();
+		Object idUsuario=(Object)session.getAttribute("IDUsuario");
+		System.out.println("idUsuario2= "+idUsuario.toString());
 		System.out.println("Dentro de insertarDatosPostulante");
 		ModelAndView mv = null;
-		System.out.println("idUsuario== "+request.getAttribute("id"));
 		Postulante postulante=new Postulante();
 		postulante.setTipoPersona(request.getParameter("tipoPersona"));
 		postulante.setNombre(request.getParameter("txtnombres"));
@@ -65,7 +71,7 @@ public class PostulanteController {
 		postulante.setSexo(request.getParameter("txtSexo"));
 		postulante.setEstadoCivil(request.getParameter("txtEstadoCivil"));
 
-		postulante.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario")));
+		postulante.setIdUsuario(Integer.parseInt(idUsuario.toString()));
 
 
 		try {
