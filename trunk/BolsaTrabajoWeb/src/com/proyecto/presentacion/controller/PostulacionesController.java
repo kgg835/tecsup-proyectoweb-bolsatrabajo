@@ -31,7 +31,6 @@ public void setPostulacionesService(PostulacionesService postulacionesService){
 			HttpServletResponse response) throws Exception {
 		
 		
-		
 		Collection<HistorialPostulaciones> listapostulaciones=new ArrayList<HistorialPostulaciones>();
 		
 try {
@@ -41,8 +40,8 @@ try {
 	// TODO: handle exception
 }
 	
-			
-		return new ModelAndView("postulaciones","LISTADO",listapostulaciones);
+	request.setAttribute("postulaciones", listapostulaciones);	
+		return new ModelAndView("postulaciones");
 		
 		
 	}

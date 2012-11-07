@@ -1,7 +1,8 @@
+<%@page import="com.proyecto.modelo.HistorialPostulaciones"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <!DOCTYPE html>
 
@@ -105,15 +106,24 @@
 			</tr>
 			    
 		
+  <%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones" %>
+<%
+Collection<HistorialPostulaciones> postulaciones = (ArrayList<HistorialPostulaciones>)request.getAttribute("postulaciones");
+int i = 1;
+for(HistorialPostulaciones hp : postulaciones) {
+%>  
   <tr>
-    <td>${LISTADO }</td>
-<td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-       
-  </tr>	</table></form>
+    <td><%=i++ %></td>
+    <td><% out.print(hp.getNombreEmpresa()); %></td>
+    <td><% out.print(hp.getTituloAviso()); %></td>
+    <td><% out.print(hp.getFechpostulacion()); %></td>
+    <td><% out.print(hp.getFechpostulacion()); %></td>
+     <td><% out.print(hp.getEstado()); %></td>
+  </tr>
+<% }  
+   %>
+  
+</table></form>
   
   
 	
