@@ -13,6 +13,7 @@ import com.proyecto.negocio.service.PostulanteService;
 
 @Controller
 public class PostulanteController {
+	private String idusuario;
 	
 	@Autowired
 	private PostulanteService postulanteService;
@@ -26,10 +27,9 @@ public class PostulanteController {
 	protected ModelAndView cargarPaginaPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println("Dentro de PostulanteController");
-		ModelAndView mv = null;
-
-
-
+		System.out.println(request.getAttribute("IDUsuario"));
+		setIdusuario((String)request.getAttribute("IDUsuario"));
+		System.out.println("idUsuario= "+getIdusuario());
 //		try {
 //			seguridadService.validar(u, p);
 //			mv = new ModelAndView("redirect:portada.html");
@@ -37,7 +37,7 @@ public class PostulanteController {
 //			mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
 //		}
 
-		return mv=new ModelAndView("postulante");
+		return new ModelAndView("postulante");
 	}
 
 	@RequestMapping(value = "/insertarDatosPostulante")
@@ -45,6 +45,7 @@ public class PostulanteController {
 
 		System.out.println("Dentro de insertarDatosPostulante");
 		ModelAndView mv = null;
+		System.out.println("idUsuario== "+request.getAttribute("id"));
 		Postulante postulante=new Postulante();
 		postulante.setTipoPersona(request.getParameter("tipoPersona"));
 		postulante.setNombre(request.getParameter("txtnombres"));
@@ -77,5 +78,13 @@ public class PostulanteController {
 		}
 
 		return mv=new ModelAndView("postulante");
+	}
+
+	public String getIdusuario() {
+		return idusuario;
+	}
+
+	public void setIdusuario(String idusuario) {
+		this.idusuario = idusuario;
 	}
 }
