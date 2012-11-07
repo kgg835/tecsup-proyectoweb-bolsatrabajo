@@ -9,19 +9,26 @@ import com.proyecto.negocio.service.PostulanteService;
 import com.proyecto.persistencia.dao.PostulanteDAO;
 
 @Service
-public class PostulanteServiceImpl implements PostulanteService{
-	
+public class PostulanteServiceImpl implements PostulanteService {
+
 	@Autowired
 	private PostulanteDAO postulanteDAO;
-	
+
 	@Override
 	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
 		return postulanteDAO.obtenerPostulante(idPostulante);
 	}
 
 	@Override
-	public Postulante insertarPostulante(Postulante postulante)throws DAOExcepcion{
+	public Postulante insertarPostulante(Postulante postulante)
+			throws DAOExcepcion {
 		return postulanteDAO.insertarPostulante(postulante);
+	}
+
+	@Override
+	public Postulante actualizarPostulante(Postulante postulante)
+			throws DAOExcepcion {
+		return postulanteDAO.actualizarPostulante(postulante);
 	}
 
 }
