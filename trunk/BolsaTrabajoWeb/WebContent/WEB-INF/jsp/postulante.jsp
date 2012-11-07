@@ -16,7 +16,7 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-		<link href="/BolsaTrabajoWeb//bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="/BolsaTrabajoWeb/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 		<style type="text/css">
 			body { 
@@ -46,7 +46,7 @@
 			var activador=${estado};
 			
 	    	$(document).ready(function(){
-		    	if(activador==0){
+		 /*    	if(activador==0){
 		    		jQuery("#mostrarDatos").show();
 					jQuery("#mostrarResidencia").show();
 			    }else{
@@ -55,7 +55,7 @@
 				    	jQuery("#mostrarDatos").hide();
 					}
 			    	
-				    }
+				    } */
 			});
 	   		 function ActivaEditar(){
 			  jQuery("#datosPersonal").show();
@@ -66,14 +66,15 @@
 			  jQuery("#mostrarDatos").show();
 			}
 			
-			 function ActivaEditarResidencia(){
+/* 			 function ActivaEditarResidencia(){
 			  jQuery("#EditarResidencia").show();
 			   $("#mostrarResidencia").hide();
 			}
 			function cerrarResidencia(){
 			  jQuery("#EditarResidencia").hide();
 			  jQuery("#mostrarResidencia").show();
-			}	
+			} */	
+			
 	 </script>
 	
 	
@@ -144,7 +145,7 @@
 									<input name="inputcerrar" type="button" class="boton" value="Cancelar" onClick="cerrartabla()" >
 								</div>
 								
-							<div id="descripcionDatos" >	
+							<div id="descripcionDatos" style="display:none" >	
 								
 										<div id="mostrarDatos">
 											<table >
@@ -179,7 +180,7 @@
 									<div>
 									</div>
 									
-							  <div id="datosPersonal" style="display:none;">	
+							  <div id="datosPersonal" >	
 								<label>Nombres(s)</label>
 								<input name="txtNombre" type="text" class="span3" placeholder="txtnombres"><br>
 								<label>Apellido(s)</label>
@@ -299,7 +300,9 @@
 									</select>
 								</p>
 								<br/>
-								<div class="form-actions">
+								
+								<div >
+								
 									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
 									<button class="btn">Cancelar</button>
 								</div>
@@ -307,7 +310,7 @@
 							</div><!--Residencia  -->
 							<br>
 							<br>
-						<div id="Residencia">
+						<div id="Residencia" style="display: none;">
 							<h4>Lugar de Residencia</h4>	
 							<div >
 								<i class=" icon-edit"></i>

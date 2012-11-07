@@ -2,7 +2,9 @@ package com.proyecto.presentacion.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -166,6 +168,8 @@ public class LoginController {
 								request.setAttribute("estado",1);
 								request.setAttribute("IDUsuario",id);
 								System.out.println("Entro en Estado=1");
+								HttpSession sesion=request.getSession();
+								sesion.setAttribute("IDUsuario", id);
 								mv=new ModelAndView("redirect:cargarPaginaPostulante.html","IDUsuario",id);
 							}
 						}
@@ -179,6 +183,16 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		return mv;
+	}
+
+
+	public PostulanteService getPostulanteService() {
+		return postulanteService;
+	}
+
+
+	public void setPostulanteService(PostulanteService postulanteService) {
+		this.postulanteService = postulanteService;
 	}
 
 
