@@ -44,6 +44,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public int obteneridUsuario(Usuario user) throws DAOExcepcion {
 		System.out.println("usuario1=== "+user.getNombreUsuario());
@@ -70,6 +71,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	}
 	
 	//Obtiene el Rol del Usuario 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String obtenerRol(int idRol) throws DAOExcepcion {
 		
 		String sql = "Select r.tipoRol from rol r,usuario u where u.idUsuario =? AND r.idROL = u.idROL";

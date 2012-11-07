@@ -17,8 +17,6 @@ public class Postulante extends Persona implements Serializable{
 	private String telefonoFijo;
 	private String telefonoCel;
 	private String paisPostulante;
-	private int idPresentacion;
-	private int idPreferencia_Salarial;
 	private int idUsuario;
 
 
@@ -176,22 +174,6 @@ public class Postulante extends Persona implements Serializable{
 
 	public Collection<Estudio> getListaEstudios() {
 		return listaEstudios;
-	}
-
-	public void setIdPresentacion(int idPresentacion) {
-		this.idPresentacion = idPresentacion;
-	}
-
-	public int getIdPresentacion() {
-		return idPresentacion;
-	}
-
-	public void setIdPreferencia_Salarial(int idPreferencia_Salarial) {
-		this.idPreferencia_Salarial = idPreferencia_Salarial;
-	}
-
-	public int getIdPreferencia_Salarial() {
-		return idPreferencia_Salarial;
 	}
 
 	public void setPaisPostulante(String paisPostulante) {
