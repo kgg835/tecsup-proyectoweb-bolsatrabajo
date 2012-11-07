@@ -176,6 +176,8 @@
 									<div class="navbar" style="display:none">
 										<button class="btn btn-primary" type="submit">Guardar datos personales</button>
 									</div>
+									<div>
+									</div>
 									
 							  <div id="datosPersonal" style="display:none;">	
 								<label>Nombres(s)</label>

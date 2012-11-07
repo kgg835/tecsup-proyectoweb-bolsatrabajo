@@ -166,7 +166,7 @@ public class LoginController {
 								request.setAttribute("estado",1);
 								request.setAttribute("IDUsuario",id);
 								System.out.println("Entro en Estado=1");
-								mv=new ModelAndView("redirect:cargarPaginaPostulante.html");
+								mv=new ModelAndView("redirect:cargarPaginaPostulante.html","IDUsuario",id);
 							}
 						}
 					}
