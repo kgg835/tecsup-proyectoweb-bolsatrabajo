@@ -6,10 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.proyecto.exception.LoginExcepcion;
 import com.proyecto.modelo.Postulante;
 import com.proyecto.negocio.service.PostulanteService;
 
@@ -65,8 +63,7 @@ public class PostulanteController {
 				+ request.getParameter("txtAnio"));
 		postulante.setSexo(request.getParameter("txtSexo"));
 		postulante.setEstadoCivil(request.getParameter("txtEstadoCivil"));
-		postulante.setIdPresentacion(1);
-		postulante.setIdPreferencia_Salarial(1);
+
 		postulante.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario")));
 
 
