@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +23,7 @@ public class PostulanteController {
 	public void setPostulanteService(PostulanteService postulanteService) {
 		this.postulanteService = postulanteService;
 	}
-
+	//metodo que carga la pagina del Postulante.jsp
 	@RequestMapping(value = "/cargarPaginaPostulante")
 	protected ModelAndView cargarPaginaPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
@@ -43,15 +42,69 @@ public class PostulanteController {
 
 		return new ModelAndView("postulante");
 	}
-
+	//Metodo que inserta los datos personales del usuario o Postulante
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/insertarDatosPostulante")
 	protected ModelAndView insertarDatosPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		ModelAndView mv = null;
 		HttpSession session= request.getSession();
 		Object idUsuario=(Object)session.getAttribute("IDUsuario");
 		System.out.println("idUsuario2= "+idUsuario.toString());
 		System.out.println("Dentro de insertarDatosPostulante");
+		
+		Postulante postulante=new Postulante();
+//		postulante.setTipoPersona(request.getParameter("Postulante"));
+		postulante.setTipoPersona("Postulante");
+		System.out.println("tipoPostulante=="+postulante.getTipoPersona());
+		postulante.setNombre(request.getParameter("txtNombre"));
+		postulante.setApellidos(request.getParameter("txtApellido"));
+		
+		postulante.setDni(request.getParameter("txtDni"));
+
+		postulante.setEmail(request.getParameter("txtEmail"));
+		postulante.setPaisPostulante(request.getParameter("txtPais"));
+
+//		postulante.setDireccion(request.getParameter("txtDireccion"));
+		postulante.setDireccion("calle Teresa gonzales de fanning 137");
+		postulante.setTelefonoFijo(request.getParameter("txtTelefonoFijo"));
+		postulante.setTelefonoCel(request.getParameter("txtTelefonoCel"));
+		postulante.setFechaNacimiento(request.getParameter("txtDia") + "/"
+				+ request.getParameter("txtMes") + "/"
+				+ request.getParameter("txtAnio"));
+		if(request.getParameter("txtSexoM").equals(null)){
+			postulante.setSexo(request.getParameter("txtSexoF"));
+		}
+		else{
+			postulante.setSexo(request.getParameter("txtSexoM"));
+		}
+		
+		postulante.setEstadoCivil(request.getParameter("txtEstadoCivil"));
+
+		postulante.setIdUsuario(Integer.parseInt(idUsuario.toString()));
+
+
+		try {
+			 postulanteService.insertarPostulante(postulante);
+			//mv = new ModelAndView("redirect:.html");
+		} catch (Exception e) {
+			System.out.println("error no se inserto El Postulante Exception");
+			e.printStackTrace();
+			//mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
+		}
+
+		return mv=new ModelAndView("postulante");
+	}
+	
+	//Metodo que inserta los datos personales del usuario o Postulante
+	@SuppressWarnings("unused")
+	@RequestMapping(value = "/actualizarDatosPostulante")
+	protected ModelAndView actualizarDatosPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mv = null;
+		HttpSession session= request.getSession();
+		Object idUsuario=(Object)session.getAttribute("IDUsuario");
+		System.out.println("idUsuario2= "+idUsuario.toString());
+		System.out.println("Dentro de insertarDatosPostulante");
+		
 		Postulante postulante=new Postulante();
 		postulante.setTipoPersona(request.getParameter("tipoPersona"));
 		postulante.setNombre(request.getParameter("txtnombres"));
@@ -75,17 +128,18 @@ public class PostulanteController {
 
 
 		try {
-			 postulanteService.insertarPostulante(postulante);
+			 postulanteService.actualizarPostulante(postulante);
 			//mv = new ModelAndView("redirect:.html");
 		} catch (Exception e) {
-			System.out.println("error no se inserto El Postulante Exception");
+			System.out.println("error no se actualizo los datos del Postulante Exception");
 			e.printStackTrace();
 			//mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
 		}
 
 		return mv=new ModelAndView("postulante");
 	}
-
+	
+	//GET and SET
 	public String getIdusuario() {
 		return idusuario;
 	}

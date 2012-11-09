@@ -195,7 +195,7 @@
 								<input name="txtTelefonoCel" class="span3" type="text" placeholder="celular"><br>
 			
 								<p><label>Nacionalidad</label>
-									<select type="combobox" name="txtnacionalidad">
+									<select type="combobox" name="txtPais">
 										<option selected="" value="">-</option>
 										<option value="AR">Argentina</option>
 										<option value="BR">Brazil</option>
@@ -246,15 +246,15 @@
 											
 											<select name="txtMes" type="combobox" class="span2">
 												<option selected="" value="">-</option>
-												<option value="1">Enero</option>
-												<option value="2">Febrero</option>
-												<option value="3">Marzo</option>
-												<option value="4">Abril</option>
-												<option value="5">Mayo</option>
-												<option value="6">Junio</option>
-												<option value="7">Julio</option>
-												<option value="8">Agosto</option>
-												<option value="9">Septiembre</option>
+												<option value="01">Enero</option>
+												<option value="02">Febrero</option>
+												<option value="03">Marzo</option>
+												<option value="04">Abril</option>
+												<option value="05">Mayo</option>
+												<option value="06">Junio</option>
+												<option value="07">Julio</option>
+												<option value="08">Agosto</option>
+												<option value="09">Septiembre</option>
 												<option value="10">Octubre</option>
 												<option value="11">Noviembre</option>
 												<option value="12">Diciembre</option>
@@ -263,13 +263,13 @@
 
 											<select name="txtAnio"  class="span1">
 												<option selected="" value="">-</option>
-												<option value="01">2006</option>
-												<option value="02">2007</option>
-												<option value="03">2008</option>
-												<option value="04">2009</option>
-												<option value="05">2010</option>
-												<option value="06">2011</option>
-												<option value="07">2012</option>
+												<option value="2006">2006</option>
+												<option value="2007">2007</option>
+												<option value="2008">2008</option>
+												<option value="2009">2009</option>
+												<option value="2010">2010</option>
+												<option value="2011">2011</option>
+												<option value="2012">2012</option>
 											</select>
 										
 								</p>
