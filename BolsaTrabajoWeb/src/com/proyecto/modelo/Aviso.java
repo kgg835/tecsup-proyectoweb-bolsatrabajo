@@ -4,8 +4,8 @@ import java.util.Collection;
 import java.util.Date;
 
 public class Aviso {
+	int idAviso;
 	int idOfertante;
-	int id_puesto;
 	int id_area;
 	String titulo;
 	String descripcion;
@@ -24,11 +24,12 @@ public class Aviso {
 	public Aviso() {
 	}
 
-	public Aviso(int idOfertante,int id_puesto,int id_area, String titulo,String descripcion, Date fec_publicacion,
+	public Aviso(int idAviso,int idOfertante,int id_area, String titulo,String descripcion, Date fec_publicacion,
 			Date fec_caduc) {
 		super();
+		this.idAviso=idAviso;
 	this.idOfertante=idOfertante;
-	this.id_puesto=id_puesto;
+
 	this.id_area=id_area;
 		this.titulo = titulo;
 		this.descripcion=descripcion;
@@ -39,6 +40,14 @@ public class Aviso {
 
 
 
+
+	public int getIdAviso() {
+		return idAviso;
+	}
+
+	public void setIdAviso(int idAviso) {
+		this.idAviso = idAviso;
+	}
 
 	public String getDescripcion() {
 		return descripcion;
@@ -64,14 +73,8 @@ public class Aviso {
 		this.idOfertante = idOfertante;
 	}
 
-	public int getId_puesto() {
-		return id_puesto;
-	}
 
-	public void setId_puesto(int id_puesto) {
-		this.id_puesto = id_puesto;
-	}
-
+	
 	public String getTitulo() {
 		return titulo;
 	}
