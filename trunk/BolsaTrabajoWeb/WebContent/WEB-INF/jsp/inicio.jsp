@@ -127,45 +127,47 @@
 			</form>
 
 				<label><h3>Empleos destacados en Lima</h3></label>
+			
+			<form action=inicio method=post>
+			
+					
+  <%@page import="java.util.*, com.proyecto.modelo.Aviso" %>
+<%
+Collection<Aviso> avisos = (ArrayList<Aviso>)request.getAttribute("avisos");
+int i = 1;
+for(Aviso avi : avisos) {
+%>  
 			<div class="well">
-				<table class="table table-bordered">
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ANALISTA PROGRAMADOR JAVA REQUIERE LA EMPRESA SYNOPSIS SA
-						</td>
-					</tr>
-    			</table>
-			</div>
+<div class="avisos-list ">
+	            	
+	            	<div id="titulo-avisos-home">Empleos destacados en <strong>Lima</strong></div>
+	            	
+                    <a href="mostrar_aviso.html?titulo=<% out.print(avi.getTitulo()); %>" target="_blank" method=post class="aviso_box aviso_listado " title="Gerente de Estaciones Biológicas">
+                        <img src="/BolsaTrabajoWeb/bootstrap/img/AVISO.jpg" width="111" height="70" alt="ONG Internacional"/>
+                        <div class="aviso_content">
+                            <h3><% out.print(avi.getTitulo()); %></h3>
+<h4><% out.print(avi.getDescripcion()); %></h4>                     
+ <div class="aviso-datos">
+                                <h5 class="aviso_donde">Distrito de Barranco</h5>  &middot;
+                                
+                                <span class="aviso-dato">Full-time</span> &middot;
+                                
+                                <span class="aviso_cuando">Ayer</span>
+                                
+                            </div>
+                        </div>
+                        <span class="aviso-badge aviso-nuevo-badge"></span>
+                        <span class="aviso-badge aviso-oportunidad-badge"></span>
+                    </a>
+                    </div>
+</div>
+</form>
+<% }  
+   %>
+
+
+
+
 	    </div>	
 	</div>
 </div>
