@@ -197,15 +197,15 @@
 								<p><label>Nacionalidad</label>
 									<select type="combobox" name="txtPais">
 										<option selected="" value="">-</option>
-										<option value="AR">Argentina</option>
-										<option value="BR">Brazil</option>
-										<option value="BO">Bolivia</option>
-										<option value="CO">Colombia</option>
-										<option value="CH">Chile</option>
-										<option value="EC">Ecuador</option>
-										<option value="PA">Paraguay</option>
-										<option value="PE">Peru</option>
-										<option value="VE">Venezuela</option>
+										<option value="Argentina">Argentina</option>
+										<option value="Brazil">Brazil</option>
+										<option value="Bolivia">Bolivia</option>
+										<option value="Colombia">Colombia</option>
+										<option value="Chile">Chile</option>
+										<option value="Ecuador">Ecuador</option>
+										<option value="Paraguay">Paraguay</option>
+										<option value="Peru">Peru</option>
+										<option value="Venezuela">Venezuela</option>
 									</select>
 								</p>
 								<p>

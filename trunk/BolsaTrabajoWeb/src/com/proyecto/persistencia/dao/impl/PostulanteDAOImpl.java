@@ -54,36 +54,36 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
-
+		System.out.println("PostulanteDAO==obtenerPostulante");
 		String sql = "SELECT idPERSONA,tipo_persona,"
 				+ "nombrePersona,apellidosPersona,dni," + "email,pais,"
 				+ "direccion,telefonoFijo,"
 				+ "numeroCelular,fechaNacimiento,sexo,estadoCivil,"
-				+ "idUsuario" + "FROM persona WHERE idUsuario=?";
+				+ "idUsuario " + "FROM persona WHERE idUsuario=?";
 		RowMapper mapper = new RowMapper() {
 
 			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Postulante postulante = new Postulante();
 
-				postulante.setIdPostulante(rs.getInt(1));
-				postulante.setTipoPersona(rs.getString(2));
-				postulante.setNombre(rs.getString(3));
-				postulante.setApellidos(rs.getString(4));
-				postulante.setDni(rs.getString(5));
-				postulante.setEmail(rs.getString(6));
-				postulante.setPaisPostulante(rs.getString(7));
-				postulante.setDireccion(rs.getString(8));
-				postulante.setTelefonoFijo(rs.getString(9));
-				postulante.setTelefonoCel(rs.getString(10));
-				postulante.setFechaNacimiento(rs.getString(11));
-				postulante.setSexo(rs.getString(12));
-				postulante.setEstadoCivil(rs.getString(13));
-				postulante.setIdUsuario(rs.getInt(14));
+				postulante.setIdPostulante(rs.getInt("idPERSONA"));
+				postulante.setTipoPersona(rs.getString("tipo_persona"));
+				postulante.setNombre(rs.getString("nombrePersona"));
+				postulante.setApellidos(rs.getString("apellidosPersona"));
+				postulante.setDni(rs.getString("dni"));
+				postulante.setEmail(rs.getString("email"));
+				postulante.setPaisPostulante(rs.getString("pais"));
+				postulante.setDireccion(rs.getString("direccion"));
+				postulante.setTelefonoFijo(rs.getString("telefonoFijo"));
+				postulante.setTelefonoCel(rs.getString("numeroCelular"));
+				postulante.setFechaNacimiento(rs.getString("fechaNacimiento"));
+				postulante.setSexo(rs.getString("sexo"));
+				postulante.setEstadoCivil(rs.getString("estadoCivil"));
+				postulante.setIdUsuario(rs.getInt("idUsuario"));
 				return postulante;
 			}
 		};
 		return (Postulante) jdbcTemplate.queryForObject(sql, new Object[] {
-				idPostulante, "1" }, mapper);
+				idPostulante}, mapper);
 	}
 
 	// Metodo que Actualiza Datos Personales del Postulante

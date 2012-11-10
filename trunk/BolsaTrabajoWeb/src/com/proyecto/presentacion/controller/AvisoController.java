@@ -68,7 +68,7 @@ public class AvisoController {
 	
 	
 	
-	@RequestMapping(value = "/index")	
+	@RequestMapping(value = "/listarAvisos")	
 	protected ModelAndView postulaciones(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		

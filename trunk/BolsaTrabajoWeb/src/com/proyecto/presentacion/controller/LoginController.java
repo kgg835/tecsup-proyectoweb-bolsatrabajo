@@ -119,9 +119,13 @@ public class LoginController {
 //		GestionLogin negocio=new GestionLogin();
 //		GestionPostulante negocioP=new GestionPostulante();
 		try {
-			System.out.println("entro al login del try");
+			System.out.println("entro al login del tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+			System.out.println(usuario.getNombreUsuario());
 			int id=usuarioService.obteneridUsuario(usuario);
-		//	postulante=postulanteService.obtenerPostulante(id);
+			System.out.println("ID=="+id);
+			postulante=postulanteService.obtenerPostulante(id);
+			System.out.println(postulante);
+			
 			System.out.println("id1= "+id);
 			System.out.println("PostulanteID1== "+postulante.getIdPostulante());
 			if(id!=0 && postulante.getIdPostulante() !=0){
@@ -141,10 +145,10 @@ public class LoginController {
 						if(rol.equals("P")){
 							//PrintWriter out=response.getWriter();
 							//out.println(usuario);
-							request.setAttribute("usuario",postulante);
-							request.setAttribute("estado",0);
+							//request.setAttribute("usuario",postulante);
+							////request.setAttribute("estado",0);
 							System.out.println("Entro en Estado=0");
-							mv=new ModelAndView("postulante");
+							mv=new ModelAndView("index","estado",0);
 						}
 					}
 				}
