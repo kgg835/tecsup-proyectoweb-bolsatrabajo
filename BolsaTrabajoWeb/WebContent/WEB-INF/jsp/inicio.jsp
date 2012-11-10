@@ -146,8 +146,8 @@ for(Aviso avi : avisos) {
                         <img src="/BolsaTrabajoWeb/bootstrap/img/AVISO.jpg" width="111" height="70" alt="ONG Internacional"/>
                         <div class="aviso_content">
                             <h3><% out.print(avi.getTitulo()); %></h3>
-<h4><% out.print(avi.getDescripcion()); %></h4>                     
- <div class="aviso-datos">
+							<h4><% out.print(avi.getDescripcion()); %></h4>                     
+ 							<div class="aviso-datos">
                                 <h5 class="aviso_donde">Distrito de Barranco</h5>  &middot;
                                 
                                 <span class="aviso-dato">Full-time</span> &middot;
