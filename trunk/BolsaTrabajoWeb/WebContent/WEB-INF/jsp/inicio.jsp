@@ -1,10 +1,11 @@
-<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>--%>
+<%@page import="com.proyecto.modelo.Usuario"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html >
 <html lang="en">
 <head>
 <meta charset="utf-8">
-		<title>Nuevo proyecto con Bootstrap 2.0</title>
+		<title>Proyecto con Bootstrap 2.0</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<meta name="description" content="Bootstrap 2.0">
@@ -40,11 +41,27 @@
 		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-collapse.js"></script>
 		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-carousel.js"></script>
 		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-typeahead.js"></script>
+		
 		<script type="text/javascript">
+			var estadoCrear=1;
 			$(document).ready(function(){
 				//$('#myusuario').val('');
+				ocultarCrearCuenta();
+				//alert("esta funcionado jQuery");
+				console.log("se esta ejecutando Jquery");
+				
 			});
-
+			function ocultarCrearCuenta(){
+			
+				//var estadoCrear=${ESTADO}
+				console.log("estadoCrear=="+estadoCrear);
+				if(estadoCrear==0){
+					//jQuery("#mostrarDatos").show();//mostrar
+					jQuery("#crearCuenta").show();//ocultar
+				}else{
+					jQuery("#crearCuenta").hide();//mostrar
+				}
+			}
 		</script>
 		
 </head>
@@ -55,22 +72,22 @@
 			<tr>
 				<td style="width: 246px" width="246">
 					<label><h1 style="color: blue;">BolsaTrabajo.com</h1></label>
-					<!-- <img src="../bootstrap/img/logo.jpg" width="307" height="40"></td> -->
+					<!-- <img src="../bootstrap/img/logo.jpg" width="307" height="40">-->
+				</td> 
 				<td align="right" style="width: 885px; " width="688">
 					<div>
-						<button class="btn btn-large" onclick="location.href='cargarLogin.html'">Iniciar Sesion</button>
+						<button  class="btn btn-large" onclick="location.href='cargarLogin.html'">Iniciar Sesion</button>
 						<button type="submit" class="btn btn-large btn-primary disabled">Cargar mi CV</button>
 					</div>
 				</td>
 			</tr>
 		</table>
-		
 	<!--  -->
 	<div class="row-fluid"> 
 		<div class="span3" >
-			<form class="well" >
+		<div id="crearCuenta" style="display:none;">
+			<form class="well" >	
 	    		<label><h3>Crear Cuenta</h3></label><br/>
-	    		
 	    		<label>Email o Nombre de usuario</label>
 	    		<input type="text" class="span12" placeholder="Escribe algo?" name="txtUsuarioC"><br/>
 	    		<label>Contraseña</label>
@@ -82,38 +99,43 @@
 	    		</label><br/>
 	   			<button type="submit" class="btn btn-success btn-large" >Crear Cuenta y Cargar CV</button>
 			</form>
+			</div>
 			<div class="well">
-		
 			<label><h3>Areas</h3></label>
 			<table>
 				<tr>
 					<td>
-						Administracion
-					</td>
+						<a>Administracion</a>
+							</td>
 				</tr>
 				<tr>
 					<td>
-						Call center
-					</td>
+						
+					<a>Call center</a>
+							</td>
 				</tr>
 				<tr>
 					<td>
-						Diseño
-					</td>
+						
+					<a>Diseño</a>
+							</td>
 				</tr>
 				<tr>
 					<td>
-						Construccion
-					</td>
+						
+					<a>Construccion</a>
+							</td>
 				</tr>
 				<tr>
 					<td>
-						Educaciion
-					</td>
+						
+					<a>Educacion</a>
+							</td>
 				</tr>
 				<tr>
 					<td>
-						Finanzas
+						
+						<a>Finanzas</a>
 					</td>
 				</tr>
 			</table>
@@ -125,48 +147,7 @@
 				<input class="input-xlarge search-query" type="text">
 				<button class="btn btn-large" type="submit">Buscar</button>
 			</form>
-
 				<label><h3>Empleos destacados en Lima</h3></label>
-			
-			<form action=inicio method=post>
-			
-					
-  <%@page import="java.util.*, com.proyecto.modelo.Aviso" %>
-<%
-Collection<Aviso> avisos = (ArrayList<Aviso>)request.getAttribute("avisos");
-int i = 1;
-for(Aviso avi : avisos) {
-%>  
-			<div class="well">
-<div class="avisos-list ">
-	            	
-	            	<div id="titulo-avisos-home">Empleos destacados en <strong>Lima</strong></div>
-	            	
-                    <a href="mostrar_aviso.html?titulo=<% out.print(avi.getTitulo()); %>" target="_blank" method=post class="aviso_box aviso_listado " title="Gerente de Estaciones Biológicas">
-                        <img src="/BolsaTrabajoWeb/bootstrap/img/AVISO.jpg" width="111" height="70" alt="ONG Internacional"/>
-                        <div class="aviso_content">
-                            <h3><% out.print(avi.getTitulo()); %></h3>
-							<h4><% out.print(avi.getDescripcion()); %></h4>                     
- 							<div class="aviso-datos">
-                                <h5 class="aviso_donde">Distrito de Barranco</h5>  &middot;
-                                
-                                <span class="aviso-dato">Full-time</span> &middot;
-                                
-                                <span class="aviso_cuando">Ayer</span>
-                                
-                            </div>
-                        </div>
-                        <span class="aviso-badge aviso-nuevo-badge"></span>
-                        <span class="aviso-badge aviso-oportunidad-badge"></span>
-                    </a>
-                    </div>
-</div>
-</form>
-<% }  
-   %>
-
-
-
 
 	    </div>	
 	</div>
