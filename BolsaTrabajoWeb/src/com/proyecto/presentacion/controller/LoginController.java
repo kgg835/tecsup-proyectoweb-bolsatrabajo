@@ -148,7 +148,8 @@ public class LoginController {
 							//request.setAttribute("usuario",postulante);
 							////request.setAttribute("estado",0);
 							System.out.println("Entro en Estado=0");
-							mv=new ModelAndView("index","estado",0);
+							int estado=0;
+							mv=new ModelAndView("redirect:index.html","ESTADO",estado);
 						}
 					}
 				}
