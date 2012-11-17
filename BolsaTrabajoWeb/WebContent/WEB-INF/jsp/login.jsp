@@ -80,6 +80,8 @@
 	    			<input type="checkbox"> Seguir conectado
 	    		</label><br/>
 	   			<button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+	 	   		<button type="submit" class="btn btn-primary" onclick="location.href='cargarLogin.html'">Crear Usuario</button>
+	   			
 	   		</form> 
 	    </div>
 	    <div class="span4">
