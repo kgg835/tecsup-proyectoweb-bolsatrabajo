@@ -12,7 +12,6 @@
 	
 	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
 		<param name="File" value="D:/temp/log4jlog.log" />
-<!-- 		<param name="File" value="D:/temp/log4jlog.log" /> -->
 		<param name="MaxFileSize" value="1MB" />
 		<param name="MaxBackupIndex" value="3" />
 		<param name="Threshold" value="DEBUG" />
