@@ -50,6 +50,7 @@
 				//alert("esta funcionado jQuery");
 				console.log("se esta ejecutando Jquery");
 				console.log("");
+				activarBotonCV();
 			});
 			function ocultarCrearCuenta(){
 				var estadoCrear=${USUARIO.estado}
@@ -67,13 +68,44 @@
 					
 				}
 			}
+			
+			function activarBotonCV() {
+				var estadoActivar=${USUARIO.estado}
+				if(estadoActivar==0){
+					$('#botonCV').attr("disabled", true);
+				}
+				else{
+					if(estadoActivar==1){
+						$('#botonCV').attr('disabled',false);
+					}
+				}
+			}
 		</script>
 		
 </head>
 <body><!-- Este es el Body -->
-	
-	
-	ESTADO=${USUARIO.estado}
+
+	<div class="navbar navbar-inner">
+		<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+           	 			<span class="icon-bar"></span>
+          			</a>
+					<a class="brand" href="#">Bolsa de Empleo</a>
+						<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li class="active"><a href="http://localhost:8080/BolsaTrabajoWeb/jsp/index.jsp">Inicio</a></li>
+							<li><a href="buscarAviso.jsp">Buscar Avisos</a></li>
+							<li><a href="postulaciones.jsp">Mis Postulaciones</a></li>
+							<li><a href="postulante.jsp">Mi CV</a></li>
+							<li><a href="#bio">Herramientas</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 	<div class="container-fluid">
 		<table width="100%">
 			<tr>
@@ -83,8 +115,8 @@
 				</td> 
 				<td align="right" style="width: 885px; " width="688">
 					<div>
-						<button  class="btn btn-large" onclick="location.href='cargarLogin.html'">Iniciar Sesion</button>
-						<button type="submit" class="btn btn-large btn-primary disabled">Cargar mi CV</button>
+						<button id="botonSesion" class="btn btn-large" onclick="location.href='cargarLogin.html'">Iniciar Sesion</button>
+						<button id="botonCV" class="btn btn-large btn-primary" onclick="location.href='cargarPaginaPostulante.html'">Cargar mi CV</button>
 					</div>
 				</td>
 			</tr>

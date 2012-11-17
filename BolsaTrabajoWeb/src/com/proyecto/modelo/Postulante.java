@@ -17,6 +17,7 @@ public class Postulante extends Persona implements Serializable{
 	private String telefonoFijo;
 	private String telefonoCel;
 	private String paisPostulante;
+	private int estadoPos;
 	private int idUsuario;
 
 
@@ -197,6 +198,18 @@ public class Postulante extends Persona implements Serializable{
 
 	public void setHistorialPostulacion(Collection<HistorialPostulaciones> historialPostulacion) {
 		this.historialPostulacion = historialPostulacion;
+	}
+
+
+
+	public int getEstadoPos() {
+		return estadoPos;
+	}
+
+
+
+	public void setEstadoPos(int estadoPos) {
+		this.estadoPos = estadoPos;
 	}
 
 
