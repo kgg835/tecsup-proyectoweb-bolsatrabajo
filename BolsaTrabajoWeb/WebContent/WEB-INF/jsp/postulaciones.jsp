@@ -2,7 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-
+  <%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones" %>
+<%
+Collection<HistorialPostulaciones> postulaciones = (ArrayList<HistorialPostulaciones>)request.getAttribute("postulaciones");
+%> 
 
 <!DOCTYPE html>
 
@@ -65,11 +68,11 @@
             					<span class="icon-bar"></span>
            	 					<span class="icon-bar"></span>
           				</a>
-						<a class="brand" href="#">Bolsa de Empleo</a>
+						<a class="brand" href="index.html">Bolsa de Empleo</a>
 						<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li><a href="postulante.jsp">Mi Cv</a></li>
-							<li><a href="buscarAviso.jsp">Buscar Avisos</a></li>
+							<li><a href="listarAvisos.html">Buscar Avisos</a></li>
 							<li class="active"><a href="postulaciones.jsp">Mis Postulaciones</a></li>
 						<li><a href="buscaraviso.jsp">Herramientas</a></li>
 						</ul>
@@ -79,13 +82,9 @@
 			</div>
 	<!--------------------------------BARRA SECUNDARIA-------------->
 <form action="historialPostulaciones" method="post">
-<ul>
-		<c:forEach items="${LISTADO }" var="x">
-<li>${x }</li>
-		</c:forEach></ul>
+
 		
-		
-	
+<p style="color:purple;font-style: italic;" >Resultado total de Postulaciones Encontradas<strong> <%out.print(postulaciones.size()); %></strong></p>
 	
 		<table class="table table-hover">
 			<tr>
@@ -99,19 +98,16 @@
 
 
 
-				<th style="width: 300px;"><a class="btn dropdown-toggle"
-					data-toggle="dropdown" href="#"> Estado <span class="caret">
-					</span>
-				</a></th>
-			</tr>
+				<th> <select name="opcion">
+  <option>Estado</option>
+  <option style="color:green;" value="0">Activo</option>
+  <option style="color:red;" value="1">Caduco</option>
+</select>
+ </th></tr>
 			    
-		
-  <%@page import="java.util.*, com.proyecto.modelo.HistorialPostulaciones" %>
-<%
-Collection<HistorialPostulaciones> postulaciones = (ArrayList<HistorialPostulaciones>)request.getAttribute("postulaciones");
-int i = 1;
-for(HistorialPostulaciones hp : postulaciones) {
-%>  
+<% int i = 1;
+for(HistorialPostulaciones hp : postulaciones) {	%>	
+ 
   <tr>
     <td><%=i++ %></td>
     <td><% out.print(hp.getNombreEmpresa()); %></td>
@@ -120,7 +116,9 @@ for(HistorialPostulaciones hp : postulaciones) {
     <td><% out.print(hp.getFechpostulacion()); %></td>
      <td><% out.print(hp.getEstado()); %></td>
   </tr>
-<% }  
+<% } 
+
+
    %>
   
 </table></form>
@@ -132,4 +130,4 @@ for(HistorialPostulaciones hp : postulaciones) {
   <button class="btn">2</button>
   </div>
 						
-					</div>
+					</div></body></html>

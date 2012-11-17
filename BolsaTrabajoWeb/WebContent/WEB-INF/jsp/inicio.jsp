@@ -98,7 +98,7 @@
 						<ul class="nav">
 							<li class="active"><a href="http://localhost:8080/BolsaTrabajoWeb/jsp/index.jsp">Inicio</a></li>
 							<li><a href="buscarAviso.jsp">Buscar Avisos</a></li>
-							<li><a href="postulaciones.jsp">Mis Postulaciones</a></li>
+							<li><a href="historialPostulaciones.html">Mis Postulaciones</a></li>
 							<li><a href="postulante.jsp">Mi CV</a></li>
 							<li><a href="#bio">Herramientas</a></li>
 						</ul>
