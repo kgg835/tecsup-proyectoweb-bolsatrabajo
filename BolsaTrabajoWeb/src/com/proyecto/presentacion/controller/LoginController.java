@@ -4,7 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,11 @@ import com.proyecto.negocio.service.PostulanteService;
 import com.proyecto.negocio.service.UsuarioService;
 
 @Controller
+
 public class LoginController {
+
 	
+	private static Logger logger=LogManager.getLogger(LoginController.class);
 	@Autowired
 	private UsuarioService usuarioService;
 	
@@ -28,6 +32,7 @@ public class LoginController {
 	protected ModelAndView logeo(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println("Dentro de LoginController");
+		logger.info("Dentro de LoginController");
 		//ModelAndView mv = null;
 
 		return new ModelAndView("login");
@@ -54,9 +59,9 @@ public class LoginController {
 //			mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
 //		}
 		
-		String user=request.getParameter("txtNuevoUsuario");
-		String passw=request.getParameter("txtNuevaContrasena");
-		String passwvalida=request.getParameter("txtNuevaContrasenavalidar");
+		String user=request.getParameter("txtUsuarioNuevo");
+		String passw=request.getParameter("txtContrasenaNueva");
+		String passwvalida=request.getParameter("txtContrasenavalidaNueva");
 		System.out.println("user== "+user);
 		System.out.println("passw== "+passw);
 		System.out.println("passwvalida== "+passwvalida);
@@ -65,29 +70,31 @@ public class LoginController {
 		if(user.equals("")&&passw.equals("")){
 			mensaje="ERROR!!!.. "+"los campos faltan llenar";
 			System.out.println("Faltan llenar los campos");
+			logger.error(mensaje);
 		}
 		else{
 			if(passwvalida.equals(passw)){
 				usuario.setNombreUsuario(user);
 				usuario.setPasswordUsuario(passw);
-				usuario.setIdRol(3);
+				usuario.setIdRol(1);
 				
 				usuarioService.insertarUsuario(usuario);
 				mensaje="el usuario: "+user+"ha sido registrado correctamente";
 				//PrintWriter pw=response.getWriter();
 				System.out.println(mensaje);
-				
+				logger.info(mensaje);
 				mv=new ModelAndView("postulante");
 				
 			}else{
 				mensaje="ERROR!!!.. "+user+"No ha sido registrado correctamente";
 				System.out.println(mensaje);
+				logger.error(mensaje);
 				mv=new ModelAndView("mensajeErrorCreacion");
 				
 			}
 		}
 
-		return mv;//new ModelAndView("postulante");
+		return mv;
 	}
 	
 	
@@ -106,6 +113,7 @@ public class LoginController {
 	protected ModelAndView validarUsuario(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println("Dentro de Validar Usuario");
+		logger.info("Dentro de ValidarUsuario");
 		ModelAndView mv = null;
 		
 		String user=request.getParameter("txtUsuario");
@@ -122,9 +130,10 @@ public class LoginController {
 			System.out.println("entro al login del tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
 			System.out.println(usuario.getNombreUsuario());
 			int id=usuarioService.obteneridUsuario(usuario);
+		
 			System.out.println("ID=="+id);
 			postulante=postulanteService.obtenerPostulante(id);
-			System.out.println(postulante);
+			System.out.println("postulante=="+postulante);
 			
 			System.out.println("id1= "+id);
 			System.out.println("PostulanteID1== "+postulante.getIdPostulante());
@@ -147,9 +156,13 @@ public class LoginController {
 							//out.println(usuario);
 							//request.setAttribute("usuario",postulante);
 							////request.setAttribute("estado",0);
-							System.out.println("Entro en Estado=0");
-							int estado=0;
-							mv=new ModelAndView("redirect:index.html","ESTADO",estado);
+							System.out.println("Entro en Estado=1");
+							
+							logger.info("entro en la 1ra condiccion del try");
+							usuario.setEstado(1);
+							
+							//mv=new ModelAndView("redirect:index.html","USUARIO",usuario);
+							mv=new ModelAndView("inicio","USUARIO",usuario);
 						}
 					}
 				}
@@ -168,24 +181,24 @@ public class LoginController {
 							//rd.forward(request, response);
 						}else{
 							if(rol.equals("P")){
-								//PrintWriter out=response.getWriter();
-								//out.println(usuario);
-								request.setAttribute("estado",1);
-								request.setAttribute("IDUsuario",id);
-								System.out.println("Entro en Estado=1");
+								System.out.println("Entro en Estado=0");
 								HttpSession sesion=request.getSession();
 								sesion.setAttribute("IDUsuario", id);
-								mv=new ModelAndView("redirect:cargarPaginaPostulante.html","IDUsuario",id);
+								usuario.setEstado(0);
+								logger.info("entro en la 2da condiccion del try");
+								mv=new ModelAndView("postulante","USUARIO",usuario);
 							}
 						}
 					}
 				}
 				else{
+					logger.info("enviando a la vista crearusuario");
 					mv=new ModelAndView("crearUsuario");
 				}
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error("fallo al obtener el Postulante: "+postulante);
 		}
 		return mv;
 	}
@@ -199,6 +212,4 @@ public class LoginController {
 	public void setPostulanteService(PostulanteService postulanteService) {
 		this.postulanteService = postulanteService;
 	}
-
-
 }

@@ -8,6 +8,7 @@ public class Usuario {
 	private int idUsuario;
 	private String nombreUsuario;
 	private String passwordUsuario;
+	private int estado;
 	private int idRol;
 
 	// un Usuario puede Tener varios Roles
@@ -63,5 +64,13 @@ public class Usuario {
 
 	public int getIdUsuario() {
 		return idUsuario;
+	}
+
+	public int getEstado() {
+		return estado;
+	}
+
+	public void setEstado(int estado) {
+		this.estado = estado;
 	}
 }
