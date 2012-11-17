@@ -16,7 +16,16 @@ public class PostulanteServiceImpl implements PostulanteService {
 
 	@Override
 	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
-		return postulanteDAO.obtenerPostulante(idPostulante);
+		System.out.println("dentro del PostulanteService - ObtenerPostulante");
+		Postulante postulante=postulanteDAO.obtenerPostulante(idPostulante);
+		System.out.println("Postulante=="+postulante);
+		if(postulante!=null){
+			return postulante;
+		}else{
+			return postulante=null;
+		}
+			
+			 
 	}
 
 	@Override

@@ -82,7 +82,8 @@
 	</head>
 	<!-- Este es el Body -->
 	<body>
-
+		estado=${USUARIO.estado}
+		id_Usuario=${USUARIO.idUsuario}
 		<!-- Este es la parte del cuepo-->
 		
 		<div class="container">

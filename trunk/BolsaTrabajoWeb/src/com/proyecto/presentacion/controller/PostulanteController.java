@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,7 @@ import com.proyecto.negocio.service.PostulanteService;
 @Controller
 public class PostulanteController {
 	private String idusuario;
-	
+	private static Logger logger=LogManager.getLogger(PostulanteController.class); 
 	@Autowired
 	private PostulanteService postulanteService;
 	
@@ -33,6 +35,7 @@ public class PostulanteController {
 		HttpSession session= request.getSession();
 		Object lista=(Object)session.getAttribute("IDUsuario");
 		System.out.println("idUsuario= "+lista.toString());
+		logger.info("Dentro de PostulanteController");
 //		try {
 //			seguridadService.validar(u, p);
 //			mv = new ModelAndView("redirect:portada.html");
@@ -49,7 +52,7 @@ public class PostulanteController {
 		ModelAndView mv = null;
 		HttpSession session= request.getSession();
 		Object idUsuario=(Object)session.getAttribute("IDUsuario");
-		System.out.println("idUsuario2= "+idUsuario.toString());
+//		System.out.println("idUsuario2= "+idUsuario.toString());
 		System.out.println("Dentro de insertarDatosPostulante");
 		
 		Postulante postulante=new Postulante();
@@ -85,10 +88,12 @@ public class PostulanteController {
 
 		try {
 			 postulanteService.insertarPostulante(postulante);
+			 logger.info("Se Inserto corretamente el postulante: "+postulante.getNombre());
 			//mv = new ModelAndView("redirect:.html");
 		} catch (Exception e) {
-			System.out.println("error no se inserto El Postulante Exception");
+			System.out.println("");
 			e.printStackTrace();
+			logger.error("no se pudo Insertar al Postulante: "+postulante.getNombre());
 			//mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
 		}
 

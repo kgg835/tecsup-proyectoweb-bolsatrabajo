@@ -43,30 +43,37 @@
 		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-typeahead.js"></script>
 		
 		<script type="text/javascript">
-			var estadoCrear=1;
+			
 			$(document).ready(function(){
 				//$('#myusuario').val('');
 				ocultarCrearCuenta();
 				//alert("esta funcionado jQuery");
 				console.log("se esta ejecutando Jquery");
-				
+				console.log("");
 			});
 			function ocultarCrearCuenta(){
-			
+				var estadoCrear=${USUARIO.estado}
 				//var estadoCrear=${ESTADO}
 				console.log("estadoCrear=="+estadoCrear);
 				if(estadoCrear==0){
 					//jQuery("#mostrarDatos").show();//mostrar
 					jQuery("#crearCuenta").show();//ocultar
+					console.log("Muestra crear Cuenta");
 				}else{
-					jQuery("#crearCuenta").hide();//mostrar
+					console.log("Muestra no crear Cuenta");
+					if(estadoCrear==1){
+						jQuery("#crearCuenta").hide();//mostrar
+					}
+					
 				}
 			}
 		</script>
 		
 </head>
 <body><!-- Este es el Body -->
-
+	
+	
+	ESTADO=${USUARIO.estado}
 	<div class="container-fluid">
 		<table width="100%">
 			<tr>
@@ -85,15 +92,15 @@
 	<!--  -->
 	<div class="row-fluid"> 
 		<div class="span3" >
-		<div id="crearCuenta" style="display:none;">
-			<form class="well" >	
+		<div id="crearCuenta" style="display:inline;">
+			<form class="well" action="insertarUsuario.html" method="post">	
 	    		<label><h3>Crear Cuenta</h3></label><br/>
 	    		<label>Email o Nombre de usuario</label>
-	    		<input type="text" class="span12" placeholder="Escribe algo?" name="txtUsuarioC"><br/>
+	    		<input type="text" class="span12" placeholder="Escribe algo?" name="txtUsuarioNuevo"><br/>
 	    		<label>Contraseña</label>
-	    		<input type="password" class="span12" placeholder="Escribe contraseña" name="txtContrasenaC"><br/>
+	    		<input type="password" class="span12" placeholder="Escribe contraseña" name="txtContrasenaNueva"><br/>
 	    		<label>Vuelve a escribir tu Contraseña</label>
-	    		<input type="password" class="span12" placeholder="Escribe contraseña" name="txtContrasenavalida"><br/>
+	    		<input type="password" class="span12" placeholder="Escribe contraseña" name="txtContrasenavalidaNueva"><br/>
 	    		<label class="checkbox">
 	    			<input type="checkbox"> Seguir conectado
 	    		</label><br/>
