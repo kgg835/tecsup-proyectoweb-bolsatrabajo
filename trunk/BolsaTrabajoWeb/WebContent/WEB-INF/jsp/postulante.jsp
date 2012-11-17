@@ -43,38 +43,43 @@
 		<script src="/BolsaTrabajoWeb/bootstrap/js/bootstrap-typeahead.js"></script>
 		
 		<script type="text/javascript">
-			var activador=${estado};
 			
 	    	$(document).ready(function(){
-		 /*    	if(activador==0){
-		    		jQuery("#mostrarDatos").show();
-					jQuery("#mostrarResidencia").show();
-			    }else{
-				    if(activador==1){
-				    	jQuery("#datosPersonal").show();
-				    	jQuery("#mostrarDatos").hide();
-					}
-			    	
-				    } */
+	    		mostrarDatosPostulante();
 			});
-	   		 function ActivaEditar(){
-			  jQuery("#datosPersonal").show();
-			   $("#mostrarDatos").hide();
-			}
-			function cerrartabla(){
-			  jQuery("#datosPersonal").hide();
-			  jQuery("#mostrarDatos").show();
+	    	
+			function mostrarDatosPostulante(){
+				var estadopostulante=${ESTADOPOS}
+				console.log("estadopostulante== "+estadopostulante);
+				if(estadopostulante==1){
+					$('#descripcionDatos').show();
+					$('#llenarDatosPersonal').hide();
+				}
+				else{
+					if(estadopostulante==0){
+						$('#descripcionDatos').hide();
+						$('#llenarDatosPersonal').show();
+					}
+				}	
 			}
 			
-/* 			 function ActivaEditarResidencia(){
-			  jQuery("#EditarResidencia").show();
-			   $("#mostrarResidencia").hide();
+			function activaEditar() {
+				$('#descripcionDatos').hide();
+				$("#txtNombre").attr('value','${POSTULANTE.nombre}');
+				$("#txtApellido").attr('value','${POSTULANTE.apellidos}');
+				$("#txtEmail").attr('value','${POSTULANTE.email}');
+				$("#txtTelefonoFijo").attr('value','${POSTULANTE.telefonoFijo}');
+				$("#txtTelefonoCel").attr('value','${POSTULANTE.telefonoCel}');
+				$("#txtPais").attr('value','${POSTULANTE.paisPostulante}');
+				$("#txtDni").attr('value','${POSTULANTE.dni}');
+				$("#txtEstadoCivil").attr('value','${POSTULANTE.estadoCivil}');
+				$('#llenarDatosPersonal').show();
 			}
-			function cerrarResidencia(){
-			  jQuery("#EditarResidencia").hide();
-			  jQuery("#mostrarResidencia").show();
-			} */	
 			
+			function desactivarEditar() {
+				$('#llenarDatosPersonal').hide();
+				$('#descripcionDatos').show();
+			}
 	 </script>
 	
 	
@@ -141,9 +146,9 @@
 									
 								<div class="navbar">
 									<i class=" icon-edit"></i>
-									<input name="input" type="button" class="ui-icon-pencil" value="Editar" onClick="ActivaEditar()" >
+									<input name="input" type="button" class="ui-icon-pencil" value="Editar" onClick="activaEditar()" >
 		
-									<input name="inputcerrar" type="button" class="boton" value="Cancelar" onClick="cerrartabla()" >
+									<input name="inputcerrar" type="button" class="boton" value="Cancelar" onClick="desactivarEditar()" >
 								</div>
 								
 							<div id="descripcionDatos" style="display:none" >	
@@ -151,25 +156,25 @@
 										<div id="mostrarDatos">
 											<table >
 												<tr>
-													<td><output><h4>${usuario.nombre} ${usuario.apellidos}</h4></output></td>
+													<td><output><h4>${POSTULANTE.nombre} ${POSTULANTE.apellidos}</h4></output></td>
 												</tr>
 												<tr>
-													<td><output>${usuario.fechaNacimiento}</output></td>
+													<td><output>${POSTULANTE.fechaNacimiento}</output></td>
 												</tr>
 												<tr>
-													<td><output>${usuario.estadoCivil}</output></td>
+													<td><output>${POSTULANTE.estadoCivil}</output></td>
 												</tr>
 												<tr>
-													<td><output>Documento ${usuario.dni}</output></td>
+													<td><output>Documento ${POSTULANTE.dni}</output></td>
 												</tr>
 												<tr>
-													<td><output>casa ${usuario.telefonoFijo}</output></td>
+													<td><output>casa ${POSTULANTE.telefonoFijo}</output></td>
 												</tr>
 												<tr>
-													<td><output>Movil ${usuario.telefonoCel}</output></td>
+													<td><output>Movil ${POSTULANTE.telefonoCel}</output></td>
 												</tr>
 												<tr>
-													<td><output>${usuario.email}</output></td>
+													<td><output>${POSTULANTE.email}</output></td>
 												</tr>
 											</table>
 										</div>
@@ -181,22 +186,22 @@
 									<div>
 									</div>
 									
-							  <div id="datosPersonal" >	
+							  <div id="llenarDatosPersonal" >	
 								<label>Nombres(s)</label>
-								<input name="txtNombre" type="text" class="span3" placeholder="txtnombres"><br>
+								<input id="txtNombre" name="txtNombre" type="text" class="span3" placeholder="txtnombres"><br>
 								<label>Apellido(s)</label>
-								<input name="txtApellido" type="text" class="span3" placeholder="txtapellidos"><br>
+								<input id="txtApellido" name="txtApellido" type="text" class="span3" placeholder="txtapellidos"><br>
 								<label>E-mail</label>
-								<input name="txtEmail" type="text" class="span3" placeholder="hackromanux@gmail.com"><br>
+								<input id="txtEmail" name="txtEmail" type="text" class="span3" placeholder="hackromanux@gmail.com"><br>
 
 
 								<label>telefono fijo</label>
-								<input name="txtTelefonoFijo" class="span3" type="text" placeholder="fijo"><br>
+								<input id="txtTelefonoFijo" name="txtTelefonoFijo" class="span3" type="text" placeholder="fijo"><br>
 								<label>telefono celular</label>
-								<input name="txtTelefonoCel" class="span3" type="text" placeholder="celular"><br>
+								<input id="txtTelefonoCel" name="txtTelefonoCel" class="span3" type="text" placeholder="celular"><br>
 			
 								<p><label>Nacionalidad</label>
-									<select type="combobox" name="txtPais">
+									<select id="txtPais" type="combobox" name="txtPais">
 										<option selected="" value="">-</option>
 										<option value="Argentina">Argentina</option>
 										<option value="Brazil">Brazil</option>
@@ -211,12 +216,12 @@
 								</p>
 								<p>
 									<label>Tipo y numero de Documento</label>
-									<select name="txttipoDocumento">
+									<select id="txttipoDocumento" name="txttipoDocumento">
 										<option selected="" value="">-</option>
 										<option value="1">Pasaporte</option>
 										<option value="2">DNI</option>
 									</select>
-									<input name="txtDni" type="text" placeholder="....">									
+									<input id="txtDni" name="txtDni" type="text" placeholder="....">									
 								</p>
 								
 								<p>
@@ -224,7 +229,7 @@
 											
 											<label>Fecha de nacimiento</label>
 											
-											<select name="txtDia" class="span1"> 
+											<select id="txtDia" name="txtDia" class="span1"> 
 												<option selected="" value="">-</option>
 												<option value="1">1</option>
 												<option value="2">2</option><option value="3">3</option>
@@ -280,7 +285,7 @@
 								<div class="control-group">
 									<label>Sexo</label>
 								
-									<input  type="radio" name="txtSexoM" value="M" >
+									<input id="txtSexoM" type="radio" name="txtSexoM" value="M" >
 									<span>Masculino</span>
 									<br>
 									<input type="radio" name="txtSexoF" value="F">
@@ -290,7 +295,7 @@
 								<br><br>
 								<p>
 									<label>Estado civil</label>
-									<select name="txtEstadoCivil" class="span2">
+									<select id="txtEstadoCivil" name="txtEstadoCivil" class="span2">
 										<option selected="" value="">-</option>
 										<option value="Viudo/a">Viudo/a</option>
 										<option value="Unión Libre">Unión Libre</option>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.proyecto.modelo.Postulante;
+import com.proyecto.modelo.Usuario;
 import com.proyecto.negocio.service.PostulanteService;
 
 @Controller
@@ -28,22 +29,25 @@ public class PostulanteController {
 	//metodo que carga la pagina del Postulante.jsp
 	@RequestMapping(value = "/cargarPaginaPostulante")
 	protected ModelAndView cargarPaginaPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
+		ModelAndView mv=null;
 		System.out.println("Dentro de PostulanteController");
 		System.out.println(request.getAttribute("IDUsuario"));
 		setIdusuario((String)request.getAttribute("IDUsuario"));
 		HttpSession session= request.getSession();
 		Object lista=(Object)session.getAttribute("IDUsuario");
-		System.out.println("idUsuario= "+lista.toString());
+		Integer estadopos=1;
+		session.setAttribute("ESTADOPOS",estadopos);
+//		System.out.println("idUsuario= "+lista.toString());
+	
 		logger.info("Dentro de PostulanteController");
-//		try {
-//			seguridadService.validar(u, p);
-//			mv = new ModelAndView("redirect:portada.html");
-//		} catch (LoginExcepcion e) {
-//			mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
-//		}
-
-		return new ModelAndView("postulante");
+		try {
+			
+			mv= new ModelAndView("postulante","POSTULANTE",postulanteService.obtenerPostulante(Integer.parseInt(lista.toString())));
+		} catch (Exception e) {
+			logger.error("no se pude obtener data del Postulante"+postulanteService.obtenerPostulante(Integer.parseInt(lista.toString())));
+		}
+		return mv;
 	}
 	//Metodo que inserta los datos personales del usuario o Postulante
 	@SuppressWarnings("unused")

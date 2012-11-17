@@ -160,7 +160,8 @@ public class LoginController {
 							
 							logger.info("entro en la 1ra condiccion del try");
 							usuario.setEstado(1);
-							
+							HttpSession sesion=request.getSession();
+							sesion.setAttribute("IDUsuario", id);
 							//mv=new ModelAndView("redirect:index.html","USUARIO",usuario);
 							mv=new ModelAndView("inicio","USUARIO",usuario);
 						}
