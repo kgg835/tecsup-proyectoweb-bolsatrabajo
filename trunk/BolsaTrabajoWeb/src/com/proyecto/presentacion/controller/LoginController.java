@@ -126,7 +126,7 @@ public class LoginController {
 		try {
 			System.err.println("entro al login del tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
 			System.err.println(usuario.getNombreUsuario());
-			usuario=usuarioService.obtenerUsuario(user,passw);//Obtine el id de usuario
+			usuario=usuarioService.obtenerUsuario(user.trim(),passw.trim());//Obtine el id de usuario
 			logger.info("ID_USUARIO ---> "+usuario.getIdUsuario());
 			System.err.println("ID_USUARIO=="+usuario.getIdUsuario());
 			
@@ -162,8 +162,8 @@ public class LoginController {
 					}
 				}
 			}else{
-				logger.info("se redireccionio a:--> redirect:login.html");
-				mv=new ModelAndView("redirect:login.html");
+				logger.info("se redireccionio a:--> redirect:cargarLogin.html");
+				mv=new ModelAndView("redirect:cargarLogin.html");
 	
 			}		
 		} catch (Exception e) {

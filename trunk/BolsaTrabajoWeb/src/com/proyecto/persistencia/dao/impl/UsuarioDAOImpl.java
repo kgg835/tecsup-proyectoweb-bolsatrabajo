@@ -52,6 +52,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@SuppressWarnings({ })
 	public Usuario obtenerUsuario(String usuario,String password) throws DAOExcepcion {
+		System.err.println("obtenerUsuario");
 		System.err.println("usuario1=== " + usuario);
 		System.err.println("password1== " + password);
 		String sql = "SELECT idUsuario,nombreUsuario,passwordUsuario,idROL " +
