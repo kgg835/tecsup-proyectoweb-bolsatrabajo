@@ -64,6 +64,7 @@
 					console.log("Muestra no crear Cuenta");
 					if(estadoCrear==1){
 						jQuery("#crearCuenta").hide();//mostrar
+						jQuery("#botonSesion").hide();
 					}
 					
 				}
@@ -107,15 +108,23 @@
 			</div>
 		</div>
 	<div class="container-fluid">
+	<div align="right">
+		<h4>${USUARIO.nombreUsuario}</h4>
+	</div>
+	<br>
 		<table width="100%">
 			<tr>
 				<td style="width: 246px" width="246">
 					<label><h1 style="color: blue;">BolsaTrabajo.com</h1></label>
 					<!-- <img src="../bootstrap/img/logo.jpg" width="307" height="40">-->
 				</td> 
-				<td align="right" style="width: 885px; " width="688">
-					<div>
+				<td align="right" style="width: 900px;">				
+					<div id="botonSesion" style="display: inline">
 						<button id="botonSesion" class="btn btn-large" onclick="location.href='cargarLogin.html'">Iniciar Sesion</button>
+					</div>					
+				</td>
+				<td >
+					<div align="right">	
 						<button id="botonCV" class="btn btn-large btn-primary" onclick="location.href='cargarPaginaPostulante.html'">Cargar mi CV</button>
 					</div>
 				</td>
