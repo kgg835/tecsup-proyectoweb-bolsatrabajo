@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.tomcat.util.buf.UDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -112,94 +113,62 @@ public class LoginController {
 	@RequestMapping(value = "/validarUsuario")
 	protected ModelAndView validarUsuario(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		System.out.println("Dentro de Validar Usuario");
+		System.err.println("Dentro de Validar Usuario");
 		logger.info("Dentro de ValidarUsuario");
 		ModelAndView mv = null;
 		
 		String user=request.getParameter("txtUsuario");
 		String passw=request.getParameter("txtContrasena");
-		System.out.println("userLOG== "+user);
-		System.out.println("passLoG== "+passw);
+		System.err.println("userLOG== "+user);
+		System.err.println("passLoG== "+passw);
 		Usuario usuario=new Usuario();
-		Postulante postulante=new Postulante();
-		usuario.setNombreUsuario(request.getParameter("txtUsuario"));
-		usuario.setPasswordUsuario(request.getParameter("txtContrasena"));
-//		GestionLogin negocio=new GestionLogin();
-//		GestionPostulante negocioP=new GestionPostulante();
-		try {
-			System.out.println("entro al login del tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
-			System.out.println(usuario.getNombreUsuario());
-			int id=usuarioService.obteneridUsuario(usuario);
 		
-			System.out.println("ID=="+id);
-			postulante=postulanteService.obtenerPostulante(id);
-			System.out.println("postulante=="+postulante);
+		try {
+			System.err.println("entro al login del tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+			System.err.println(usuario.getNombreUsuario());
+			usuario=usuarioService.obtenerUsuario(user,passw);//Obtine el id de usuario
+			logger.info("ID_USUARIO ---> "+usuario.getIdUsuario());
+			System.err.println("ID_USUARIO=="+usuario.getIdUsuario());
 			
-			System.out.println("id1= "+id);
-			System.out.println("PostulanteID1== "+postulante.getIdPostulante());
-			if(id!=0 && postulante.getIdPostulante() !=0){
-				System.out.println("id=="+id);
-				
-				String rol=usuarioService.obtenerRol(id);
-				System.out.println("rol=="+rol);
-				
+			if(usuario.getIdUsuario()!=0){				
+				String rol=usuarioService.obtenerRol(usuario.getIdRol());//Obtine el Rol del usuario
+				System.err.println("rol=="+rol);
+				logger.info("ROL_USUARIO ---> "+rol);
 				if(rol.equals("A")){
 					//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
 					//rd.forward(request, response);
+					logger.info("ROL_USUARIO ---> "+rol);
 				}else{
 					if(rol.equals("OF")){
 						//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
 						//rd.forward(request, response);
+						logger.info("ROL_USUARIO ---> "+rol);
 					}else{
 						if(rol.equals("P")){
+							logger.info("ROL_USUARIO ---> "+rol);
 							//PrintWriter out=response.getWriter();
 							//out.println(usuario);
 							//request.setAttribute("usuario",postulante);
 							////request.setAttribute("estado",0);
-							System.out.println("Entro en Estado=1");
+							System.err.println("Entro en Estado=1");
 							
-							logger.info("entro en la 1ra condiccion del try");
 							usuario.setEstado(1);
 							HttpSession sesion=request.getSession();
-							sesion.setAttribute("IDUsuario", id);
+							sesion.setAttribute("IDUsuario", usuario.getIdUsuario());
 							//mv=new ModelAndView("redirect:index.html","USUARIO",usuario);
+							logger.info("USUARIO ---> "+usuario);
 							mv=new ModelAndView("inicio","USUARIO",usuario);
 						}
 					}
 				}
 			}else{
-				if(id!=0 && postulante.getIdPostulante()==0){
-					System.out.println("id2=="+id);
-					System.out.println("postulante2=="+postulante.getIdPostulante());
-					String rol=usuarioService.obtenerRol(id);
-					
-					if(rol.equals("A")){
-						//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
-						//rd.forward(request, response);
-					}else{
-						if(rol.equals("OF")){
-							//RequestDispatcher rd=request.getRequestDispatcher("/page/postulante.jsp");
-							//rd.forward(request, response);
-						}else{
-							if(rol.equals("P")){
-								System.out.println("Entro en Estado=0");
-								HttpSession sesion=request.getSession();
-								sesion.setAttribute("IDUsuario", id);
-								usuario.setEstado(0);
-								logger.info("entro en la 2da condiccion del try");
-								mv=new ModelAndView("postulante","USUARIO",usuario);
-							}
-						}
-					}
-				}
-				else{
-					logger.info("enviando a la vista crearusuario");
-					mv=new ModelAndView("crearUsuario");
-				}
+				logger.info("se redireccionio a:--> redirect:login.html");
+				mv=new ModelAndView("redirect:login.html");
+	
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error("fallo al obtener el Postulante: "+postulante);
+			//logger.error("fallo al obtener el Postulante: "+postulante);
 		}
 		return mv;
 	}

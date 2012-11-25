@@ -29,8 +29,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public int obteneridUsuario(Usuario user) throws DAOExcepcion {
-		return usuarioDAO.obteneridUsuario(user);
+	public Usuario obtenerUsuario(String usuario,String password) throws DAOExcepcion {
+		return usuarioDAO.obtenerUsuario(usuario,password);
 	}
 
 	@Override
