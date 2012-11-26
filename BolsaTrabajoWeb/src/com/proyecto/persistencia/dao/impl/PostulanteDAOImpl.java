@@ -26,7 +26,7 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 	public Postulante insertarPostulante(Postulante postulante)
 			throws DAOExcepcion {
 
-		System.out.println("insertar");
+		System.err.println("insertar");
 		String query = "INSERT INTO persona(tipo_persona,nombrePersona,"
 				+ "apellidosPersona,dni,email,"
 				+ "pais,direccion,telefonoFijo,"
@@ -43,7 +43,7 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 				postulante.getEstadoCivil(), postulante.getIdUsuario(), };
 		try {
 			jdbcTemplate.update(query, params);
-			System.out.println("se Inserto correctamente...");
+			System.err.println("se Inserto correctamente...");
 		} catch (Exception e) {
 			throw new DAOExcepcion(e.getMessage());
 		}
@@ -54,7 +54,7 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Postulante obtenerPostulante(int idPostulante) throws DAOExcepcion {
-		System.out.println("PostulanteDAO==obtenerPostulante");
+		System.err.println("PostulanteDAO==obtenerPostulante");
 		String sql = "SELECT idPERSONA,tipo_persona,"
 				+ "nombrePersona,apellidosPersona,dni," + "email,pais,"
 				+ "direccion,telefonoFijo,"
@@ -89,22 +89,21 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 	// Metodo que Actualiza Datos Personales del Postulante
 	public Postulante actualizarPostulante(Postulante postulante)
 			throws DAOExcepcion {
-		System.out.println("Actualizar datos del usuario");
+		System.err.println("Metodo:actualizarPostulante");
 		String query = "UPDATE persona SET nombrePersona=?,apellidosPersona=?,"
 				+ "dni=?,email=?,pais=?,direccion=?,telefonoFijo=?,numeroCelular=?,"
 				+ "fechaNacimiento=?,sexo=?,estadoCivil=? WHERE idPERSONA=?";
 		Object[] params = new Object[] {
 
-		postulante.getNombre(), postulante.getApellidos(), postulante.getDni(),
+				postulante.getNombre(),postulante.getApellidos(), postulante.getDni(),
 				postulante.getEmail(), postulante.getPaisPostulante(),
 				postulante.getDireccion(), postulante.getTelefonoFijo(),
 				postulante.getTelefonoCel(), postulante.getFechaNacimiento(),
-				postulante.getSexo(), postulante.getEstadoCivil(),
-				postulante.getIdPostulante(), };
+				postulante.getSexo(), postulante.getEstadoCivil(),postulante.getIdPostulante()};
 
 		try {
 			jdbcTemplate.update(query, params);
-			System.out.println("se Actualizo correctamente...");
+			System.err.println("se Actualizo correctamente...");
 			return postulante;
 		} catch (Exception e) {
 			throw new DAOExcepcion(e.getMessage());

@@ -130,7 +130,7 @@
 					</div>
 					<br>
 					<!-- EL FORMULARIO -->
-					<form class="navbar-form well" name="f1" action="insertarDatosPostulante.html" method="post">
+					<form class="navbar-form well" name="f1" action="actualizarDatosPostulante.html" method="post">
 						
 							
 						<div class="span2" style="width:100px; height:100px;" >
@@ -312,10 +312,7 @@
 									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
 									<button class="btn">Cancelar</button>
 								</div>
-								<div id="btnActualizarDatos" class="navbar" >
-									<button class="btn btn-primary" type="submit">Guardar datos personales</button>
-									<button class="btn">Cancelar</button>
-								</div>
+
 							</div>													
 							</div><!--Residencia  -->
 							<br>

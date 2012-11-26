@@ -31,19 +31,29 @@ public class PostulanteController {
 	protected ModelAndView cargarPaginaPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		ModelAndView mv=null;
-		System.out.println("Dentro de PostulanteController");
-		System.out.println(request.getAttribute("IDUsuario"));
+		System.err.println("Dentro de PostulanteController");
+		System.err.println(request.getAttribute("IDUsuario"));
 		setIdusuario((String)request.getAttribute("IDUsuario"));
 		HttpSession session= request.getSession();
 		Object lista=(Object)session.getAttribute("IDUsuario");
+		
 		Integer estadopos=1;
 		session.setAttribute("ESTADOPOS",estadopos);
-//		System.out.println("idUsuario= "+lista.toString());
+		System.err.println("idUsuarioooooooo= "+lista.toString());
 	
 		logger.info("Dentro de PostulanteController");
 		try {
+			Postulante postulante=postulanteService.obtenerPostulante(Integer.parseInt(lista.toString()));
+			if(postulante.getIdPostulante()!=0){
+				System.err.println("Pagina--> actualizarDatosPostulante.jsp");
+				session.setAttribute("idPostulante",postulante.getIdPostulante());
+				mv= new ModelAndView("actualizarPostulante","POSTULANTE",postulante);
+			}
+			else{
+				System.err.println("Pagina--> postulante.jsp");
+				mv= new ModelAndView("postulante");
+			}
 			
-			mv= new ModelAndView("postulante","POSTULANTE",postulanteService.obtenerPostulante(Integer.parseInt(lista.toString())));
 		} catch (Exception e) {
 			logger.error("no se pude obtener data del Postulante"+postulanteService.obtenerPostulante(Integer.parseInt(lista.toString())));
 		}
@@ -56,13 +66,10 @@ public class PostulanteController {
 		ModelAndView mv = null;
 		HttpSession session= request.getSession();
 		Object idUsuario=(Object)session.getAttribute("IDUsuario");
-//		System.out.println("idUsuario2= "+idUsuario.toString());
-		System.out.println("Dentro de insertarDatosPostulante");
-		
+		System.err.println("Dentro de insertarDatosPostulante");		
 		Postulante postulante=new Postulante();
-//		postulante.setTipoPersona(request.getParameter("Postulante"));
 		postulante.setTipoPersona("Postulante");
-		System.out.println("tipoPostulante=="+postulante.getTipoPersona());
+		System.err.println("tipoPostulante=="+postulante.getTipoPersona());
 		postulante.setNombre(request.getParameter("txtNombre"));
 		postulante.setApellidos(request.getParameter("txtApellido"));
 		
@@ -70,8 +77,6 @@ public class PostulanteController {
 
 		postulante.setEmail(request.getParameter("txtEmail"));
 		postulante.setPaisPostulante(request.getParameter("txtPais"));
-
-//		postulante.setDireccion(request.getParameter("txtDireccion"));
 		postulante.setDireccion("calle Teresa gonzales de fanning 137");
 		postulante.setTelefonoFijo(request.getParameter("txtTelefonoFijo"));
 		postulante.setTelefonoCel(request.getParameter("txtTelefonoCel"));
@@ -93,9 +98,9 @@ public class PostulanteController {
 		try {
 			 postulanteService.insertarPostulante(postulante);
 			 logger.info("Se Inserto corretamente el postulante: "+postulante.getNombre());
-			//mv = new ModelAndView("redirect:.html");
+			//mv = new ModelAndView("redirect:cargarPaginaPostulante.html");
 		} catch (Exception e) {
-			System.out.println("");
+			System.err.println("");
 			e.printStackTrace();
 			logger.error("no se pudo Insertar al Postulante: "+postulante.getNombre());
 			//mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
@@ -109,43 +114,46 @@ public class PostulanteController {
 	@RequestMapping(value = "/actualizarDatosPostulante")
 	protected ModelAndView actualizarDatosPostulante(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mv = null;
+		System.err.println("/actualizarDatosPostulante.html");
 		HttpSession session= request.getSession();
 		Object idUsuario=(Object)session.getAttribute("IDUsuario");
-		System.out.println("idUsuario2= "+idUsuario.toString());
-		System.out.println("Dentro de insertarDatosPostulante");
-		
+		Object idpostulante=(Object)session.getAttribute("idPostulante");
+		System.err.println("idUsuario2= "+idUsuario.toString());
+		System.err.println("idPostulante2== "+idpostulante.toString());
 		Postulante postulante=new Postulante();
-		postulante.setTipoPersona(request.getParameter("tipoPersona"));
-		postulante.setNombre(request.getParameter("txtnombres"));
-		postulante.setApellidos(request.getParameter("txtapellidos"));
+		postulante.setIdPostulante(Integer.parseInt(idpostulante.toString()));
+		postulante.setTipoPersona("Postulante");
+		postulante.setNombre(request.getParameter("txtNombre"));
+		postulante.setApellidos(request.getParameter("txtApellido"));
 		
 		postulante.setDni(request.getParameter("txtDni"));
 
 		postulante.setEmail(request.getParameter("txtEmail"));
 		postulante.setPaisPostulante(request.getParameter("txtPais"));
-
-		postulante.setDireccion(request.getParameter("txtDireccion"));
+		postulante.setDireccion("calle Teresa gonzales de fanning 137");
 		postulante.setTelefonoFijo(request.getParameter("txtTelefonoFijo"));
 		postulante.setTelefonoCel(request.getParameter("txtTelefonoCel"));
 		postulante.setFechaNacimiento(request.getParameter("txtDia") + "/"
 				+ request.getParameter("txtMes") + "/"
 				+ request.getParameter("txtAnio"));
-		postulante.setSexo(request.getParameter("txtSexo"));
+		if(request.getParameter("txtSexoM").equals(null)){
+			postulante.setSexo(request.getParameter("txtSexoF"));
+		}
+		else{
+			postulante.setSexo(request.getParameter("txtSexoM"));
+		}
 		postulante.setEstadoCivil(request.getParameter("txtEstadoCivil"));
-
-		postulante.setIdUsuario(Integer.parseInt(idUsuario.toString()));
-
+		System.err.println("ID_USUARIO== "+postulante.getIdUsuario());
 
 		try {
 			 postulanteService.actualizarPostulante(postulante);
-			//mv = new ModelAndView("redirect:.html");
+			 logger.info("Se Actualizo corretamente el postulante: "+postulanteService.actualizarPostulante(postulante));
 		} catch (Exception e) {
-			System.out.println("error no se actualizo los datos del Postulante Exception");
+			System.err.println("error no se actualizo los datos del Postulante Exception");
 			e.printStackTrace();
-			//mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
 		}
 
-		return mv=new ModelAndView("postulante");
+		return mv=new ModelAndView("redirect:cargarPaginaPostulante.html");
 	}
 	
 	//GET and SET
