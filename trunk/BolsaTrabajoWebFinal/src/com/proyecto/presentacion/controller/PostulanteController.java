@@ -70,8 +70,8 @@ public class PostulanteController {
 		Postulante postulante=new Postulante();
 		postulante.setTipoPersona("Postulante");
 		System.err.println("tipoPostulante=="+postulante.getTipoPersona());
-		postulante.setNombre(request.getParameter("txtNombre"));
-		postulante.setApellidos(request.getParameter("txtApellido"));
+		postulante.setNombrePersona(request.getParameter("txtNombre"));
+		postulante.setApellidosPersona(request.getParameter("txtApellido"));
 		
 		postulante.setDni(request.getParameter("txtDni"));
 
@@ -97,12 +97,12 @@ public class PostulanteController {
 
 		try {
 			 postulanteService.insertarPostulante(postulante);
-			 logger.info("Se Inserto corretamente el postulante: "+postulante.getNombre());
+			 logger.info("Se Inserto corretamente el postulante: "+postulante.getNombrePersona());
 			//mv = new ModelAndView("redirect:cargarPaginaPostulante.html");
 		} catch (Exception e) {
 			System.err.println("");
 			e.printStackTrace();
-			logger.error("no se pudo Insertar al Postulante: "+postulante.getNombre());
+			logger.error("no se pudo Insertar al Postulante: "+postulante.getNombrePersona());
 			//mv = new ModelAndView("error", "mensaje", "Usuario y/o clave incorrectos");
 		}
 
@@ -123,8 +123,8 @@ public class PostulanteController {
 		Postulante postulante=new Postulante();
 		postulante.setIdPostulante(Integer.parseInt(idpostulante.toString()));
 		postulante.setTipoPersona("Postulante");
-		postulante.setNombre(request.getParameter("txtNombre"));
-		postulante.setApellidos(request.getParameter("txtApellido"));
+		postulante.setNombrePersona(request.getParameter("txtNombre"));
+		postulante.setApellidosPersona(request.getParameter("txtApellido"));
 		
 		postulante.setDni(request.getParameter("txtDni"));
 
