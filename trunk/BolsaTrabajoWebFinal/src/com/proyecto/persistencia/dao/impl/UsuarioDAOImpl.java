@@ -39,7 +39,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		// vo.getCorreo(), vo.getDireccion(), vo.getTelefono(),
 		// vo.getEstado() };
 		Object[] params = new Object[] { usuario.getNombreUsuario(),
-				usuario.getPasswordUsuario(), usuario.getIdRol() };
+				usuario.getPasswordUsuario(), usuario.getRol() };
 
 		try {
 			jdbcTemplate.update(query, params);
@@ -64,7 +64,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				usuario.setIdUsuario(rs.getInt("idUsuario"));
 				usuario.setNombreUsuario(rs.getString("nombreUsuario"));
 				usuario.setPasswordUsuario(rs.getString("passwordUsuario"));
-				usuario.setIdRol(rs.getInt("idROL"));
+				usuario.setRol(rs.getInt("idROL"));
 				return usuario;
 			}
 		};

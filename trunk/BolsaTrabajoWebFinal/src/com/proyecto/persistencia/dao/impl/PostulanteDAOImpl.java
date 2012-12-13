@@ -35,7 +35,7 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 																		// cada
 		// columna
 		Object[] params = new Object[] { postulante.getTipoPersona(),
-				postulante.getNombre(), postulante.getApellidos(),
+				postulante.getNombrePersona(), postulante.getApellidosPersona(),
 				postulante.getDni(), postulante.getEmail(),
 				postulante.getPaisPostulante(), postulante.getDireccion(),
 				postulante.getTelefonoFijo(), postulante.getTelefonoCel(),
@@ -67,8 +67,8 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 
 				postulante.setIdPostulante(rs.getInt("idPERSONA"));
 				postulante.setTipoPersona(rs.getString("tipo_persona"));
-				postulante.setNombre(rs.getString("nombrePersona"));
-				postulante.setApellidos(rs.getString("apellidosPersona"));
+				postulante.setNombrePersona(rs.getString("nombrePersona"));
+				postulante.setApellidosPersona(rs.getString("apellidosPersona"));
 				postulante.setDni(rs.getString("dni"));
 				postulante.setEmail(rs.getString("email"));
 				postulante.setPaisPostulante(rs.getString("pais"));
@@ -95,7 +95,7 @@ public class PostulanteDAOImpl implements PostulanteDAO {
 				+ "fechaNacimiento=?,sexo=?,estadoCivil=? WHERE idPERSONA=?";
 		Object[] params = new Object[] {
 
-				postulante.getNombre(),postulante.getApellidos(), postulante.getDni(),
+				postulante.getNombrePersona(),postulante.getApellidosPersona(), postulante.getDni(),
 				postulante.getEmail(), postulante.getPaisPostulante(),
 				postulante.getDireccion(), postulante.getTelefonoFijo(),
 				postulante.getTelefonoCel(), postulante.getFechaNacimiento(),
