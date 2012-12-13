@@ -73,7 +73,7 @@ public class LoginController {
 			if (passwvalida.equals(passw)) {
 				usuario.setNombreUsuario(user);
 				usuario.setPasswordUsuario(passw);
-				usuario.setIdRol(1);
+				usuario.set(1);
 
 				usuarioService.insertarUsuario(usuario);
 				mensaje = "el usuario: " + user
