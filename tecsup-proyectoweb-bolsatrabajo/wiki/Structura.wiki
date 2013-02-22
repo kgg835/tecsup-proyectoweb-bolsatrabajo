@@ -1,0 +1,1 @@
+http://cagataycivici.wordpress.com/2007/09/10/using-spring-to-manage-jsf-beans/
