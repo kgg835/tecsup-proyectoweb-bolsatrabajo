@@ -8,6 +8,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,7 +19,7 @@ import com.proyecto.negocio.service.UsuarioService;
 @Controller
 public class LoginController {
 
-	private static Logger logger = LogManager.getLogger(LoginController.class);
+	private static Logger logger = LogManager.getLogger(LoginController.class.getName());
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -189,5 +190,15 @@ public class LoginController {
 
 	public void setPostulanteService(PostulanteService postulanteService) {
 		this.postulanteService = postulanteService;
+	}
+	@RequestMapping(value = "/mostrarMensaje")
+	public String mostrarMensaje(ModelMap model,HttpServletRequest request){
+		logger.info("En el Metodo mostrarMensaje");
+		System.out.println("USUARIO--> "+request.getParameter("txtUsuario"));
+		System.out.println("PASSWORD--> "+request.getParameter("txtPassword"));
+		model.put("USUARIO",request.getParameter("txtUsuario"));
+		model.put("PASSWORD",request.getParameter("txtPassword"));
+		
+		return "responseMensaje";
 	}
 }
