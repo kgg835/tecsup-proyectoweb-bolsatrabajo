@@ -13,7 +13,8 @@ public class InicioController {
 	@RequestMapping(value = "/index")	
 	protected ModelAndView inicio(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		return new ModelAndView("inicio");
+		//return new ModelAndView("inicio");
+		return new ModelAndView("prueba");
 	}
 
 }
