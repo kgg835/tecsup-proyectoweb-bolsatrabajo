@@ -8,10 +8,14 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.proyecto.modelo.JsonResponse;
+import com.proyecto.modelo.Prueba;
 import com.proyecto.modelo.Usuario;
 import com.proyecto.negocio.service.PostulanteService;
 import com.proyecto.negocio.service.UsuarioService;
@@ -191,14 +195,23 @@ public class LoginController {
 	public void setPostulanteService(PostulanteService postulanteService) {
 		this.postulanteService = postulanteService;
 	}
-	@RequestMapping(value = "/mostrarMensaje")
-	public String mostrarMensaje(ModelMap model,HttpServletRequest request){
+	@RequestMapping(value = "/mostrarMensaje",method=RequestMethod.GET)//@ModelAttribute(value="prueba") Prueba prueba, 
+	public @ResponseBody JsonResponse mostrarMensaje(HttpServletRequest request){
 		logger.info("En el Metodo mostrarMensaje");
-		System.out.println("USUARIO--> "+request.getParameter("txtUsuario"));
-		System.out.println("PASSWORD--> "+request.getParameter("txtPassword"));
-		model.put("USUARIO",request.getParameter("txtUsuario"));
-		model.put("PASSWORD",request.getParameter("txtPassword"));
-		
-		return "responseMensaje";
+		Prueba prueba=new Prueba(); 
+		JsonResponse jsonResponse=new JsonResponse();
+		String user=request.getParameter("USUARIO");
+		String clave=request.getParameter("PASSWORD");
+	//	List<Prueba> listaprueba=new ArrayList<Prueba>();
+		//Prueba prueba=new Prueba();
+		prueba.setUsuario(user);
+		prueba.setClave(clave);
+//		listaprueba.add(prueba);
+		jsonResponse.setStatus("SUCCESS");
+	//	jsonResponse.setResult(listaprueba);
+		jsonResponse.setResult(prueba);
+		System.out.println("USUARIO--> "+user);
+		System.out.println("PASSWORD--> "+clave);
+		return jsonResponse;
 	}
 }
